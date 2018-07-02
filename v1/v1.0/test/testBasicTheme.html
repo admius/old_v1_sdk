@@ -1,0 +1,166 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map View</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+			var mapCanvas;
+			var themeMap;
+			
+			var overrideTheme = {
+				"s": {
+					"Unit":{"m":"#a0c0c0", "o":"#384476", "w":1, "zmin":3},
+					"Anchor":{"m":"#c0c0a0", "o":"#384476", "w":1, "l":"Anchor", "img":"/WebmapStartup/v1.0/patterns/Unit.png"},
+					"Building":{}
+				},
+				"iurl":"http://eng.micello.com/mfs/ms/v1/mfile/meta/theme/icon/v5/Standard/",
+				"i":{
+					"Bus":{"lt":2,"rurl":"Bus.json","r":"Carwash", "zmin":3}
+				},
+				"l":{
+					"default":{
+						"font":"Arial, Helvetica, sans-serif",
+						"minFont":9,
+						"maxFont":28,
+						"fill":"#ff0000"
+					},
+					"Anchor":{
+						"font":"Impact",
+						"minFont":9,
+						"maxFont":48,
+						"fill":"#0000ff",
+						"outline":"#ffffff",
+						"outlineWidth":"2",
+						"padding":20,
+						"bgFill":"#c0c0c0",
+						"bgOutline":"#808080",
+						"bgOutlineWidth":4,
+						"bgPadding":10
+					}
+				}
+			}
+			
+			var overrideThemeMap = {
+				"style": [
+					{
+						"priority":"2",
+						"ks":[
+							{
+								"gk":"$style",
+								"n":"<value>"
+							}
+						]
+					},
+					{
+						"priority":"3",
+						"ks":[
+							{
+								"gk":"anchor",
+								"n":"Anchor"
+							}
+						]
+					}
+				]
+
+			}
+
+			micello.maps.init("S1sshnIV1Rk9EGz32Acrl8aSYsTKYd",initialize);
+
+			function initialize() {
+
+				micello.maps.themeMapName = "StandardEng";
+				micello.maps.themeName = "StandardEng";
+				micello.maps.stringsName = "StandardEng";
+				micello.maps.navPropMapName = "StandardEng";
+				micello.maps.navStringsName = "StandardEng";
+				
+				//change the base theme
+//				micello.maps.themeName = "Factory";
+				
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+				mapCanvas = mapControl.getMapCanvas();
+				themeMap = mapControl.getThemeMap();
+				
+				mapEvent = mapControl.getMapEvent();
+				mapEvent.addListener("communityLoaded",onCommunityLoaded);
+				mapEvent.addListener("themeLoaded",onThemeLoaded);
+
+				mapData.loadCommunity(78);
+			}
+
+			var overlaysDone = false;
+			function onCommunityLoaded(e) {
+				if(!overlaysDone) {
+					addOverlays();
+					ovelaysDone = true;
+				}
+			}
+			
+			function onThemeLoaded(themeMap) {
+//Here we can add stuff as soon as the theme loads
+//				updateTheme();
+//but instead we will wait
+setTimeout("updateTheme()",5000);
+			}
+			
+			function updateTheme() {
+		
+alert("Theme and the theme map to be updated now");		
+				themeMap.addTheme(overrideTheme);
+				themeMap.addThemeMap(overrideThemeMap);
+				mapCanvas.clearRenderCache();
+			}
+
+			function addOverlays() {
+
+				//manually add the "anchor" property to these units
+				//macy's 6311445
+				//nordstrom 6311444
+				//macy's mens 63311443
+				//parking garage 4368484
+				mapControl.data.addInlay({"id":6311445, "po":{"anchor":"true"}, "zi":1, "anm":"one"});
+				mapControl.data.addInlay({"id":6311444, "po":{"anchor":"true"}, "zi":1, "anm":"one"});
+				mapControl.data.addInlay({"id":6311443, "po":{"anchor":"true"}, "zi":1, "anm":"one"});
+				mapControl.data.addInlay({"id":4368484, "po":{"$image_url":"/WebmapStartup/v1.0/markers/BluePin_18x36.png", "$style":"Grass"}});
+			}
+
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body>
+		<div id="mapElement"></div>
+	</body>
+</html>
+

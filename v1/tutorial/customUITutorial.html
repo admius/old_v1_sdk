@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Custom UI Tutorial</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+                <script type="text/javascript" src="http://maps.micello.com/webmap/v0/micellomap.js"></script>
+
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+                        var mapGui;
+                        var cid;
+                        
+			function initialize() {
+                            
+
+
+                            micello.maps.init("14e29464fe55199ad829",mapInit);
+
+			}
+                        
+                        function mapInit () {
+                            
+                            if(!cid) {
+                                cid = 78;
+                            }
+                            
+                            mapControl = new micello.maps.MapControl('mapElement');
+                            console.log(mapControl);
+                            mapData = mapControl.getMapData();
+
+                            /* Establish the MapGUI object... */
+
+                            mapGui = mapControl.getMapGUI();
+
+                             /* ...and then alter the fields */
+
+                            //mapGui.NAME_VIEW = "off";
+                            //mapGui.NAME_ENTITY_ENHANCEMENT = "off";
+                            //mapGui.ui.ZOOM_VIEW = "conditional";
+                            //mapGui.ui.LEVELS_VIEW = "off";
+                            //mapGui.ui.LEVELS_DISPLAY = "hs";
+                            //mapGui.ui.NAME_POSITION = "right top";
+                            //mapGui.ui.ZOOM_POSITION = "center bottom";
+                            //mapGui.ZOOM_POSITION = "left bottom";
+                            //mapGui.ui.LEVELS_POSITION = "right top";
+                            //mapGui.ATTRIBUTION_POSITION = "right bottom";
+
+                            mapData.loadCommunity(cid);
+                                
+                        }
+
+                        tmpCid = new String(location.search);
+                        tmpArray = tmpCid.split('=');
+                        cid = tmpArray[1];
+
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+                        #ui-attribution {
+                            display: none;
+                            visibility: hidden;
+                            margin-top: -10000px;
+                        }
+		</style>
+	</head>
+	<body onload="initialize()">
+		<div id="mapElement"></div>
+	</body>
+</html>

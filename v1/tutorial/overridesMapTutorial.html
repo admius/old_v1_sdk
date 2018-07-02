@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Micello Map API: Overriding Default Behavior</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		html { height: 100%; width: 100%;}
+		body { height: 100%; width: 100%; margin: 10;}
+		iframe {width:90%; height:400px; border:1px black solid;}
+	</style>
+  </head>
+  <body>
+	  <b>Prev:</b> <a href="interactMapTutorial.html">Interactions on the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+	  <h1>Tutorial IV: Overriding Default Behavior</h1>
+	  <p>The following three code examples demonstrate overriding default funtions of the map:</p>
+
+	  <h2>Overriding a Mouse Click on the Map</h2>
+	  <p>When the map is clicked, the MapCanvas triggers an event which by default is
+	  handled by the MapControl object. This map coordinates of the event and the object
+	  clicked, if applicable, are passed. The MapControl selects the object and displays any
+	  appropriate popup menu or info window. The handler can be overridden to create a
+	  custom action. The example below shows an infowindow with the coodinates of the map
+	  click and the ID of the object clicked.</p>
+
+	  <p><a href="mapOverrides1.html" target="_blank">View Example Page</a><br></p>
+
+	  <iframe src="mapOverrides1.txt"></iframe><br>
+	  
+
+	  <h2>Overriding the Action on Selecting an Object</h2>
+	  <p>The MapControl highlights selected objects and then calls a handler to take the
+	  select action or opening the appropriate menu popup or info window. This handler can
+	  be overridden to create a custom action. The example below shows an info window with
+	  the ID of the object that was clicked.</p>
+
+	  <p><a href="mapOverrides2.html" target="_blank">View Page</a></p>
+
+	  <iframe src="mapOverrides2.txt"></iframe><br>
+	  
+
+	  <h2>Overriding the Info for an Object</h2>
+	  <p>The default menu popup for an object has several commands, which can be configured. The
+	  most important command is the "Show Info" command. By default this qureies the Micello server
+	  to look up the info for the object. The example below overrides this function to show
+	  an infowindow with the ID of the object clicked.</p>
+
+	  <p><a href="mapOverrides3.html" target="_blank">View Page</a><br></p>
+
+	  <iframe src="mapOverrides3.txt"></iframe><br>
+
+	  <br>
+	  <b>Prev:</b> <a href="interactMapTutorial.html">Interactions on the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+  </body>
+</html>

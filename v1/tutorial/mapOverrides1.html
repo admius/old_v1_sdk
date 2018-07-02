@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map Overrides 1</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="http://test.micello.com/webmap/v0/micellomap.js"></script>
+		<script type="text/javascript">
+
+			var mapManager;
+			var mapData;
+			var mapCanvas;
+			var popup;
+
+			micello.maps.init("9a3f7c80620897a31a61",mapInit);
+
+			function mapInit() {
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+				mapData.loadCommunity(78);
+
+				mapCanvas = mapControl.getMapCanvas();
+
+				//create a popup window, which we will use later
+				popup = mapCanvas.createPopup();
+
+				//override the map click handler
+				//we have control of all actions on clicking the map.
+				mapCanvas.onMapClick = onMapClick;
+			}
+
+			function onMapClick(mx,my,clicked) {
+				//create a info window message
+				var html = "You clicked " + mx + "," + my;
+				if(clicked) {
+					if((clicked.gt)||(clicked.lt)) {
+						html += " on geometry " + clicked.id;
+					}
+					else if(clicked.mt) {
+						html += " on a marker overlay";
+					}
+				}
+				var currentLevel = mapData.getCurrentLevel();
+
+				//load the info window
+				var popupInfo = {};
+				popupInfo.type = micello.maps.popuptype.INFOWINDOW;
+				popupInfo.mapX = mx;
+				popupInfo.mapY = my;
+				popupInfo.lid = currentLevel.id;
+				popupInfo.html = html
+				popup.setData(popupInfo);
+				popup.setActive(true);
+			}
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body>
+		<div id="mapElement"></div>
+	</body>
+</html>
+

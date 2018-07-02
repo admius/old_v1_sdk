@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+                <script type="text/javascript" src="../mapevent.js"></script>
+                <script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<link rel="stylesheet" href="../micellomap.css">
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+                        var myPlugins;
+
+                        function initialize () {
+                            _initialize(78, "mapElement");
+                            _initialize(7303, "mapElement2");
+                            _initialize(1707, "mapElement3");
+                        }
+			function _initialize(cid, mapEle) {
+                            
+                            micello.maps.key = "14e29464fe55199ad829";
+
+                            mapControl = new micello.maps.MapControl(mapEle);
+                            mapView  =  mapControl.getMapView();
+
+                            mapData = mapControl.data;
+                            mapGui = mapControl.mapGUI;
+                            mapCanvas = mapControl.mapCanvas;
+                                
+                            mapData.loadCommunity(cid);
+          
+			}
+
+
+		</script>
+		<style type="text/css">
+			
+			#mapElement {height: 500px; width: 500px;float: left; }
+                        #mapElement2 {height: 500px; width: 500px; float: left; }
+                        #mapElement3 {height: 500px; width: 500px; }
+		</style>
+	</head>
+	<body onload="initialize()">
+		<div id="mapElement"></div>
+                <div id="mapElement2"></div>
+                <div id="mapElement3"></div>
+	</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+                <script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+                <script type="text/javascript" src="../mapevent.js"></script>
+                <script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<link rel="stylesheet" href="../micellomap.css">
+<script type="text/javascript" src="http://maps.micello.com/plugins/Directory/Directory.js"></script>
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+                        var myPlugins;
+
+			function initialize(cid) {
+                                if(!cid) {
+                                    cid = 78;
+                                }
+				micello.maps.key = "14e29464fe55199ad829";
+
+				mapControl = new micello.maps.MapControl('mapElement');
+                                                     mapView  =  mapControl.getMapView();
+
+  
+         
+				mapData = mapControl.data;
+                                mapGui = mapControl.mapGUI;
+                                mapCanvas = mapControl.mapCanvas;
+                                mapEvent = mapControl.mapEvent;
+                                mapEvent.addListener("zoom", zoomHandler);
+                                mapEvent.addListener("pan", panHandler);
+                                
+                                mapEvent.addListener("mapClick", clickHandler);
+                                mapEvent.addListener("communityLoadBegin", comloadbeginHandler);
+                                mapEvent.addListener("communityLoaded", comloadHandler);
+                                mapEvent.addListener("drawingLoaded", drawingHandler);
+                                
+                                mapEvent.addListener("levelLoaded", levelHandler);
+                                mapEvent.addListener("levelLoaded", levelHandler2);
+                                //communityloadbegin
+                                
+//                            Directory = new micello.maps.Directory;
+//                            mapControl.initMapPlugin(Directory);
+//                            Directory.DirectoryInit();
+
+
+                                //mapData.mapChanged = onMapCng;
+//                                mapGui.NAME_VIEW = "on";
+//                                mapGui.ZOOM_VIEW = "on";
+//                                mapGui.LEVELS_VIEW = "on";
+//                                mapGui.GEO_VIEW = "on";
+//                                mapGui.ZOOM_POSITION = "right bottom";
+                                //mapCanvas.setThemeFamily("Standard");
+                                //mapEvent.removeListener("zoom", zoomHandler);
+				mapData.loadCommunity(cid);
+                                
+
+                                
+ 
+			}
+                        
+ 
+                        function comloadbeginHandler (e) {
+                            console.log('Community Pre Load');
+                            console.log(e);
+                        }
+                        function comloadHandler (e) {
+                            console.log('Community Loaded');
+                            console.log(e);
+                        }
+                        function zoomHandler (e) {
+                            console.log('Zoom Fired');
+                            console.log(e);
+                        }
+                        function drawingHandler (e) {
+                            console.log('Drawing Update Fired');
+                            console.log(e);
+                        }
+                        function levelHandler (e) {
+                            console.log('Level Update Fired');
+                            console.log(e);
+                        }
+                        function levelHandler2 (e) {
+                            console.log('Level Update 2 Fired');
+                            console.log(e);
+                        }
+                        function clickHandler (e) {
+                            console.log('Click Fired');
+                            console.log(e);
+                        }
+                        function panHandler (e) {
+                            console.log('Pan Fired');
+                            console.log(e);
+                        }
+                        var tmpCid;
+                        tmpCid = new String(location.search);
+                        tmpArray = tmpCid.split('=');
+
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {height: 100%; width: 100%; }
+
+                        #mapHead {
+                            height: 75px;
+                            width: 100%;
+                        }
+                        #ui-attribution {display: none;}
+		</style>
+	</head>
+	<body onload="initialize(tmpArray[1])">
+		<div id="mapElement"></div>
+	</body>
+</html>

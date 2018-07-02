@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			//this is a marker - we need to have a table of these.
+			var DUMMY_MARKER = {"src":"../resources/dummy.png", "ox":25, "oy":25};
+
+			var mapControl;
+			var mapData;
+
+			var mapObject0 = null;
+			var mapObject1 = null;
+			var mapObject2 = null;
+			
+			micello.maps.init("S1sshnIV1Rk9EGz32Acrl8aSYsTKYd",initialize);
+
+			function initialize() {
+				micello.maps.themeMapName = "StandardEng";
+				micello.maps.themeName = "StandardEng";
+				micello.maps.stringsName = "StandardEng";
+				micello.maps.navPropMapName = "StandardEng";
+				micello.maps.navStringsName = "StandardEng";
+
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+				mapCanvas = mapControl.mapCanvas;
+
+				mapControl.getMapEvent().addListener("communityLoaded",onCommunityLoaded);
+				
+				mapData.loadCommunity(78);
+			}
+
+			function onCommunityLoaded(e) {
+				var title = document.getElementById('commName');
+				var community = mapData.getCommunity();
+				if(community) {
+					title.innerHTML = community.nm;
+				}
+			}
+
+/*
+ * Unit Tests:
+ *
+ * General
+ *
+ * 1. Marker
+ *  a. add by lid + mx + my, marker named
+ *  b. add by geom non group, marker image(custom)
+ *  c. add by geom iso group
+ *  d. add by geom non-iso group main
+ *  e. add by geom non-iso group not main
+ *  clear. remove
+ *
+ * 2. Geometry
+ *  a. area
+ *  b. line
+ *  c. icon
+ *  d. linear area
+ *  e. area with icon
+ *
+ *  3. Inlay
+ *   a. property replace (bathroom)
+ *   b. property add (gender = male)
+ *   c. property delete (gender = male)
+ *   d. inlay on overlay (change style) Must have geometry from step 2e present.
+ *   e. add by geom iso group
+ *   f. add by geom non-iso group main
+ *   g. add by geom non-iso group not main
+ */
+
+//lvl1 232
+//lvl2 233
+//macys lvl 1 (main) 6311445
+//macys lvl 2 6242421
+//guess 6311567
+//sephora 6311588
+//athleta 6311480
+//zara (lvl 2) 6242480
+//floor opening (lvl 2) 6242565
+				
+var m1 = {"lid":233, "mx":300, "my":400, "mt":1, "mr":"BluePin", anm:"one"};
+var m2 = {"id":6311567, "mt":2, "mr":DUMMY_MARKER, anm:"one"};
+var m3 = {"id":6311445, "mt":1, "mr":"GreenPin", anm:"one"};
+var m4 = {"id":6311445, "iso":1, "mt":1, "mr":"GreenPin", anm:"one"};
+var m5 = {"id":6242421, "iso":1, "mt":1, "mr":"GreenPin", anm:"one"};
+
+var g1 = {"lid":233,"anm":"two","p":{"$style":"Grass"},"shp":[[0,300.0,500.0],[1,400.0,500.0],[1,400.0,600.0],[1,300.0,600.0],[4]]};
+var g2 = {"lid":233,"anm":"two","p":{"$style":"Object"},"gt":1,"shp":[[0,320.0,520.0],[1,420.0,520.0],[1,420.0,620.0],[1,320.0,620.0],[4]]};
+var g3 = {"lid":233,"anm":"two","p":{"facility":"elevator"},"l":[243,433,24,50,0],"el":true};
+var g4 = {"lid":233,"anm":"two","p":{"$style":"Object"},"gt":3,"gw":15, "shp":[[0,320.0,520.0],[1,420.0,520.0],[1,420.0,620.0],[1,320.0,620.0],[4]]};
+var g5 = {"lid":233,"anm":"two","p":{"facility":"bathroom"},"l":[350,550,50,50,0],"mx":350,"my":550,"shp":[[0,300.0,500.0],[1,400.0,500.0],[1,400.0,600.0],[1,300.0,600.0],[4]]};
+
+var i1 = {"id":6242565, "pr":{"facility":"bathroom"}, "anm":"three"};
+var i2 = {"id":6242565, "po":{"gender":"male"}, "anm":"three"};
+var i3 = {"id":6242565, "pd":["gender"], "anm":"three"};
+var i4 = {"id":0, "pr":{"vegetation":"grass"}, "anm":"three"};
+var i5 = {"id":6311445, "pr":{"vegetation":"grass"}, "anm":"three"};
+var i6 = {"id":6311445, "iso":1, "pr":{"vegetation":"grass"}, "anm":"three"};
+var i7 = {"id":6242421, "iso":1, "pr":{"vegetation":"grass"}, "anm":"three"};
+
+			function testFunction(step) {
+
+				if(step == "1a") {
+					mapData.addMarkerOverlay(m1);
+				}
+				else if(step == "1b") {
+					mapData.addMarkerOverlay(m2);
+				}
+				else if(step == "1c") {
+					mapData.addMarkerOverlay(m3);
+				}
+				else if(step == "1d") {
+					mapData.addMarkerOverlay(m4);
+				}
+				else if(step == "1e") {
+					mapData.addMarkerOverlay(m5);
+				}
+				else if(step == "clear 1") {
+					mapData.removeAnnotation("one");
+				}
+				else if(step == "2a") {
+					mapData.addGeometryOverlay(g1);
+				}
+				else if(step == "2b") {
+					mapData.addGeometryOverlay(g2);
+				}
+				else if(step == "2c") {
+					mapData.addGeometryOverlay(g3);
+				}
+				else if(step == "2d") {
+					mapData.addGeometryOverlay(g4);
+				}
+				else if(step == "2e") {
+					mapData.addGeometryOverlay(g5);
+				}
+				else if(step == "clear 2") {
+					mapData.removeAnnotation("two");
+				}
+				else if(step == "3a") {
+					mapData.addInlay(i1);
+				}
+				else if(step == "3b") {
+					mapData.addInlay(i2);
+				}
+				else if(step == "3c") {
+					mapData.addInlay(i3);
+				}
+				else if(step == "3d") {
+					i4.id = g5.aid;
+					mapData.addInlay(i4);
+				}
+				else if(step == "3e") {
+					mapData.addInlay(i5);
+				}
+				else if(step == "3f") {
+					mapData.addInlay(i6);
+				}
+				else if(step == "3g") {
+					mapData.addInlay(i7);
+				}
+				else if(step == "clear 3") {
+					mapData.removeAnnotation("three");
+				}
+			}
+
+		</script>  
+		<style type="text/css">
+
+			/*canvas { border: 1px solid black;}*/
+			/*body {background-color: #2F74D0;}*/
+			body {background-color: #ffeb78;}
+			.wrapper {background-color: #FFF; border: 1px solid black; width: 930px; margin-left: auto; margin-right: auto; padding:10px;}
+			#mapElement { border: 1px solid black; clear: none; float:left; width: 700px; height: 700px;}
+			#commName {float: right; border-bottom: 1px dotted black; clear: none; font-size: 21px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			
+		<table>
+			<tr>
+				<td>
+					<button type="button" onclick="testFunction('1a');">1a</button>
+					<button type="button" onclick="testFunction('1b');">1b</button>
+					<button type="button" onclick="testFunction('1c');">1c</button>
+					<button type="button" onclick="testFunction('1d');">1d</button>
+					<button type="button" onclick="testFunction('1e');">1e</button>
+					<button type="button" onclick="testFunction('clear 1');">clear 1</button>
+					<br>
+
+					<button type="button" onclick="testFunction('2a');">2a</button>
+					<button type="button" onclick="testFunction('2b');">2b</button>
+					<button type="button" onclick="testFunction('2c');">2c</button>
+					<button type="button" onclick="testFunction('2d');">2d</button>
+					<button type="button" onclick="testFunction('2e');">2e</button>
+					<button type="button" onclick="testFunction('clear 2');">clear 2</button>
+					<br>
+
+					<button type="button" onclick="testFunction('3a');">3a</button>
+					<button type="button" onclick="testFunction('3b');">3b</button>
+					<button type="button" onclick="testFunction('3c');">3c</button>
+					<button type="button" onclick="testFunction('3d');">3d</button>
+					<button type="button" onclick="testFunction('3e');">3e</button>
+					<button type="button" onclick="testFunction('3f');">3f</button>
+					<button type="button" onclick="testFunction('3g');">3g</button>
+					<button type="button" onclick="testFunction('clear 3');">clear 3</button>
+					<br>
+				</td>
+				<td>
+					<div id="commName"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="mapElement"></div>
+				</td>
+			</tr>
+		</table>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map View</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+			var mapCanvas;
+
+			micello.maps.init("S1sshnIV1Rk9EGz32Acrl8aSYsTKYd",initialize);
+
+			function initialize() {
+				micello.maps.themeMapName = "StandardEng";
+				micello.maps.themeName = "StandardEng";
+				micello.maps.stringsName = "StandardEng";
+				micello.maps.navPropMapName = "StandardEng";
+				micello.maps.navStringsName = "StandardEng";
+
+				micello.maps.routeAdjustments = [{"tag":"escalator","restrict":true}];
+
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.data;
+				mapCanvas = mapControl.mapCanvas;
+alert("updated!");
+//				mapControl.getMapEvent().addListener("communityLoaded",onCommunityLoaded);
+				
+				mapData.loadCommunity(78);
+			}
+
+			var overlaysDone = false;
+			function onCommunityLoaded(e) {
+				if(!overlaysDone) {
+					addOverlays();
+					ovelaysDone = true;
+				}
+			}
+
+			function addOverlays() {
+
+				//lvl1 232
+				//lvl2 233
+				//guess 6311567
+				//sephora 6311588
+				//athleta 6311480
+				//zara (lvl 2) 6242480
+				mapControl.data.addInlay({"id":6311567, "pr":{"vegetation":"grass"}, "zi":1, "anm":"one"});
+				mapControl.data.addInlay({"id":6242480, "po":{"vegetation":"grass"}, "pd":["facility"], "zi":1, "anm":"one"});
+				mapControl.data.addMarkerOverlay({"mx":300, "my":400,"lid":233,"anm":"two",
+						"mt":1,"mr":"BluePin",
+						"idat":"This is the <b>HTML</b> for the marker overlay."
+						});
+				mapControl.data.addMarkerOverlay({"id":6242480,"anm":"two",
+						"mt":1,"mr":"RedPin",
+						"pdat":{"title":"Marker Overlay"}
+						});
+				var geomInfo = {
+					"zi":3,
+					"lid":233,
+					"anm":"three",
+					"shp":[[0,300.0,500.0],[1,400.0,500.0],[1,400.0,600.0],[1,300.0,600.0],[4]],
+					"p":{
+						"vegetation":"grass"
+					}
+				};
+				mapControl.data.addGeometryOverlay(geomInfo);
+
+			}
+
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body>
+		<div id="mapElement"></div>
+	</body>
+</html>
+

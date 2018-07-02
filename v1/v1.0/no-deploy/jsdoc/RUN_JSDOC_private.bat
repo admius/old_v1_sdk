@@ -1,0 +1,1 @@
+java -jar jsrun.jar app\run.js -a -p -t=templates\jsdoc_classref -d=..\documentation\classref_private ..\..\..\micellomap_uncompressed.js ..\..\micello.js ..\..\mapstructconstants.js ..\..\zList.js ..\..\mapcontrol.js ..\..\mapgui.js ..\..\mapdata.js ..\..\mapcanvas.js ..\..\mapview.js ..\..\mappopup.js ..\..\mapproblem.js ..\..\mathutil.js ..\..\maprequest.js

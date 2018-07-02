@@ -1,0 +1,1918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - micello.maps.MapGUI</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+	<img src="http://maps.micello.com/webmap/resources/header_logo.jpg"/>
+	<hr>
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/micello.html">micello</a></li>
+	
+	<li><a href="../symbols/micello.geom.html">micello.geom</a></li>
+	
+	<li><a href="../symbols/micello.maps.html">micello.maps</a></li>
+	
+	<li><a href="../symbols/micello.maps.geomtype.html">micello.maps.geomtype</a></li>
+	
+	<li><a href="../symbols/micello.maps.infoentrytype.html">micello.maps.infoentrytype</a></li>
+	
+	<li><a href="../symbols/micello.maps.labeltype.html">micello.maps.labeltype</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapCanvas.html">micello.maps.MapCanvas</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapControl.html">micello.maps.MapControl</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapData.html">micello.maps.MapData</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapGUI.html">micello.maps.MapGUI</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapPopup.html">micello.maps.MapPopup</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapView.html">micello.maps.MapView</a></li>
+	
+	<li><a href="../symbols/micello.maps.markertype.html">micello.maps.markertype</a></li>
+	
+	<li><a href="../symbols/micello.maps.path.html">micello.maps.path</a></li>
+	
+	<li><a href="../symbols/micello.maps.popuptype.html">micello.maps.popuptype</a></li>
+	
+	<li><a href="../symbols/micello.maps.request.html">micello.maps.request</a></li>
+	
+	<li><a href="../symbols/micello.maps.shapetype.html">micello.maps.shapetype</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<div id="title">
+	<h1>Javascript Class Reference</h1>
+</div>
+			<h2 class="classTitle">
+				
+				Class micello.maps.MapGUI
+			</h2>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				This class manages the map user input.
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class micello.maps.MapGUI.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#constructor">micello.maps.MapGUI</a></b>(mapControl, mapElementId)
+							</div>
+							<div class="description">This constructor takes the map control, viewport element and map element for the
+map.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class micello.maps.MapGUI.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ATTRIBUTION_POSITION">ATTRIBUTION_POSITION</a></b>
+								</div>
+								<div class="description">Determines where on the canvas the Attribution appears.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_ACTIVE_BG">DRAWING_ACTIVE_BG</a></b>
+								</div>
+								<div class="description">Determines the active background color of the drawing name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_ACTIVE_COLOR">DRAWING_ACTIVE_COLOR</a></b>
+								</div>
+								<div class="description">Determines the active text color of the drawing name following a touch or click.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_BG">DRAWING_BG</a></b>
+								</div>
+								<div class="description">Determines background color of the + amd - of the zoom control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_COLOR">DRAWING_COLOR</a></b>
+								</div>
+								<div class="description">Determines the text color of the drawing name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_HOVER_BG">DRAWING_HOVER_BG</a></b>
+								</div>
+								<div class="description">Determines the hover background color of the drawing on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#DRAWING_HOVER_COLOR">DRAWING_HOVER_COLOR</a></b>
+								</div>
+								<div class="description">Determines the hover text color of the drawing name  on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_ACTIVE_COLOR">LEVELS_ACTIVE_COLOR</a></b>
+								</div>
+								<div class="description">Determines the active text color of the level numbers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_BG">LEVELS_BG</a></b>
+								</div>
+								<div class="description">Determines the background color of the level numbers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_BG_ACTIVE">LEVELS_BG_ACTIVE</a></b>
+								</div>
+								<div class="description">Determines the active background color of the level numbers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_COLOR">LEVELS_COLOR</a></b>
+								</div>
+								<div class="description">Determines the text color of the level numbers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_HOVER_BG_COLOR">LEVELS_HOVER_BG_COLOR</a></b>
+								</div>
+								<div class="description">Determines the hover background color of the level on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_HOVER_COLOR">LEVELS_HOVER_COLOR</a></b>
+								</div>
+								<div class="description">Determines the hover background color of the level on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_POSITION">LEVELS_POSITION</a></b>
+								</div>
+								<div class="description">Determines where on the canvas the Level control appears.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#LEVELS_VIEW">LEVELS_VIEW</a></b>
+								</div>
+								<div class="description">Determines whether to show the Levels control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.MIN_THRESHOLD">MIN_THRESHOLD</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#NAME_COLOR">NAME_COLOR</a></b>
+								</div>
+								<div class="description">Determines the text color of the Map name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#NAME_POSITION">NAME_POSITION</a></b>
+								</div>
+								<div class="description">Determines where on the canvas the Map name appears.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#NAME_VIEW">NAME_VIEW</a></b>
+								</div>
+								<div class="description">Determines whether to show the Map name (and drawing list if the map contains multiple drawings).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_BG">ZOOM_BG</a></b>
+								</div>
+								<div class="description">Determines background color of the + amd - of the zoom control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_BG_ACTIVE">ZOOM_BG_ACTIVE</a></b>
+								</div>
+								<div class="description">Determines the active background color of the + amd - of the zoom control following a touch or click.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_BG_ACTIVE_COLOR">ZOOM_BG_ACTIVE_COLOR</a></b>
+								</div>
+								<div class="description">Determines the active text color of the + amd - of the zoom control following a touch or click.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_COLOR">ZOOM_COLOR</a></b>
+								</div>
+								<div class="description">Determines the text color of the + amd - of the zoom control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_DISPLAY">ZOOM_DISPLAY</a></b>
+								</div>
+								<div class="description">Determines zoom display orientation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_HOVER_BG_COLOR">ZOOM_HOVER_BG_COLOR</a></b>
+								</div>
+								<div class="description">Determines the hover background color of the + amd - of the zoom control on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_HOVER_COLOR">ZOOM_HOVER_COLOR</a></b>
+								</div>
+								<div class="description">Determines the hover text color of the + amd - of the zoom control on a mouse over event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_POSITION">ZOOM_POSITION</a></b>
+								</div>
+								<div class="description">Determines where on the canvas the Zoom control appears.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapGUI.html#ZOOM_VIEW">ZOOM_VIEW</a></b>
+								</div>
+								<div class="description">Determines whether to show the zoom control.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class micello.maps.MapGUI.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#addClass">addClass</a></b>(ele, cls)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#availSpace">availSpace</a></b>(pos, type)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#hasClass">hasClass</a></b>(el, cssClass)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#hexCheck">hexCheck</a></b>(hex)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#inArray">inArray</a></b>(arr, val)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapGUI.html#removeClass">removeClass</a></b>(ele, cls)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setMozCssOrigin">setMozCssOrigin</a></b>(element, originXPer, originYPer)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setMozCssScale">setMozCssScale</a></b>(element, scaleFactor)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setMsCssOrigin">setMsCssOrigin</a></b>(element, originXPer, originYPer)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setMsCssScale">setMsCssScale</a></b>(element, scaleFactor)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setWebkitCssOrigin">setWebkitCssOrigin</a></b>(element, originXPer, originYPer)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.maps.MapGUI.<b><a href="../symbols/micello.maps.MapGUI.html#.setWebkitCssScale">setWebkitCssScale</a></b>(element, scaleFactor)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>micello.maps.MapGUI</b>(mapControl, mapElementId)
+				</div>
+				
+				<div class="description">
+					This constructor takes the map control, viewport element and map element for the
+map. It should not be called explicitly. It should be called by the map control.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								 <b>mapControl</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>mapElementId</b>
+								
+							</dt>
+								<dd></dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="ATTRIBUTION_POSITION"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ATTRIBUTION_POSITION</b>
+					
+					</div>
+					<div class="description">
+						Determines where on the canvas the Attribution appears. Options include "left bottom" and "right bottom". Default is "left bottom".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_ACTIVE_BG"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_ACTIVE_BG</b>
+					
+					</div>
+					<div class="description">
+						Determines the active background color of the drawing name. Default is "#006bb7".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_ACTIVE_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_ACTIVE_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the active text color of the drawing name following a touch or click. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_BG"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_BG</b>
+					
+					</div>
+					<div class="description">
+						Determines background color of the + amd - of the zoom control. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the text color of the drawing name. Default is "#090909".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_HOVER_BG"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_HOVER_BG</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover background color of the drawing on a mouse over event. Default is "#f2f2f2".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAWING_HOVER_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DRAWING_HOVER_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover text color of the drawing name  on a mouse over event. Default is "#909090".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_ACTIVE_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_ACTIVE_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the active text color of the level numbers. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_BG"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_BG</b>
+					
+					</div>
+					<div class="description">
+						Determines the background color of the level numbers. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_BG_ACTIVE"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_BG_ACTIVE</b>
+					
+					</div>
+					<div class="description">
+						Determines the active background color of the level numbers. Default is "#006bb7".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the text color of the level numbers. Default is "#909090".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_HOVER_BG_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_HOVER_BG_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover background color of the level on a mouse over event. Default is "#f2f2f2".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_HOVER_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_HOVER_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover background color of the level on a mouse over event. Default is "#909090".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_POSITION"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_POSITION</b>
+					
+					</div>
+					<div class="description">
+						Determines where on the canvas the Level control appears. Options include "left top" and "right top". Default is "left top".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LEVELS_VIEW"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LEVELS_VIEW</b>
+					
+					</div>
+					<div class="description">
+						Determines whether to show the Levels control. Options include "on", "off" and "conditional" (item disappears after a determined length of inactivity. If the current drawing only has one level, then this setting is rendered useless and the Levels control will not show. Default is "conditional".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MIN_THRESHOLD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>MIN_THRESHOLD</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="NAME_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>NAME_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the text color of the Map name. This should be a valid Hex color code including the hash tag. Default is "#090909".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="NAME_POSITION"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>NAME_POSITION</b>
+					
+					</div>
+					<div class="description">
+						Determines where on the canvas the Map name appears. Options include "left top" and "right top". Default is "left top"
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="NAME_VIEW"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>NAME_VIEW</b>
+					
+					</div>
+					<div class="description">
+						Determines whether to show the Map name (and drawing list if the map contains multiple drawings). Options include "on", "off" and "conditional" (item disappears after a determined length of inactivity. Default is "conditional".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_BG"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_BG</b>
+					
+					</div>
+					<div class="description">
+						Determines background color of the + amd - of the zoom control. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_BG_ACTIVE"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_BG_ACTIVE</b>
+					
+					</div>
+					<div class="description">
+						Determines the active background color of the + amd - of the zoom control following a touch or click. Default is "#006bb7".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_BG_ACTIVE_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_BG_ACTIVE_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the active text color of the + amd - of the zoom control following a touch or click. Default is "#ffffff".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the text color of the + amd - of the zoom control. Default is "#090909".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_DISPLAY"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_DISPLAY</b>
+					
+					</div>
+					<div class="description">
+						Determines zoom display orientation. Options include "v" (vertically aligned) and "h" (horizontally aligned). Default is "h".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_HOVER_BG_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_HOVER_BG_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover background color of the + amd - of the zoom control on a mouse over event. Default is "#f2f2f2".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_HOVER_COLOR"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_HOVER_COLOR</b>
+					
+					</div>
+					<div class="description">
+						Determines the hover text color of the + amd - of the zoom control on a mouse over event. Default is "#f2f2f2".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_POSITION"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_POSITION</b>
+					
+					</div>
+					<div class="description">
+						Determines where on the canvas the Zoom control appears. Options include "left top", "center top", "right top", "left center", "right center", "left bottom", "center bottom", "right bottom". Default is "center bottom".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZOOM_VIEW"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZOOM_VIEW</b>
+					
+					</div>
+					<div class="description">
+						Determines whether to show the zoom control. Options include "on", "off" and "conditional" (item disappears after a determined length of inactivity. Default is "conditional".
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addClass"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addClass</b>(ele, cls)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ele</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>cls</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="availSpace"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>availSpace</b>(pos, type)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>pos</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasClass"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasClass</b>(el, cssClass)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>cssClass</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hexCheck"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hexCheck</b>(hex)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>hex</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="inArray"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>inArray</b>(arr, val)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>arr</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>val</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeClass"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeClass</b>(ele, cls)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ele</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>cls</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setMozCssOrigin"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setMozCssOrigin</b>(element, originXPer, originYPer)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originXPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originYPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setMozCssScale"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setMozCssScale</b>(element, scaleFactor)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>scaleFactor</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setMsCssOrigin"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setMsCssOrigin</b>(element, originXPer, originYPer)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originXPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originYPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setMsCssScale"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setMsCssScale</b>(element, scaleFactor)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>scaleFactor</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setWebkitCssOrigin"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setWebkitCssOrigin</b>(element, originXPer, originYPer)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originXPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>originYPer</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setWebkitCssScale"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapGUI.</span><b>setWebkitCssScale</b>(element, scaleFactor)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>scaleFactor</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Tue Sep 04 2012 14:59:49 GMT-0700 (PDT)
+		</div>
+	</body>
+</html>

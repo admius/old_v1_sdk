@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Micello Map API: Placing a Map on a Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		html { height: 100%; width: 100%;}
+		body { height: 100%; width: 100%; margin: 10;}
+		iframe {width:90%; height:400px; border:1px black solid;}
+	</style>
+  </head>
+  <body>
+	  <b>Next:</b> <a href="annotateMapTutorial.html">Annotating the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+	  
+	  <h1>Tutorial I: Placing a Map on a Page</h1>
+	  <p>The following code demonstrates placing a map on a page: <a href="mapView.html" target="_blank">View Page</a></p>
+
+	  <iframe src="mapView.txt"></iframe><br>  
+
+	  <h2>Getting Started</h2>
+
+	  <h3>HTML5</h3>
+	  <p>The first entry in the page should be the specifier DOCTYPE HTML so browsers operate in
+	  standards mode. In this mode, the size should be set for the html and body elements, otherwise it
+	  will be assumed to be 0. For a more detailed writeup on this information, see the Google Maps API
+	  tutorial.</p>
+
+	  <h3>Viewport</h3>
+	  <p>For use on the iPhone, Android and other mobile phones, the viewport meta entry should be added. This
+	  will configure the browser to a fixed size so the touch events are passed on to scroll the map rather
+	  than resize the browser viewport.</p>
+
+	  <h3>Micello API</h3>
+	  <p>Include the file micellomap.js to use the API. Also, you must have a Micello Map API key which is
+	  registered to the domain.</p>
+
+	  <h3>Javascript Code</h3>
+	  <p>The first step to use the API is to call the function micello.maps.init(key,startupCallback) to set the
+	  API key and to set a callback function. The callback function will be called when the scripts have been loaded,
+	  and should be used by the developer to instantiate the map control.</p>
+
+	  <p>The map is displayed by instantiating a micello.maps.MapControl object. To do this, you must
+	  pass the HTML DOM ID of the element in which the map should be displayed. It is recommended that
+	  you use a DIV element, as demonstrated above. Once the map control is instantiated, you can open
+	  a community using a Micello community ID.</p>
+
+	  <h2>The Micello Map</h2>
+	  <p>The Micelloe Map is vector based map rendered on the client using the HTML5 canvas element.
+	  It is suitable for use in a compatible desktop browser and mobile phone. It supports multiple levels
+	  for a map and multiple maps for a single community. Objects support inline labels and mouse/touch
+	  interaction.</p>
+	  <p>The default behavior of the map includes a popup menu when relevant objects are clicked. From the
+	  menu you can retrieve information on the object, request a route to or from that object and more.
+	  (<em>NOTE: Currently not all data requests are implemented.</em>)</p>
+	  <p>Using the Micello Map API, you can add interactive objects to the map and override the maps
+	  default behavior.</p>
+
+	  <b>Next:</b> <a href="annotateMapTutorial.html">Annotating the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+	  
+
+
+  </body>
+</html>

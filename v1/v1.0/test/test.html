@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<style type="text/css">
+			#cont
+			{
+				border-style:solid;
+				border-width:1px;
+				border-color:black;
+				height:500px;
+				width:500px;
+				position:absolute;
+				top:50px;
+				left:50px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#b1").click(function() {
+					var msg;
+					if(popupDiv != null) {
+						msg = "h=" + popupDiv.clientHeight + "; w=" + popupDiv.clientWidth;
+					}
+					else {
+						msg = "no popup defined";
+					}
+					alert(msg);
+				});
+				$("#cont").click(function(event) {
+					var menuObject = new Object();
+					menuObject.title = "This is the title";
+					var commands = new Array();
+					menuObject.commands = commands;
+					commands.push({"name":"first", "func":first});
+					commands.push({"name":"second", "func":second});
+					commands.push({"name":"third", "func":third});
+					commands.push({"name":"fourth", "func":fourth});
+					showPopup(event.clientX - 50,event.clientY - 50,menuObject);
+				});
+			});
+
+			function showPopup(x,y,menuObject) {
+
+				var currentX;
+				var currentY;
+//				var popupDiv = document.createElement("div");
+//				popupDiv.style.position = "absolute";
+//				popupDiv.style.left = x;
+//				popupDiv.style.top = y;
+//				popupDiv.style.borderWidth = 2;
+//				popupDiv.style.borderStyle = "solid";
+//				popupDiv.style.borderColor = "red";
+
+				var popupDiv = $("<div></div>");
+				var styleInfo = {"position":"absolute", "left":x, "top":y, "border-width":"2px", "border-style":"solid", "border-color":"red"};
+				popupDiv.css(styleInfo);
+				if(menuObject.title != null) {
+					//popupDiv.innerHTML = menuObject.title;
+					alert(menuObject.title);
+					popupDiv.html(menuObject.title);
+					popupDiv.append("<br>");
+				}
+				if(menuObject.commands != null) {
+					for(var i in menuObject.commands) {
+						var command = menuObject.commands[i];
+						var link = $("<a href=''></a>");
+						link.html(command.name);
+						link.click(command.func);
+						popupDiv.append(link);
+						popupDiv.append("<br>");
+					}
+				}
+
+				var div = $("#cont");
+				div.append(popupDiv);
+
+
+//				var msg = "h=" + popupDiv.clientHeight + "; w=" + popupDiv.clientWidth;
+//				alert(msg);
+			}
+
+			function first() {
+				alert("first selected!");
+				return false;
+			}
+
+			function second() {
+				alert("second selected!");
+				return false;
+			}
+
+			function third() {
+				alert("third selected!");
+				return false;
+			}
+
+			function fourth() {
+				alert("fourth selected!");
+				return false;
+			}
+
+		</script>
+	</head>
+	<body>
+		<button id="b1">click me</button>
+		<div id="cont"></div>
+	</body>
+</html>

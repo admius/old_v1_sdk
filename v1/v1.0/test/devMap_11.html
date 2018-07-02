@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+                
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapproblem.js"></script>
+                
+                
+<!--                <script type="text/javascript"  src="http://eng.micello.com/webmap/v0/micellomap.js"></script>-->
+
+<!--		<script type="text/javascript"  src="theme1.js"></script>-->
+
+		<link rel="stylesheet" type="text/css" href="../micellomap.css" />
+                
+
+		<style type="text/css">
+			html, body {height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+                        var mapCanvas;
+                        var mapView;
+                        var mapGui;
+                        var micello;
+                        var community;
+                        
+                        var query = window.location.search.substring(1);
+                        var keyVal = query.split("=");
+                        var cid = keyVal[1];
+                        if (!cid) {
+                            cid = 32;
+                            console.log("No cid provided in query string. ex: ?=30");
+                        }
+
+                        
+                        
+//                        micello.maps.init(key,mapInit);
+			function mapInit() {
+                            
+                                // adds css tag with encoded font
+//                                loader.loadEncodedCss("acme.css");
+//                                loader.loadEncodedCss("josefin_slab.css");
+//                                loader.loadEncodedCss("spicy_rice.css");
+
+                                // adds hidden tag
+//                                loader.preLoad("tenor");
+//                                loader.preLoad("spicy_rice");
+
+                                // encodes fonts on the fly and adds css
+//                                loader.encodeCss("spicy_rice.woff");
+//                                loader.encodeCss("averialibre-regular-webfont.woff");
+
+                            
+				micello.maps.key = "14e29464fe55199ad829"; // 14e29464fe55199ad829  // "f31303d0b95a5b388edddd8938a6b649"  // c8dd5cd3-0d37-402e-a65d-dfd0e5d0db52
+				mapControl = new micello.maps.MapControl('mapElement');
+                                
+                                mapControl.onMapClick = onMapClick;
+
+				mapData = mapControl.getMapData();
+                                
+//                                micello.maps.request.lang = 'ja';
+                                
+                                mapData.mapChanged = onMapChanged;
+
+                                var mapView = mapControl.getMapView();
+								
+								// Proposed new constants to assist Westfield
+								mapView.offsetXFraction = 0.75;
+								mapView.offsetYFraction = 0.5;
+								mapView.minWidthFraction = 0.6;
+								mapView.minHeightFraction = 0.6;
+								
+//                                mapView.customView = true;
+//                                mapView.setBaseAngRad(-(175*(Math.PI/180)));
+
+                                mapGui = mapControl.getMapGUI();
+//                                mapGui.UI_FONT = "acme";
+//                                mapGui.UI_FONT = "Comic Sans MS";
+//                                mapGui.NAME_VIEW = "on";
+//                                mapGui.ZOOM_POSITION = "right top";
+//                                mapGui.GEO_VIEW = "off";
+//                                mapGui.ATTRIBUTION_POSITION = "right bottom";
+
+				mapCanvas = mapControl.getMapCanvas();
+//                                mapCanvas.DRAW_WAIT = 10;
+//                                mapCanvas.TILE_SIZE = 1000;
+//                                mapCanvas.MAP_FONT_CAPS = true;
+                                
+//                                mapCanvas.MAP_FONT = "tenor";
+//                                mapCanvas.MAP_FONT = "times new roman, droid serif";
+//                                mapCanvas.MAP_FONT = "tenor_sans";
+//                                mapCanvas.MAP_FONT = "sans-serif";
+//                                mapCanvas.MAP_FONT = "droidsans";
+//                                mapCanvas.MAP_FONT = "acme";
+//                                mapCanvas.MAP_FONT = "spicy_rice";
+//                                mapCanvas.MAP_FONT = "averia";
+//                                mapCanvas.MAP_FONT = "arial black";
+//                                mapCanvas.MAP_FONT = "averia, comic sans ms";
+//                                mapCanvas.MAP_FONT = "Garamond";
+//                                mapCanvas.MAP_FONT = "times new roman";
+//                                mapCanvas.MAP_FONT = "comic sans ms";
+//                                mapCanvas.LABEL_BG_MARGIN = 20;
+                                
+                                mapCanvas.MAP_FONT_MIN = 12;
+                                mapCanvas.MAP_FONT_MAX = 50;
+                                
+//                                mapCanvas.MIN_TEXT_SCALE = 1.0;
+//                                mapCanvas.MAX_TEXT_SCALE = 1.0;
+                                
+//                                mapCanvas.setThemeFamily("Classic");
+                                
+                                if (window.custom_theme) {mapCanvas.setOverrideTheme (custom_theme);} 
+                                
+                                mapData.loadCommunity(cid);
+			}
+                        
+                        function onMapClick (mx, my, clicked) {
+                            if (clicked) {
+                                if (console) {
+                                    console.log(clicked);
+                                }
+//                                console.log(mx, my);
+//                                console.log(mapData.mxyToLatLon(mx,my));
+
+//                                var popUp = "popup content";
+//                                mapControl.showInfoWindow(clicked, popUp);
+                                
+//                                var a = document.getElementById("ui-attribution").childNodes;
+//                                console.log(a[0]);
+//                                alert(a[0].width+" "+a[0].height);
+                                
+                                mapControl.defaultSelectAction(clicked);
+                                
+                                // for testing the info window
+                                
+                            }
+                        }       
+                        
+                        function onMapChanged (e) {
+                            if (e.comLoad) {
+                                community = mapData.getCommunity();
+//                                console.log($("#ui-drawings").width());
+
+//                                placeMarker();
+                                listeners();
+//                                alert(window.devicePixelRatio);
+
+                            }
+                        }           
+                        
+                        function listeners () {
+//                            $("a").live('click', function () {
+//                                 console.log($(this)); 
+//                            });
+                        }
+                        
+                        function placeMarker (c) {
+                            var thisLevel = mapData.getCurrentLevel(); // get current level object
+                            var twitter_pin = {"src": "pin.png", "ox":11, "oy":36}; // define img
+                            var tweetMarker = {
+                                "mx": 537,
+                                "my": 647,
+                                "lid": thisLevel.id,
+                                "mt": micello.maps.markertype.IMAGE,
+                                "mr": twitter_pin, 
+                                "anm": "tweets",
+                                "idat": "<img src='pic.jpg' style='width:280px;' />"
+//                                "idat": "<p style='width:100%;'>TEST TEXT TEST TEXT TEST TEXT TEST TEXT TEST TEXT</p>"
+                            }
+                            mapData.addMarkerOverlay(tweetMarker);
+                        }                        
+                        
+		</script>  
+	</head>
+        
+	<body onload="mapInit()">
+		
+		<div style="position: fixed; left: 2%; top: 2%; width: 45%; height:96%; background: #ccc; border: 1px solid #333; z-index: 999999;">Westfield</div>
+		
+		
+		<div id="mapElement"></div>
+	</body>
+</html>

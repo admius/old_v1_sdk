@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<link rel="stylesheet" href="../micellomap.css">
+
+		<script type="text/javascript">
+			var mapControl;
+			var mapData;
+
+			function initialize(cid) {
+                                if(!cid) {
+                                    cid = 45;
+                                }
+				micello.maps.key = "14e29464fe55199ad829";
+				var mapLog = document.getElementById('mapLog');
+				if(mapLog) {
+					micello.logDiv = mapLog;
+				}
+				mapControl = new micello.maps.MapControl('mapElement');
+
+				mapData = mapControl.data;
+
+                                 mapGui  =  mapControl.getMapGUI();
+                                 //mapGui.ATTRIBUTION_POSITION  =  'center bottom';
+				mapData.loadCommunity(cid);
+			}
+
+//			function openCommunity() {
+//				var element = document.getElementById("communityinput");
+//				if(element) {
+//					var idString = element.value;
+//					if((idString)&&(idString.length > 0)) {
+//						var idInt = parseInt(idString);
+//						mapData.loadCommunity(idInt);
+//					}
+//				}
+//			}
+                        
+//                        function onMapChanged (e) {
+//                            if (e.comLoad) { // true the first time the map loads
+//                                // execute code here, the map is fully loaded
+////                                inlay = {"id": 7702, "lr": ""};
+////                                mapData.addInlay(inlay);
+//                                inlay = {"id": 7702, "lr": "7702", "t": "Search Result", "anm":"test", "zi": 999999};
+////                                mapData.addInlay(inlay);
+////                                inlay = {"id": 7757, "lr": "test"};
+//                                mapData.addInlay(inlay);
+//
+//                            }
+//                        }
+                        
+//                        function onMapClick (mx, my, clicked) {
+//
+//                            if (clicked) { // check that a clicked object is present
+//                                console.log(clicked);
+//                            }
+//                        }
+//                        
+			function search() {
+				var element = document.getElementById("searchinput");
+				if(element) {
+					var keyword = element.value;
+					if((keyword)&&(keyword.length > 0)) {
+						mapControl.doSearch(keyword,null);
+					}
+				}
+			}
+
+			function clearSearch() {
+				mapControl.clearSearch();
+			}
+                        var tmpCid;
+                        tmpCid = new String(location.search);
+                        tmpArray = tmpCid.split('=');
+
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body onload="initialize(tmpArray[1])">
+		<div id="mapElement"></div>
+	</body>
+</html>

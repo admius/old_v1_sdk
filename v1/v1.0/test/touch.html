@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<!--		<meta name="viewport" content="initial-scale=1.0" />-->
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		
+		
+		<style type="text/css">
+			html, body { 
+				height: 100%; 
+				width: 100%; 
+				margin: 0; 
+/*				overflow:hidden;*/
+			}
+			#mapElement {
+				width: 100%;
+				height: 100%;
+				overflow: hidden; 
+			}
+			#micello-map {
+				overflow: hidden;
+			}
+			#info2 {
+				float: right;
+				width: 50px;
+			}
+		</style>
+		
+		
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+			var mapView;
+			var mapGUI;
+			
+			function initialize() {
+				micello.maps.key = "14e29464fe55199ad829";
+				mapControl = new micello.maps.MapControl('mapElement');
+
+				mapData = mapControl.getMapData();
+
+				mapView = mapControl.getMapView();
+
+				mapGUI = mapControl.getMapGUI();
+
+				mapData.loadCommunity(32);
+				
+				
+			}
+			
+		</script>  
+
+	</head>
+	<body onload="initialize()">
+		
+		<div id="mapElement"></div>
+
+	</body>
+</html>

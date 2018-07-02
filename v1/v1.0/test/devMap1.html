@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			//this is a marker - we need to have a table of these.
+			var DUMMY_MARKER = {"src":"../resources/dummy.png", "ox":25, "oy":25};
+
+			var mapControl;
+			var mapData;
+
+			var mapObject0 = null;
+			var mapObject1 = null;
+			var mapObject2 = null;
+
+			function initialize() {
+				micello.maps.key = "14e29464fe55199ad829";
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+				mapCanvas = mapControl.mapCanvas;
+
+				var themeMap = new micello.maps.ThemeMap();
+				themeMap.loadTheme("Standard");
+				mapCanvas.themeMap = themeMap;
+
+				mapData.mapChanged = onMapChanged;
+				mapData.loadCommunity(78);
+			}
+
+			function onMapChanged(e) {
+				if(e.comLoad) {
+					var title = document.getElementById('commName');
+					var community = mapData.getCommunity();
+					if(community) {
+						title.innerHTML = community.nm;
+					}
+				}
+			}
+
+/*
+ * Unit Tests:
+ *
+ * General
+ *
+ * 1. Add and remove
+ *  a. add a marker overlay, geom overlay, inlay, with name "one" (1a)
+ *  b. remove annotation by name (1b)
+ *  c. add them again (--1a)
+ *  d. remove markers by name (1d)
+ *  e. remove geom by name (1e)
+ *  f. remove inlays by name (1f)
+ *  g. add them again (--1a)
+ *  h. remove marker by id (1h)
+ *  i. remove geom by id (1i)
+ *  j. remove inlay by id (1j)
+ *
+ * 2. Ordering (use overlapping markers and geom, inlay changes color on same object)
+ *  a. add a marker, geom and inlay with name "middle", zi = 2 (2a)
+ *  b. add a marker, geom and inlay with name "top", z1 = 3 (2b)
+ *  c. add a marker, geom and inlay with name "bottom", zi = 1 (2c)
+ *  d. remove "top" annotation (2d)
+ *  e. remove "bottom" annotation(2e)
+ *  f. remove "middle" annotation (2f)
+ *
+ *  3. add to different layer
+ *   a. add marker, geom and inlay to first level (3a)
+ *   b. add marker, geom and inlay to second level (3b)
+ *   c. go to second level (for the first time) and see the annotations.
+ *   d. remove second level annotations. (3d)
+ *   e. go to first level, remove annotations (3e)
+ *   f. add annotations to second level. (--3b)
+ *
+ *
+ */
+
+			var annotationIds = [0,0,0,0,0,0];
+
+			function addOverlay(index) {
+				var a;
+
+				//lvl1 232
+				//lvl2 233
+				//guess 6311567
+				//sephora 6311588
+				//athleta 6311480
+				//zara (lvl 2) 6242480
+
+				if(index == 0) {
+					a = {"mx":300, "my":400,"lid":233,"anm":"one",
+						"mt":1,"mr":"BluePin",
+						"idat":"This is the <b>HTML</b> for the marker overlay."
+					};
+					mapControl.data.addMarkerOverlay(a);
+				}
+				else if(index == 1) {
+					a = {"id":6242480,"anm":"one",
+						"mt":1,"mr":"RedPin",
+						"pdat":{"title":"Marker Overlay"}
+					};
+					mapControl.data.addMarkerOverlay(a);
+				}
+				else if(index == 2) {
+					a = {"id":6311567, "pr":{"vegetation":"grass"}, "zi":1, "anm":"two"};
+					mapControl.data.addInlay(a);
+				}
+				else if(index == 3) {
+					a = {"id":6242480, "po":{"vegetation":"grass"}, "pd":["facility"], "zi":1, "anm":"two"};
+					mapControl.data.addInlay(a);
+				}
+				else if(index == 4) {
+					a = {
+						"zi":3,
+						"lid":233,
+						"anm":"three",
+						"shp":[[0,300.0,500.0],[1,400.0,500.0],[1,400.0,600.0],[1,300.0,600.0],[4]],
+						"p":{
+							"vegetation":"grass"
+						}
+					};
+					mapControl.data.addGeometryOverlay(a);
+				}
+				else if(index == 5) {
+					a = {
+						"zi":3,
+						"lid":233,
+						"anm":"three",
+
+						"lt":2,
+						"l":[243,433,24,50,0],
+						"el":true,
+						"p":{
+							"facility":"elevator"
+						}
+					};
+					mapControl.data.addGeometryOverlay(a);
+				}
+
+				annotationIds[index] = a.aid;
+
+			}
+
+			function removeOverlay(index) {
+				if(index == 0) {
+					mapData.removeAnnotation("one");
+				}
+				else if(index == 1) {
+					mapData.removeAnnotation("two");
+				}
+				else if(index == 2) {
+					mapData.removeAnnotation("three");
+				}
+				else if(index == 3) {
+					mapData.removeMarkerOverlay("one",true);
+				}
+				else if(index == 4) {
+					mapData.removeInlay("two",true);
+				}
+				else if(index == 5) {
+					mapData.removeGeometryOverlay("three",true);
+				}
+			}
+
+		</script>  
+		<style type="text/css">
+
+			/*canvas { border: 1px solid black;}*/
+			/*body {background-color: #2F74D0;}*/
+			body {background-color: #ffeb78;}
+			.wrapper {background-color: #FFF; border: 1px solid black; width: 930px; margin-left: auto; margin-right: auto; padding:10px;}
+			#mapElement { border: 1px solid black; clear: none; float:left; width: 700px; height: 700px;}
+			#commName {float: right; border-bottom: 1px dotted black; clear: none; font-size: 21px;}
+		</style>
+	</head>
+	<body onload="initialize()">
+		<div class="wrapper">
+			
+		<table>
+			<tr>
+				<td>
+					<button type="button" onclick="addOverlay(0);">+0</button>
+					<button type="button" onclick="addOverlay(1);">+1</button>
+					<button type="button" onclick="addOverlay(2);">+2</button>
+					<button type="button" onclick="addOverlay(3);">+3</button>
+					<button type="button" onclick="addOverlay(4);">+4</button>
+					<button type="button" onclick="addOverlay(5);">+5</button>
+					<br>
+
+					<button type="button" onclick="removeOverlay(0);">-0</button>
+					<button type="button" onclick="removeOverlay(1);">-1</button>
+					<button type="button" onclick="removeOverlay(2);">-2</button>
+					<button type="button" onclick="removeOverlay(3);">-3</button>
+					<button type="button" onclick="removeOverlay(4);">-4</button>
+					<button type="button" onclick="removeOverlay(5);">-5</button>
+					<br>
+				</td>
+				<td>
+					<div id="commName"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="mapElement"></div>
+				</td>
+			</tr>
+		</table>
+			</div>
+	</body>
+</html>

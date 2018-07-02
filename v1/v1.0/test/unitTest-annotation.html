@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			//this is a marker - we need to have a table of these.
+			var DUMMY_MARKER = {"src":"../resources/dummy.png", "ox":25, "oy":25};
+
+			var mapControl;
+			var mapData;
+
+			var mapObject0 = null;
+			var mapObject1 = null;
+			var mapObject2 = null;
+			
+			micello.maps.init("S1sshnIV1Rk9EGz32Acrl8aSYsTKYd",initialize);
+
+			function initialize() {
+				micello.maps.themeMapName = "StandardEng";
+				micello.maps.themeName = "StandardEng";
+				micello.maps.stringsName = "StandardEng";
+				micello.maps.navPropMapName = "StandardEng";
+				micello.maps.navStringsName = "StandardEng";
+
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+				mapCanvas = mapControl.mapCanvas;
+
+				mapControl.getMapEvent().addListener("communityLoaded",onCommunityLoaded);
+				
+				mapData.loadCommunity(78);
+			}
+
+			function onCommunityLoaded(e) {
+				var title = document.getElementById('commName');
+				var community = mapData.getCommunity();
+				if(community) {
+					title.innerHTML = community.nm;
+				}
+			}
+
+/*
+ * Unit Tests:
+ *
+ * General
+ *
+ * 1. Add and remove
+ *  a. add a marker overlay, geom overlay, inlay, with name "one" (1a)
+ *  b. remove annotation by name (1b)
+ *  c. add them again (--1a)
+ *  d. remove markers by name (1d)
+ *  e. remove geom by name (1e)
+ *  f. remove inlays by name (1f)
+ *  g. add them again (--1a)
+ *  h. remove marker by id (1h)
+ *  i. remove geom by id (1i)
+ *  j. remove inlay by id (1j)
+ *
+ * 2. Ordering (use overlapping markers and geom, inlay changes color on same object)
+ *  a. add a marker, geom and inlay with name "two", zi = 2 (2a)
+ *  b. add a marker, geom and inlay with name "three", z1 = 3 (2b)
+ *  c. add a marker, geom and inlay with name "one", zi = 1 (2c)
+ *  d. remove "three" annotation (2d)
+ *  e. remove "one" annotation(2e)
+ *  f. remove "two" annotation (2f)
+ *
+ *  3. add to different layer.
+ *   a. Start at first level after a reset (don't go to second)
+ *   b. Add annotations to second level. (3a)
+ *   c. verify annotations are on second level.
+ *   d. go to first level.
+ *   e. remove annotations. (3b)
+ *   f. go to second level and verify annotations gone.
+ *   g. Repeat steps a-c, but this time level 2 is loaded
+ *   h. while still on level 3, remove annotations
+ *   i. while still on level 3, add annotaions.
+ *   j. reset the page, stay on level 1, add to level 2 and remove, go to level and verify not there.
+ */
+
+//lvl1 232
+//lvl2 233
+//guess 6311567
+//sephora 6311588
+//athleta 6311480
+//zara (lvl 2) 6242480
+				
+var m1 = {"lid":233, "mx":300, "my":400, "mt":1, "mr":"BluePin", anm:"one", "zi":1};
+var m2 = {"lid":233, "mx":305, "my":402, "mt":1, "mr":"RedPin", anm:"two", "zi":2};
+var m3 = {"lid":233, "mx":310, "my":404, "mt":1, "mr":"GreenPin", anm:"three", "zi":3};
+
+var g1 = {"zi":1,"lid":233,"anm":"one","p":{"$style":"Grass"},"shp":[[0,300.0,500.0],[1,400.0,500.0],[1,400.0,600.0],[1,300.0,600.0],[4]]};
+var g2 = {"zi":2,"lid":233,"anm":"two","p":{"$style":"Water"},"shp":[[0,310.0,510.0],[1,410.0,510.0],[1,410.0,610.0],[1,310.0,610.0],[4]]};
+var g3 = {"zi":3,"lid":233,"anm":"three","p":{"$style":"Object"},"shp":[[0,320.0,520.0],[1,420.0,520.0],[1,420.0,620.0],[1,320.0,620.0],[4]]};
+
+var i1 = {"id":6242480, "po":{"$style":"Grass"}, "pd":["facility"], "zi":1, "anm":"one"};
+var i2 = {"id":6242480, "po":{"$style":"Water"}, "pd":["facility"], "zi":2, "anm":"two"};
+var i3 = {"id":6242480, "po":{"$style":"Object"}, "pd":["facility"], "zi":3, "anm":"three"};
+
+			var annotationIds = [0,0,0,0,0,0];
+
+			function testFunction(step) {
+				var a;
+
+				if(step == "1a") {
+					mapData.addMarkerOverlay(m1);
+					mapData.addGeometryOverlay(g1);
+					mapData.addInlay(i1);
+				}
+				else if(step == "1b") {
+					mapData.removeAnnotation("one");
+				}
+				else if(step == "1d") {
+					mapData.removeMarkerOverlay("one",true);
+				}
+				else if(step == "1e") {
+					mapData.removeGeometryOverlay("one",true);
+				}
+				else if(step == "1f") {
+					mapData.removeInlay("one",true);
+				}
+				else if(step == "1h") {
+					mapData.removeMarkerOverlay(m1.aid);
+				}
+				else if(step == "1i") {
+					mapData.removeGeometryOverlay(g1.aid);
+				}
+				else if(step == "1j") {
+					mapData.removeInlay(i1.aid);
+				}
+				else if(step == "2a") {
+					mapData.addMarkerOverlay(m2);
+					mapData.addGeometryOverlay(g2);
+					mapData.addInlay(i2);
+				}
+				else if(step == "2b") {
+					mapData.addMarkerOverlay(m3);
+					mapData.addGeometryOverlay(g3);
+					mapData.addInlay(i3);
+				}
+				else if(step == "2c") {
+					mapData.addMarkerOverlay(m1);
+					mapData.addGeometryOverlay(g1);
+					mapData.addInlay(i1);
+				}
+				else if(step == "2d") {
+					mapData.removeAnnotation("three");
+				}
+				else if(step == "2e") {
+					mapData.removeAnnotation("one");
+				}
+				else if(step == "2f") {
+					mapData.removeAnnotation("two");
+				}
+				else if(step == "3a") {
+					mapData.addMarkerOverlay(m1);
+					mapData.addGeometryOverlay(g1);
+					mapData.addInlay(i1);
+				}
+				else if(step == "3b") {
+					mapData.removeAnnotation("one");
+				}
+			}
+
+		</script>  
+		<style type="text/css">
+
+			/*canvas { border: 1px solid black;}*/
+			/*body {background-color: #2F74D0;}*/
+			body {background-color: #ffeb78;}
+			.wrapper {background-color: #FFF; border: 1px solid black; width: 930px; margin-left: auto; margin-right: auto; padding:10px;}
+			#mapElement { border: 1px solid black; clear: none; float:left; width: 700px; height: 700px;}
+			#commName {float: right; border-bottom: 1px dotted black; clear: none; font-size: 21px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			
+		<table>
+			<tr>
+				<td>
+					<button type="button" onclick="testFunction('1a');">1a</button>
+					<button type="button" onclick="testFunction('1b');">1b</button>
+					<button type="button" onclick="testFunction('1d');">1d</button>
+					<button type="button" onclick="testFunction('1e');">1e</button>
+					<button type="button" onclick="testFunction('1f');">1f</button>
+					<button type="button" onclick="testFunction('1h');">1h</button>
+					<button type="button" onclick="testFunction('1i');">1i</button>
+					<button type="button" onclick="testFunction('1j');">1j</button>
+					<br>
+
+					<button type="button" onclick="testFunction('2a');">2a</button>
+					<button type="button" onclick="testFunction('2b');">2b</button>
+					<button type="button" onclick="testFunction('2c');">2c</button>
+					<button type="button" onclick="testFunction('2d');">2d</button>
+					<button type="button" onclick="testFunction('2e');">2e</button>
+					<button type="button" onclick="testFunction('2f');">2f</button>
+					<br>
+
+					<button type="button" onclick="testFunction('3a');">3a</button>
+					<button type="button" onclick="testFunction('3b');">3b</button>
+					<br>
+				</td>
+				<td>
+					<div id="commName"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="mapElement"></div>
+				</td>
+			</tr>
+		</table>
+			</div>
+	</body>
+</html>

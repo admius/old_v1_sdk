@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map View</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--		<script src="../queryCollection.js" type="text/javascript"></script> -->
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+			
+			var mapCount = 4;
+			var mapControlList = [];
+			var mapDataList = [];
+
+			var adjustmentList = [null,[{"tag":"escalator","restrict":true}],[{"tag":"elevator","off":100}],[{"tag":"escalator","off":100}]];
+
+			var key = null;
+			var cid = 78;
+			
+			micello.maps.init(key,mapInit);
+		
+		function _mapInit(i) {
+					var mapControl;
+					var mapData;
+					mapControl = new micello.maps.MapControl('mapElement'+i);
+					mapView  =  mapControl.getMapView();
+
+					mapData =  mapControl.getMapData();
+					mapGui = mapControl.getMapGUI();
+					mapCanvas = mapControl.getMapCanvas();
+
+					mapData.loadCommunity(cid);
+
+					mapControlList.push(mapControl);
+					mapDataList.push(mapData);
+		}
+		
+			function mapInit() {
+				micello.maps.themeMapName = "StandardEng";
+				micello.maps.themeName = "StandardEng";
+				micello.maps.stringsName = "StandardEng";
+				micello.maps.navPropMapName = "StandardEng";
+				micello.maps.navStringsName = "StandardEng";
+				
+				queryTable = [
+					{
+						"urlPattern": "http://eng.micello.com",
+						"params": [["key", "S1sshnIV1Rk9EGz32Acrl8aSYsTKYd"]]
+					},
+					{
+						"urlPattern": "http://preview.micello.com",
+						"params": [["key", "Uzf78iBudT2sW7x2mMJy4u8Vmver1v"]]
+					},
+				];
+				
+
+				micello.maps.queryParamTable = queryTable;
+				micello.maps.route.MapRoute.prototype.getRoute = function() {
+				   getRoute(this);
+			   }
+
+				for(var i = 0; i < mapCount; i++) {
+
+					_mapInit(i);
+				
+				}
+			}
+
+			function getRoute(callingMapControl) {
+
+				if((!callingMapControl.routeFrom)||(!callingMapControl.routeTo)) return;
+
+				this.routeActive = true;
+
+				var community = callingMapControl.mapData.getCommunity();
+				var cid = community.id;
+				var path = community.path;
+
+				for(var i = 0; i < mapCount; i++) {
+					var mapControl = mapControlList[i];
+					var adjustments = adjustmentList[i];
+
+					requestRoute(mapControl,cid,callingMapControl.routeFrom,callingMapControl.routeTo,adjustments,path);
+				}
+			}
+
+			function requestRoute(mapControl,cid,routeFrom,routeTo,adjustments,path) {
+				var routeCallback = function(route) {
+					mapControl.data.removeAnnotation("route");
+					mapControl.data.showAnnotation(route,"route");
+					mapControl.mapEvent.dispatchEvent('routeReceived', route);
+				}
+				var onError = function(msg) {
+					micello.maps.onError(mapControl.mapEvent,msg,"micello.maps.MapControl.getRoute >> onError");
+				}
+				micello.maps.route.routeRequest(cid,routeFrom,routeTo,adjustments,"annotation",routeCallback,onError,path);
+			}
+
+
+
+		</script>
+		<style type="text/css">
+			.item{ 
+				float: left;
+				padding: 30px;
+			}
+			
+			#mapElement0 {width:400px; height:600px;}
+			#mapElement1 {width:400px; height:600px;}
+			#mapElement2 {width:400px; height:600px;}
+			#mapElement3 {width:400px; height:600px;}
+			.title {
+				font-size: 130%;
+				font-weight: bold;
+				color: #333;
+			}
+			.col {
+				width: 1000px;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="col">
+			<div class="item">
+				<div class="title">No Route Alterations</div>
+				<div id="mapElement0"></div>
+			</div>
+			<div class="item">
+				<div class="title">No Escalators Used</div>
+				<div id="mapElement1"></div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="item">
+				<div class="title">Escalators Preferred</div>
+				<div id="mapElement2"></div>
+			</div>
+			<div class="item">
+			<div class="title">Elevators Preferred</div>
+				<div id="mapElement3"></div>
+			</div>
+		</div>
+	</body>
+</html>

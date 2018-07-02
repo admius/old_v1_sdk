@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+	<!--
+
+	FIELD ROUTE SAMPLE
+
+	This sample uses the field route object to request a field route from the server
+	and then to display it using different position measurements. Here the position
+	measurements are applied by clicking the mouse after a field route is loaded.
+
+	-->
+
+  <head>
+    <title>Field Route Test</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapanimation.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../maprenderer.js"></script>
+		<script type="text/javascript" src="../maptile.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<script type="text/javascript" src="../mapevent.js"></script>
+		<script type="text/javascript" src="../maputility.js"></script>
+		<script type="text/javascript" src="../thememap.js"></script>
+		<script type="text/javascript" src="../standardinfowindow.js"></script>
+		<script type="text/javascript" src="../maproute.js"></script>
+		<script type="text/javascript" src="../fieldRoute.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+
+	<script type="text/javascript">
+
+		//===========================
+		// Override Theme
+		//===========================
+
+		var overrideTheme = {
+			"s": {
+				"FieldStyle":{"m":"#808080", "o":"#808080", "w":2},
+				"MainStyle":{"m":"#ff0000", "o":"#ff0000", "w":5}
+			}
+		}
+
+		//===========================
+		// Global Variables
+		//===========================
+		var cid = 78;
+		var mapControl;
+		var mapData;
+		var mapCanvas;
+		var fieldRoute;
+		
+		//this is true when we are processing a position measurement
+		var inProcess = false;
+		
+		//position format, for reference
+		var posFormat = {
+			"t":0, //timestamp, milliseconds
+			"mx":0, //can use lat lon instead
+			"my":0, //can use lat lon instead
+			"lid":0,
+			"lat":0, //optional, in place of mx and my
+			"lon":0, //optional, in place of mx and my
+			"r":0 //error, meters
+		}
+
+		micello.maps.init("S1sshnIV1Rk9EGz32Acrl8aSYsTKYd",initialize);
+
+		function initialize() {
+			micello.maps.themeMapName = "StandardEng";
+			micello.maps.themeName = "StandardEng";
+			micello.maps.stringsName = "StandardEng";
+			micello.maps.navPropMapName = "StandardEng";
+			micello.maps.navStringsName = "StandardEng";
+
+			//create objects
+			mapControl = new micello.maps.MapControl('mapElement');
+			mapData = mapControl.getMapData();
+			mapCanvas = mapControl.getMapCanvas();
+
+			//enable the field route popup and get the field route object to update position
+			mapControl.popupFlags = micello.maps.MapControl.SHOW_ALL_FIELD;
+			fieldRoute = mapControl.getFieldRoute();
+			
+			//add the override theme
+			var themeMap = mapControl.getThemeMap();
+			themeMap.addTheme(overrideTheme);
+
+			//uintercept the click event
+			mapCanvas.onMapClick = onMapClick;
+
+			//load map
+			mapData.loadCommunity(cid);
+		}
+
+		/** This is used for a browser test.
+		 * This behaves like a normal map click until a field route is shown. Then
+		 * it uses mouse input for a position input OR it displays the normal
+		 * map click if you click on an annotation in the route. */
+		function onMapClick(mx,my,clicked) {
+			if((fieldRoute.isActive())&&((!clicked)||((!clicked.anm)&&(clicked.anm != "route")))) {
+				var lid = mapData.getCurrentLevel().id;
+				var MAX_ERROR_METERS = 25;
+				var rMeters = MAX_ERROR_METERS * Math.random();
+				//alert("Error = " + rMeters);
+				var pos = {
+					"t":Date.now(),
+					"mx":mx,
+					"my":my,
+					"lid":lid,
+					"r":rMeters
+				}
+				setLocation(pos);
+			}
+			else {
+				mapControl.onMapClick(mx,my,clicked);
+			}
+		}
+
+		/** This sets the user location. */
+		function setLocation(pos) {
+			
+			//make sure we are not in process - we shouldn't be
+			if(inProcess) return;
+			
+			//set the in process flag
+			inProcess = true;
+			
+			//get map coordinates if lat lon is passed in
+			if(pos.lat) {
+				var mapCoords = mapData.latLonToMxy(pos.lat,pos.lon);
+				pos.mx = mapCoords[0];
+				pos.my = mapCoords[1];
+			}
+			
+			//show position
+			show_position(pos);
+
+			//update route
+			if(fieldRoute.isActive()) {
+				fieldRoute.updateRouteDisplay(pos);
+			}
+			
+			//clear the in process flag
+			inProcess = false;
+		}
+		
+		// Shows current position on map
+		function show_position (pos) {
+            
+            var posMarker = {
+                "mx": pos.mx,
+                "my": pos.my,
+                "lid": pos.lid,
+                "mt": micello.maps.markertype.NAMED,
+                "mr": "TrackingDot", // the object defining the blue dot image
+                "anm": "location" // part of the group 'location'
+            }
+            mapData.removeAnnotation("location");
+            mapData.addMarkerOverlay(posMarker); // using a global mapDataObject
+        }
+
+		</script>
+	<style type="text/css">
+		html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+		#mapElement {width:100%; height:100%;}
+	</style>
+  </head>
+  <body>
+	<div id="mapElement"></div>
+  </body>
+</html>

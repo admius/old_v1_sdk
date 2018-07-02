@@ -1,0 +1,1 @@
+java -jar yuicompressor-2.4.2.jar --type js -v -o ..\..\..\micellomap.js ..\..\..\micellomap_uncompressed.js

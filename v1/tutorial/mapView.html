@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map View</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="http://test.micello.com/webmap/v0/micellomap.js"></script>
+		<script type="text/javascript">
+
+			//Initialize the api: set the key and set the callback for when the map scripts are loaded.
+			//This can be called directly from a script tag placed after the micellomap.js or it can be called
+			//from the page onload even.
+			//The second parameter, "mapInit" here, should be the function to instantiate the map, which is defined
+			//here below.
+			micello.maps.init("9a3f7c80620897a31a61",mapInit);
+
+			//This is a user defined function that is called when the script code is loaded.
+			//the map control is instantiated and used here.
+			function mapInit() {
+				//Instantiate the map. Pass in the ID of the div that should hold the map.
+				var mapControl = new micello.maps.MapControl('mapElement');
+
+				//Get the map data object, which allows you to work with the map data for the control.
+				var mapDataObject = mapControl.getMapData();
+
+				//Open the map by specifying the community id.
+				//The community ID here is hard coded for the sake of this example.
+				//There are a number of ways for you to get the community id for an actual implementation.
+				mapDataObject.loadCommunity(78);
+			}
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body>
+		<!-- This is the container for the map. -->
+		<div id="mapElement"></div>
+	</body>
+</html>
+

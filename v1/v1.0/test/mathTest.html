@@ -1,0 +1,240 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="mathutil.js"></script>
+	<script type="text/javascript">
+		function showResults3(a,b,c,d,ct,res) {
+			alert("input: " + a + "," + b + "," + c + "," + d + "; ct = " + ct + "; res = " + res);
+		}
+		function showResults2(a,b,c,ct,res) {
+			alert("input: " + a + "," + b + "," + c + "; ct = " + ct + "; res = " + res);
+		}
+		function showResults1(a,b,ct,res) {
+			alert("input: " + a + "," + b + "; ct = " + ct + "; res = " + res);
+		}
+		function testMinMax(minmax,input,expected,tolerance) {
+			document.write("before:");
+			document.write(TO_STRING(minmax));
+			document.writeln("<br>");
+			document.write("input:")
+			document.write(TO_STRING(input));
+			document.writeln("<br>");
+			document.write("expected:");
+			document.write(TO_STRING(expected));
+			document.writeln("<br>");
+			if(tolerance) {
+				document.write("tolerance:");
+				document.write(TO_STRING(tolerance));
+				document.writeln("<br>");
+			}
+
+			if(input.length == 2) {
+				micello.geom.lineMinMax(input[0][0],input[1][0],true,minmax);
+				micello.geom.lineMinMax(input[0][1],input[1][1],false,minmax);
+			}
+			else if(input.length == 3) {
+				micello.geom.quadMinMax(input[0][0],input[1][0],input[2][0],true,minmax);
+				micello.geom.quadMinMax(input[0][1],input[1][1],input[2][1],false,minmax);
+			}
+			else if(input.length == 4) {
+				micello.geom.cubeMinMax(input[0][0],input[1][0],input[2][0],input[3][0],true,minmax);
+				micello.geom.cubeMinMax(input[0][1],input[1][1],input[2][1],input[3][1],false,minmax);
+			}
+
+			var match = ARRAY_MATCH(minmax,expected,tolerance);
+			if(match) {
+				document.write("Success!");
+			}
+			else {
+				document.write("Error! - ");
+				document.write(TO_STRING(minmax));
+			}
+			document.writeln("<br><br>");
+			return match;
+		}
+		// this is a general function that encodees a standard json format for the passed object
+		function TO_STRING(obj,str) {
+			if(!str) str = "";
+			var first = true;
+			if(obj instanceof Array) {
+				str += '[';
+				for(var i in obj) {
+					if(first) {
+						first = false;
+					}
+					else {
+						str += ',';
+					}
+					str = TO_STRING(obj[i],str);
+				}
+				str += ']';
+			}
+			else if(obj instanceof Object) {
+				str += '{';
+				for(var i in obj) {
+					if(first) {
+						first = false;
+					}
+					else {
+						str += ',';
+					}
+					str += '"';
+					str += i;
+					str += '":';
+					str = TO_STRING(obj[i],str);
+				}
+				str += '}';
+			}
+			else {
+				str += obj;
+			}
+			return str;
+		}
+		//This takes two objects and compares them. Any array entry is expanded and the
+		//elements are compared, recursively. For non arrays, the objects are compared directly.
+		function ARRAY_MATCH(obj1,obj2,tol) {
+			var match;
+			if((obj1 instanceof Array)&&(obj2 instanceof Array)) {
+				if(obj1.length == obj2.length) {
+					for(var i = 0; i < obj1.length; i++) {
+						var activeTol = tol ? tol[i] : null;
+						match = ARRAY_MATCH(obj1[i],obj2[i],activeTol);
+						if(!match) return false;
+					}
+				}
+				else {
+					//different length
+					return false;
+				}
+				//if we get here, there were no problems
+				return true;
+
+			}
+			else {
+				//non-array - do a direct comparison
+				if(tol) {
+					return (Math.abs(obj2 - obj1) < tol);
+				}
+				else {
+					return (obj1 == obj2);
+				}
+			}
+		}
+	</script>
+  </head>
+  <body>
+<script type="text/javascript">
+if(false) {
+	var res = new Array(3);
+	var ct,a,b,c,d;
+	//(x-1)(x^2-1)
+	a = 1;
+	b = -1;
+	c = 1;
+	d = -1;
+	ct = micello.geom.cubicRoots(a,b,c,d,res);
+	showResults3(a,b,c,d,ct,res);
+	//(x-1)(x-2)(x-3)
+	a = 1;
+	b = -6;
+	c = 11;
+	d = -6;
+	ct = micello.geom.cubicRoots(a,b,c,d,res);
+	showResults3(a,b,c,d,ct,res);
+	//(x-1)(x-2)(x-4)
+	a = 1;
+	b = -7;
+	c = 14;
+	d = -8;
+	ct = micello.geom.cubicRoots(a,b,c,d,res);
+	showResults3(a,b,c,d,ct,res);
+	//(x-1)(x-1)(x-1)
+	a = 1;
+	b = -3;
+	c = 3;
+	d = -1;
+	ct = micello.geom.cubicRoots(a,b,c,d,res);
+	showResults3(a,b,c,d,ct,res);
+
+	var res = new Array(2);
+	//(x-1)(x-1)
+	a = 1;
+	b = -2;
+	c = 1;
+	ct = micello.geom.quadraticRoots(a,b,c,res);
+	showResults2(a,b,c,ct,res);
+	//(x-1)(x-2)
+	a = 1;
+	b = -3;
+	c = 2;
+	ct = micello.geom.quadraticRoots(a,b,c,res);
+	showResults2(a,b,c,ct,res);
+	//(x+1)(x-1)
+	a = 1;
+	b = 0;
+	c = -1;
+	ct = micello.geom.quadraticRoots(a,b,c,res);
+	showResults2(a,b,c,ct,res);
+	//(x+i)(x-i)
+	a = 1;
+	b = 0;
+	c = 1;
+	ct = micello.geom.quadraticRoots(a,b,c,res);
+	showResults2(a,b,c,ct,res);
+
+}
+
+if(false) {
+	//intersect cube
+	var cnt = micello.geom.intersectCube(0,0,2,0,-1,1,1,1,.5,-1);
+	alert(cnt);
+}
+
+//test for bounding box:
+var minmax;
+var input;
+var expected;
+
+//intentional error
+document.write("CALIBRATION (INTENTIONAL ERROR)");
+document.writeln("<br>");
+minmax = [999,999,-999,-999];
+input = [[3.2,4.7],[6.2,1.5]];
+expected = [3.2,1.5,1.5,4.7];
+testMinMax(minmax,input,expected);
+
+document.write("LINEAR TEST)");
+document.writeln("<br>");
+minmax = [999,999,-999,-999];
+input = [[3.2,4.7],[6.2,1.5]];
+expected = [3.2,1.5,6.2,4.7];
+
+testMinMax(minmax,input,expected);
+
+document.write("QUADRATIC TEST)");
+document.writeln("<br>");
+minmax = [999,999,-999,-999];
+input = [[0,0],[1,1],[2,0]];
+expected = [0,0,2,.5];
+
+testMinMax(minmax,input,expected);
+
+document.write("CUBIC TEST)");
+document.writeln("<br>");
+minmax = [999,999,-999,-999];
+input = [[0,0],[0,-1],[1,1],[1,0]];
+expected = [0,-.288,1,.288];
+tolerance = [null,.001,null,.001];
+
+testMinMax(minmax,input,expected,tolerance);
+
+
+</script>
+  </body>
+</html>

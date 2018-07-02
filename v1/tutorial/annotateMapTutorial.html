@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Micello Map API: Annotating the Map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		html { height: 100%; width: 100%;}
+		body { height: 100%; width: 100%; margin: 10;}
+		iframe {width:90%; height:400px; border:1px black solid;}
+	</style>
+  </head>
+  <body>
+	  <b>Next:</b> <a href="interactMapTutorial.html">Interactions on the Map</a><br>
+	  <b>Prev:</b> <a href="showMapTutorial.html">Placing a Map on a Page</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+	  <h1>Tutorial II: Putting Annotations on the Map</h1>
+
+	  <p>There are three types of objects you can put on the map:</p>
+	  <ul>
+		  <li> <b>Marker Overlay</b> - This is an object that is tacked to the map at a single
+			  point. As the map zooms in and out, the object stays fixed in size. It is used
+			  to mark objects.</li>
+		  <li> <b>Geometry Overlay</b> - This is a piece of geometry added to the map. It has identical
+			  properties to and behaves exactly like the items in the base map.</li>
+		  <li> <b>Geometry Inlay</b> - An inlay modifies the properties of an existing object on the map.
+			  Any property can be modified, either for an object in the base map or an object added
+			  as a geometry overlay. To do this, you specify the ID of the geometry to modify and the
+			  properties you want to change. The ID value of objects in the base map is a globally unique
+			  positive integer. The ID of geometry overlay objects is assigned by the map control when
+			  the object is added. It will be a negative integer that is unique for the given session.
+			  Geometry inlays also go by the name or just "inlay".</li>
+	  </ul>
+	  <p>The following code demonstrates adding objects to the map. <a href="mapAnnotations.html" target="_blank">View Example Page</a></p>
+	  
+	  <iframe src="mapAnnotations.txt"></iframe><br>
+
+	  <h3>Description of Example Page</h3>
+	  <p>In the example two marker overlays are added. One, the red marker, is using a named marker looked up
+	  from the theme of the map. The other, the clover, is created from a custom image.  There are
+	  two geometry overlays added. One is a line from an entrance to Nordstrom. The other is a
+	  polygon in the parking lot with the label "Tent Sale!". There is also an inlay added to the
+	  map that changes the color of Macy's.</p>
+
+	  <b>Next:</b> <a href="interactMapTutorial.html">Interactions on the Map</a><br>
+	  <b>Prev:</b> <a href="showMapTutorial.html">Placing a Map on a Page</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+	  <h1>Map Objects in Detail</h1>
+
+	  <h2>Map Object Format</h2>
+	  <p>The first thing to notice about the map objects is that they are not defined classes
+		and they have cryptic variable names. This is because these objects are transferred over the
+	  network and serialized directly from the response data stream. To create one of these objects
+	  on the client side, instantiate a new object and attached the desired properties to it.</p>
+
+	  <p>For more information on these objects see the portion of the API reference referred to as
+	  the structure reference or the "non-class" reference.</p>
+
+	  <h2>Common Properties among Map Objects</h2>
+	  <p>The marker overlay, geometry overlay and inlay share a few common properties.</p>
+	  <ul>
+		  <li><b>zi</b> - "z index": This is used to give a drawing order for the object.
+		  The exact interpretation depends on the type of overlay.
+		  <ul>
+			  <li><b>Marker overlays</b>: The z index gives the display order of the marker relative
+			  to other markers. If no value is specified for a marker, the value of 1 is used.</li>
+			  <li><b>Geometry overlays</b>: The zindex
+		  gives the display order of the geometry overlay relative to other geometry overlays and the base
+		  map geometry. The z index values in the range [0,1) are reserved for the base map. Any value
+		  less than 0 will appear belows the base map. The value 1 or greater will appear above the
+		  base map. If no value or a value in the range [0,1) is specified, a default value of 1 is
+			  used for the geometry overlay z index.</li>
+			  <li><b>Inlays</b>: The zindex specifies the order of drawing
+		  relative to other inlays only. The inlays always appear on top of the base map or overlay on which
+		  they are applied. If this value is not specified, it also defaults to the value 1.</li>
+		  </ul>
+		  <li><b>anm</b> - "annotation name": This is used to group a set of annotations, including
+		  marker overlays, geometry overlays and inlays. The name can be used to remove all the
+		  annotations in a single remove call. Annotations can also be removed individually. The annotation
+		  name parameter is optional.</li>
+	  </ul>
+	  <h2>Marker Overlay Properties</h2>
+	  <p>The following list shows the properties that are specific to marker overlays.</p>
+	  <ul>
+		  <li><b>Location Parameters</b>: The location of a marker can be specified two ways. An explicit
+			  x,y location and level can be specified or a geometry ID can be specified over which the
+			  marker will be placed.
+		  <ul>
+			  <li><b>mx</b> - "map x": This is the X coordinate in map coordinates for the marker
+				  ovelay.</li>
+			  <li><b>my</b> - "map y": This is the Y coordinate in map coordinates for the marker
+				  ovelay.</li>
+			  <li><b>lid</b> - "level ID": This is the ID of the level on which the marker should be
+				  placed.</li>
+			  <li><b>id</b> - "geoemetry ID": If the object is placed over a goemetry rather than on an
+				  explicit coordinate, this value is the ID of the geometry on which the object is placed.</li>
+		  </ul>
+		  <li><b>Marker Specification</b>: The marker can be specified two ways. A named marker
+			  can be used which is located in the theme file. (Reference for list of available markers is TBD).
+			  Alternatively, a custom marker can be constructed using a specified image.
+		  <ul>
+			  <li><b>mt</b> - "marker type": This is the type of marker. The options are given in the enumeration
+				  <a href ="../classref/symbols/micello.maps.shapetype.html">micello.maps.markertype</a>.
+			  </li>
+			  <li><b>mr</b> - "marker reference": This is the data that specifies the marker. The format
+			  depends on the type of marker. The format can be referenced from the documentation on the
+			  enumeration of marker types. </li>
+		  </ul>
+	  </ul>
+
+	  <h2>Geometry Overlay and Inlay Properties</h2>
+	  <p>Geometry overlays and inlays share all the properties of geometry since a geometry overlay
+	  is a geometry object and inlays are modifications to a geometry object. The only parameter that
+	  has a different meaning for these is the id parameter. For the base map, the id is a globally
+	  unique positive integer. For overlay goemetry the id parameter should not be defined by the user.
+	  It will be assigned by the map control when the overlay is added. This can then be read from the
+	  overlay and used to reference the overlay. It will be a negative integer that is unique for the session.
+	  For an inlay, the id parameter is used to specify the geometry that should be modified, where it
+	  can take on values for the base geometry or one of the geometry overlays.</p>
+
+	  <h3>Geometry Overlay Specific Properties</h3>
+	  <ul>
+		  <li><b>id</b> - "id": This parameter should not be assigned by the user. This parameter is
+		  assigned by the map control and can be used as a reference to specify the geometry overlay. It
+		  will be a negative integer unique for the session.</li>
+		  <li><b>lid</b> - "level ID": This is the ID of the level on which the geometry overlay should
+			  be placed.</li>
+	  </ul>
+
+	  <h3>Inlay Specific Properties</h3>
+	  <ul>
+		  <li><b>id</b> - "id": This is the geometry Id of the geometry on which the inlay should act.
+		  It can be a value in the base map or of a geometry overlay.</li>
+	  </ul>
+
+	  <h3>Geometry Rendering Properties</h3>
+	  <p>The following list gives the geometry properties that are relevent for rendering. Additional
+	  properties such as for interactions are shown elsewhere.</p>
+
+	  <ul>
+		  <li><b>id</b> - "id": This is a globally unique id used to identify the geometry.</li>
+		  <li><b>Coordinates</b>: These properties relate to the shape of the object.
+		  <ul>
+			  <li><b>st</b> - "shape type": This tells the type of shape. The currently supported types
+			  can be found in the enumeration
+			  <a href ="../classref/symbols/micello.maps.shapetype.html">micello.maps.shapetype</a>.
+			  </li>
+			  <li><b>shp</b> - "shape": These are the actual coordinates for the geometry. The format of this
+			  object depends on the type of shape. The format can be referenced from the documentation on the
+			  enumeration of shape types.</li>
+			  <li><b>gt</b> - "geometry type": Geometry type tells how the shape is rendered to make the
+			  object. The enumeration of shape types can be found at
+			  <a href ="../classref/symbols/micello.maps.shapetype.html">micello.maps.shapetype</a>.</li>
+			  <li><b>gw</b> - "geometry width": This is the required width parameter for an object with
+				  the geometry type linear area.</li>
+		  </ul>
+		  </li>
+		  <li><b>Style</b>: These properties relate to the rendering style of the object. See the definition
+		  of the style structure at
+		  <a href ="../structref/symbols/micello.maps.shapetype.html">micello.mapstruct.style</a>
+		  <ul>
+			  <li><b>t</b> - "type": This is a named style that is taken from the theme file to render
+				  the object. The name derives from the fact that the type of object dictates the style.
+			  </li>
+			  <li><b>os</b> - "override style": This is an explicity style object that will override the
+				  named style to be used for the object.</li>
+		  </ul>
+		  <li><b>Label</b>: These properties relate to the label for the object.
+		  <ul>
+			  <li><b>lt</b> - "label type": This is the type of label to put on the object. The label
+				  types cn be found in the enumeration
+				  <a href ="../classref/symbols/micello.maps.labeltype.html">micello.maps.labeltype</a>.
+			  </li>
+			  <li><b>lr</b> - "label reference": This is the label data. The format of the data depends
+			  on the label type and is documented in the label type enumeration.</li>
+			  <li><b>lr</b> - "label": This is the coordinates for the label. The format is documented in the
+			  reference for the
+			  <a href ="../classref/symbols/micello.mapstruct.geometry.html">micello.mapstruct.geometry structure</a>
+			  </li>
+			  <li><b>el</b> - "external label": This flag indicates the label sits ourside the area of the
+			  shape and should be set to true if the label is outside the shape. If the label is inside
+			  the shape the parameter can be left undefined.</li>
+		  </ul>
+		  </li>
+	  </ul>
+  </body>
+</html>
+

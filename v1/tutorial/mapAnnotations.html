@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Map Annotations</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="http://test.micello.com/webmap/v0/micellomap.js"></script>
+		<script type="text/javascript">
+
+			var customMarker = {"src":"shamrock.png", "ox":25, "oy":25};
+
+			var mapControl;
+			var mapData;
+
+			micello.maps.init("9a3f7c80620897a31a61",mapInit);
+
+			function mapInit() {
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapData = mapControl.getMapData();
+
+				//add handler for the on map changed event
+				//this will be called when the community is loaded, and on other events too
+				//to operate on an opened map, you must wait for it to be loaded
+				mapData.mapChanged = onMapChanged;
+
+				//load the community of interest using the community ID. It will be loaded asynchronously.
+				//After it loaded, the mapData.mapChanged even with be called.
+				mapData.loadCommunity(78);
+			}
+
+			//map changed even handler
+			function onMapChanged(e) {
+				//add overlays after community is loaded
+				if(e.comLoad) {
+					//add a marker overlay - either by specifying the explicit location in terms
+					//of the map x and y and the level or by specifying the geometry to place the
+					//marker on
+					mapData.addMarkerOverlay({"id":24440,
+						"mt":micello.maps.markertype.IMAGE,"mr":customMarker});
+					mapData.addMarkerOverlay({"mx":800,"my":400,"lid":232,
+						"mt":micello.maps.markertype.NAMED,"mr":"RedPin"});
+
+					//add a geometry overlay (add geometry to the map) - specify the paramters for the geometry.
+					//an area object with a label
+					var geomInfo1 = {
+						//level
+						"lid":232,
+						//drawing style
+						"t":"Room",
+						//geometry
+						"shp":[[0,1100.0,350.0],[1,1200.0,350.0],[1,1200.0,450.0],[1,1100.0,450.0],[4]],
+						//text label
+						"l":[1150.0,400.0,90,90,0],
+						"lt":1,
+						"lr":"Tent Sale!"
+					};
+					mapData.addGeometryOverlay(geomInfo1);
+					//a line geometry, as opposed to area or linear area
+					var geomInfo2 = {
+						"lid":232,
+						"t":"Route",
+						"shp":[[0,1180,732],[1,1180,630],[1,1008,630],[1,1008,525]],
+						//geometry type (area is default)
+						"gt":1
+					};
+					mapData.addGeometryOverlay(geomInfo2);
+
+					// Add a map inlay - change any geometry property, in this case the type
+					// which updates the display style. Specify the geometry to update.
+					mapData.addInlay({"id":24371, "t":"Search Result"});
+				}
+			}
+
+		</script>
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {width:100%; height:100%;}
+		</style>
+	</head>
+	<body>
+		<div id="mapElement"></div>
+	</body>
+</html>
+

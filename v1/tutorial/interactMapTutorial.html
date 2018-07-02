@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Micello Map API: Interactions on the Map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		html { height: 100%; width: 100%;}
+		body { height: 100%; width: 100%; margin: 10;}
+		iframe {width:90%; height:400px; border:1px black solid;}
+	</style>
+  </head>
+  <body>
+	  <b>Next:</b> <a href="overridesMapTutorial.html">Overriding Default Behavior</a><br>
+	  <b>Prev:</b> <a href="annotateMapTutorial.html">Annotating the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+	  <h1>Tutorial III: Interactions on the Map</h1>
+
+	  <p>Each of the three objects that can be added to the map support popup menus and
+	  info windows. A popup menu includes a title and a list of commands. For each command
+	  a callback function can be specified. A info window consists of an element that displays
+	  html. There is a default popup menu and info window for objects, or a custom one can be
+	  defined.</p>
+
+	  <p>The following code demonstrates how to add custom popup menus and info windows to
+		  the map: <a href="mapInteractions.html" target="_blank">View Example Page</a></p>
+
+	  <iframe src="mapInteractions.txt"></iframe><br>
+	  
+	  <h3>Description of Example Page</h3>
+	  
+	  <p>In the above example, three interacting objects have been added to this map:</p>
+	  <ul>
+		  <li> <b>Custom Menu Popup on a Marker</b> - The marker overlay of a clover has a custom
+			  menu popup, with three functions. Two of the functions are to add and remove a
+			  inlay that changes the color of Macys and Nordstrom. The third is a external link.</li>
+		  <li> <b>Custom Infowindow</b> - The yellow pin has a custom info window.</li>
+		  <li> <b>Default Menu Popup</b> - There is an inlay object for one of the icons that
+		  adds a standard popup menu.</li>
+	  </ul>
+
+	  <b>Next:</b> <a href="overridesMapTutorial.html">Overriding Default Behavior</a><br>
+	  <b>Prev:</b> <a href="annotateMapTutorial.html">Annotating the Map</a><br>
+	  <b>Top:</b> <a href="../micelloAPI.html">API Overview</a>
+
+	  <h1>Popup Menus and Info Windows in Detail</h1>
+
+	  <p>Popup menus and info windows are both types of popups. For a reference see the class
+	  <a href="../classref/symbols/micello.maps.MapPopup.html">MapPopup</a>. The MapPopup should
+	  be instantiated from the MapCanvas function
+	  <a href="../classref/symbols/micello.maps.MapCanvas.html#createPopup">createPopup</a>. This returns the
+	  popup which is configured with the function
+	  <a href="../classref/symbols/micello.maps.MapCanvas.html#setData">setData</a>. The argument passed
+	  is a <a href="../structref/symbols/micello.mapstruct.PopupInfo.html">PopupInfo structure</a>. This defines
+	  the type of popup and the data in the popup.</p>
+
+	  <p>Once a popup is created it can be used multiple times, simply be resetting the data. The function
+		  <a href="../classref/symbols/micello.maps.MapPopup.html#setActive">setActive</a> of MapPopup is used
+	  to make the popup active or not. If it is active, it will be visible if the proper level is showing.</p>
+
+	  <p>The function <a href="../classref/symbols/micello.maps.MapCanvas.html#removePopup">removePopup</a>
+		  removes the popup from the map. This should only be done when the popup is being discarded. Once
+	  the popup is removed it can not be reused.</p>
+
+	  <h2>PopupInfo Properties</h2>
+	  <p>The PopupInfo structure has the following properties.</p>
+	  <ul>
+		  <li><b>type</b>: The type of popup. This supported types are given in the enumeration
+			  <a href="../classref/symbols/micello.maps.popuptype.html">micello.maps.popuptype</a>. It is
+		  currently either an info window or a popup menu.</li>
+		  <li><b>mapX</b>: This is the X coordinate in map coordinates for the popup</li>
+		  <li><b>mapY</b>: This is the Y coordinate in map coordinates for the popup</li>
+		  <li><b>title</b>: This is used for menu popups as the title on the menu. If this entry is
+		  missing, there is no title.</li>
+		  <li><b>commands</b>: This is an array of commands for a menu popup. Each entry in the array is a
+		  <a href ="../structref/symbols/micello.mapstruct.PopupCommand.html">micello.mapstruct.PopupCommand</a></li>
+		  <li><b>html</b>: This is the HTML content for an infowindow.</li>
+	  </ul>
+	  
+	  <h2>PopupCommand Properties</h2>
+	  <p>The PopupCommand structure has the following properties.</p>
+	  <ul>
+		  <li><b>name</b>: This is the text that will appead for the map entry.</li>
+		  <li><b>func()</b>: This is the function that is called when the menu is executed. The function
+		  takes no arguments. It should be configured with any necessary parameters when the PopupData is
+		  configured.</li>
+	  </ul>
+
+	  <h3>Geometry and Marker Interaction Properties</h3>
+	  <p>The following list gives the geometry properties that are relevent for inof windows and popup
+		  menus. These are applicable to the base map geometry, inlays, geometry overlays and marker overlays.</p>
+	  <ul>
+		  <li><b>pdat</b> - "popup data": If present, this flags that a popup menu should be opened when an
+			  object is selected. The
+		  value of this property is a PopupInfo structure that describes the popup to open.</li>
+		  <li><b>idat</b> - "info data": If present, this flags that an info window should be opened. when
+			  the object is selected. The
+		  value of this property is a PopupInfo structure that describes the popup to open.</li>
+		  <li><b>p</b> - "popup flag": If this value is present and true, it flags that a deafult popup
+			  should be created when the object is selected.</li>
+		  <li><b>i</b> - "info flag": If this value is present and true, it flags that the deafult popup
+			  for an object should include an info command, to show an info window.</li>
+	  </ul>
+
+  </body>
+</html>
+
+

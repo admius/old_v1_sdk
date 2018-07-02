@@ -1,0 +1,1554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - micello.geom</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+	<img src="http://maps.micello.com/webmap/resources/header_logo.jpg"/>
+	<hr>
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/micello.html">micello</a></li>
+	
+	<li><a href="../symbols/micello.geom.html">micello.geom</a></li>
+	
+	<li><a href="../symbols/micello.maps.html">micello.maps</a></li>
+	
+	<li><a href="../symbols/micello.maps.geomtype.html">micello.maps.geomtype</a></li>
+	
+	<li><a href="../symbols/micello.maps.infoentrytype.html">micello.maps.infoentrytype</a></li>
+	
+	<li><a href="../symbols/micello.maps.labeltype.html">micello.maps.labeltype</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapCanvas.html">micello.maps.MapCanvas</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapControl.html">micello.maps.MapControl</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapData.html">micello.maps.MapData</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapGUI.html">micello.maps.MapGUI</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapPopup.html">micello.maps.MapPopup</a></li>
+	
+	<li><a href="../symbols/micello.maps.mapproblem.html">micello.maps.mapproblem</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapTile.html">micello.maps.MapTile</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapView.html">micello.maps.MapView</a></li>
+	
+	<li><a href="../symbols/micello.maps.markertype.html">micello.maps.markertype</a></li>
+	
+	<li><a href="../symbols/micello.maps.path.html">micello.maps.path</a></li>
+	
+	<li><a href="../symbols/micello.maps.popuptype.html">micello.maps.popuptype</a></li>
+	
+	<li><a href="../symbols/micello.maps.request.html">micello.maps.request</a></li>
+	
+	<li><a href="../symbols/micello.maps.shapetype.html">micello.maps.shapetype</a></li>
+	
+	<li><a href="../symbols/micello.maps.ZList.html">micello.maps.ZList</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<div id="title">
+	<h1>Javascript Class Reference</h1>
+</div>
+			<h2 class="classTitle">
+				
+				Namespace micello.geom
+			</h2>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				This namespace contains some geometry functions.
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class micello.geom.">
+				<caption>Namespace Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/micello.geom.html#constructor">micello.geom</a></b>
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class micello.geom.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.caseOne">caseOne</a></b>(v1, v2, v3, v4, res)
+								</div>
+								<div class="description">cubic roots - argument of two cube roots are real and different</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.caseThree">caseThree</a></b>(v1, v2, v3, v4, res)
+								</div>
+								<div class="description">cubic roots - argument of cube roots is complex</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.caseTwo">caseTwo</a></b>(v1, v2, v3, res)
+								</div>
+								<div class="description">cubic roots - argument of two cube roots are real and the same</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.cubeMinMax">cubeMinMax</a></b>(ax0, ax1, ax2, ax3, isX, minmax)
+								</div>
+								<div class="description">This function finds the min and max values of a cubic bezier curve and uses them
+to update the minmax vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.cubeRoot">cubeRoot</a></b>(x)
+								</div>
+								<div class="description">Returns the cube root of a nubmer, use log and exp</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.cubicRoots">cubicRoots</a></b>(a, b, c, d, res)
+								</div>
+								<div class="description">This method finds the roots of the cubic equation ax^3 + bx^2 + cx + d * and loads them
+into the argument vector res.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.getInvalidMinMax">getInvalidMinMax</a></b>()
+								</div>
+								<div class="description">This is a minmax box that should always show as invalid.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.intersectCube">intersectCube</a></b>(ax0, ay0, ax1, ay1, ax2, ay2, ax3, ay3, x0, y0)
+								</div>
+								<div class="description">This method finds the intersection of a bezier cubic curve with a vertical line starting from the
+reference point and traveling upwards.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.intersectLine">intersectLine</a></b>(ax0, ay0, ax1, ay1, x0, y0)
+								</div>
+								<div class="description">This method finds the intersection of a bezier line with a vertical line starting from the
+reference point and traveling upwards.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.intersectQuad">intersectQuad</a></b>(ax0, ay0, ax1, ay1, ax2, ay2, x0, y0)
+								</div>
+								<div class="description">This method finds the intersection of a bezier quadratic curve with a vertical line starting from the
+reference point and traveling upwards.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.linearRoots">linearRoots</a></b>(a, b, res)
+								</div>
+								<div class="description">This finds the roots of a linear equation, loading the results into the vector res.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.lineMinMax">lineMinMax</a></b>(ax0, ax1, isX, minmax)
+								</div>
+								<div class="description">This function finds the min and max values of a quadratic bezier curve and uses them
+to update the minmax vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.loadPathMinMax">loadPathMinMax</a></b>(path, minmax)
+								</div>
+								<div class="description">This method calculates a minmax matrix [[xmin,ymin],[xmax,ymax]] for the path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.loadRotRectMinMax">loadRotRectMinMax</a></b>(rr, minmax)
+								</div>
+								<div class="description">This method returns the bounding box for a rotated rectangle
+defined by the given transform.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.pathHit">pathHit</a></b>(path, x, y)
+								</div>
+								<div class="description">This method takes a path object and an x,y coordinate and tells if the point is in the path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.quadMinMax">quadMinMax</a></b>(ax0, ax1, ax2, isX, minmax)
+								</div>
+								<div class="description">This function finds the min and max values of a quadratic bezier curve and uses them
+to update the minmax vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.quadraticRoots">quadraticRoots</a></b>(a, b, c, res)
+								</div>
+								<div class="description">This method finds the roots of the cubic equation ax^2 + bx + c
+and loads them into the argument vector res.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">micello.geom.<b><a href="../symbols/micello.geom.html#.rotRectHit">rotRectHit</a></b>(rr, x, y)
+								</div>
+								<div class="description">This method returns true if the point is inside the shape.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Namespace Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>micello.geom</b>
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".caseOne"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>caseOne</b>(v1, v2, v3, v4, res)
+					
+					</div>
+					<div class="description">
+						cubic roots - argument of two cube roots are real and different
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>v1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v4</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".caseThree"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>caseThree</b>(v1, v2, v3, v4, res)
+					
+					</div>
+					<div class="description">
+						cubic roots - argument of cube roots is complex
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>v1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v4</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".caseTwo"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>caseTwo</b>(v1, v2, v3, res)
+					
+					</div>
+					<div class="description">
+						cubic roots - argument of two cube roots are real and the same
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>v1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>v3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".cubeMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>cubeMinMax</b>(ax0, ax1, ax2, ax3, isX, minmax)
+					
+					</div>
+					<div class="description">
+						This function finds the min and max values of a cubic bezier curve and uses them
+to update the minmax vector. The minmax matrix is composed of the entries [[xmin,ymin],[xmax,ymax]].
+The parameter isX should be set true if the input parameters are the x component of the cubic
+curve and false for the y component.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>isX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minmax</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".cubeRoot"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>cubeRoot</b>(x)
+					
+					</div>
+					<div class="description">
+						Returns the cube root of a nubmer, use log and exp
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>x</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".cubicRoots"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>cubicRoots</b>(a, b, c, d, res)
+					
+					</div>
+					<div class="description">
+						This method finds the roots of the cubic equation ax^3 + bx^2 + cx + d * and loads them
+into the argument vector res. The return value is the number of roots.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>a</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>b</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>c</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>d</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getInvalidMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>getInvalidMinMax</b>()
+					
+					</div>
+					<div class="description">
+						This is a minmax box that should always show as invalid.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".intersectCube"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>intersectCube</b>(ax0, ay0, ax1, ay1, ax2, ay2, ax3, ay3, x0, y0)
+					
+					</div>
+					<div class="description">
+						This method finds the intersection of a bezier cubic curve with a vertical line starting from the
+reference point and traveling upwards.
+DETAILS: This is for finding a point inside an area. Point on boundary will be false.
+ - intersect includes the start point of the input line but not the end point
+ - intersect does not include the reference point
+ - if the two lines travel together, this does NOT count as an intersect
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay3</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>y0</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".intersectLine"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>intersectLine</b>(ax0, ay0, ax1, ay1, x0, y0)
+					
+					</div>
+					<div class="description">
+						This method finds the intersection of a bezier line with a vertical line starting from the
+reference point and traveling upwards.
+DETAILS: This is for finding a point inside an area. Point on boundary will be false.
+ - intersect includes the start point of the input line but not the end point
+ - intersect does not include the reference point
+ - if the two lines travel together, this does NOT count as an intersect
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>y0</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".intersectQuad"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>intersectQuad</b>(ax0, ay0, ax1, ay1, ax2, ay2, x0, y0)
+					
+					</div>
+					<div class="description">
+						This method finds the intersection of a bezier quadratic curve with a vertical line starting from the
+reference point and traveling upwards.
+DETAILS: This is for finding a point inside an area. Point on boundary will be false.
+ - intersect includes the start point of the input line but not the end point
+ - intersect does not include the reference point
+ - if the two lines travel together, this does NOT count as an intersect
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ay2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>y0</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".linearRoots"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>linearRoots</b>(a, b, res)
+					
+					</div>
+					<div class="description">
+						This finds the roots of a linear equation, loading the results into the vector res.
+The return value is the nubmer of roots found.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>a</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>b</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".lineMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>lineMinMax</b>(ax0, ax1, isX, minmax)
+					
+					</div>
+					<div class="description">
+						This function finds the min and max values of a quadratic bezier curve and uses them
+to update the minmax vector. The minmax matrix is composed of the entries [[xmin,ymin],[xmax,ymax]].
+The parameter isX should be set true if the input parameters are the x component of the quadratic
+curve and false for the y component.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>isX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minmax</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".loadPathMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>loadPathMinMax</b>(path, minmax)
+					
+					</div>
+					<div class="description">
+						This method calculates a minmax matrix [[xmin,ymin],[xmax,ymax]] for the path. If there is no
+known value of minmax, either null or INVALID_MINMAX can be passed in.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>path</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minmax</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".loadRotRectMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>loadRotRectMinMax</b>(rr, minmax)
+					
+					</div>
+					<div class="description">
+						This method returns the bounding box for a rotated rectangle
+defined by the given transform.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>rr</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minmax</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".pathHit"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>pathHit</b>(path, x, y)
+					
+					</div>
+					<div class="description">
+						This method takes a path object and an x,y coordinate and tells if the point is in the path.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>path</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>y</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".quadMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>quadMinMax</b>(ax0, ax1, ax2, isX, minmax)
+					
+					</div>
+					<div class="description">
+						This function finds the min and max values of a quadratic bezier curve and uses them
+to update the minmax vector. The minmax matrix is composed of the entries [[xmin,ymin],[xmax,ymax]].
+The parameter isX should be set true if the input parameters are the x component of the quadratic
+curve and false for the y component.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ax0</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ax2</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>isX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minmax</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".quadraticRoots"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>quadraticRoots</b>(a, b, c, res)
+					
+					</div>
+					<div class="description">
+						This method finds the roots of the cubic equation ax^2 + bx + c
+and loads them into the argument vector res. The return value is the number
+of roots.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>a</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>b</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>c</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".rotRectHit"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.geom.</span><b>rotRectHit</b>(rr, x, y)
+					
+					</div>
+					<div class="description">
+						This method returns true if the point is inside the shape.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>rr</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>y</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Tue Sep 04 2012 14:59:41 GMT-0700 (PDT)
+		</div>
+	</body>
+</html>

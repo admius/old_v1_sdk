@@ -1,0 +1,350 @@
+.micello_map {
+	font: 13px Arial;
+	line-height: 1.5em;
+	background-repeat: no-repeat;
+	background-position: center center;
+        -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+}
+.micello_map .menu {
+    margin: 0;
+    padding: 0;
+}
+.micello_map .menuTable {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+        width: 175px;
+/*        border-left: 1px solid #999999;
+        border-right: 1px solid #999999;
+        border-top: 1px solid #999999;
+        border-bottom: 1px solid #999999;*/
+        
+        background-color: #fff;
+/*        background-color: #ccffff;*/
+       /*opacity:.9;*/
+}
+.micello_map .menuTitle {
+        font-size: 120%;
+	margin:0px;
+	padding: 10px 10px 4px 10px;
+        color: #666;
+        font-weight: bold;
+        width: 130px;
+/*        background-color: #fff;*/
+
+}
+.micello_map .menuItem {
+        padding: 2px 10px 2px 10px;
+        
+}
+.micello_map a.menuLink {
+    cursor: pointer;
+    font-size: 110%;
+    color: #999999;
+    text-decoration: none;
+    line-height: 13px;
+}
+.micello_map a.menuLink:hover {
+    text-decoration: underline;
+    
+}
+
+.micello_map .menuClose {
+        display: none;
+	position:absolute;
+	right: 5px;
+	top: 5px;
+        cursor: pointer;
+}
+
+.micello_map .infoOut {
+	/*overflow:hidden;*/
+	/*opacity:.9;*/
+
+}
+
+.micello_map .infoBack {
+	overflow:hidden;
+        margin-bottom: -10px;
+        background-color: #fff;
+	z-index:-1;
+        min-width: 100px;
+}
+.micello_map .infoWrapper,.micello_map .menuWrapper {
+/*    background: url('resources/callout34.png') 0 100%  no-repeat  transparent;*/
+    z-index:101;
+    padding-bottom: 9px;
+
+}
+.micello_map .menuTip {
+    background: url('resources/callout34.png') 0 100%  no-repeat  transparent;
+    position: relative;
+        top: 9px;
+    width: 32px;
+    height: 9px;
+}
+.micello_map .infoClose {
+        display: none;
+	position:absolute;
+	right: 5px;
+	top: 5px;
+/*        z-index: -999;*/
+        cursor: pointer;
+}
+.micello_map .infoIn {
+	overflow: auto;
+	padding:5px;
+}
+.micello_map .infoTable td, .micello_map .infoTable tr{
+    padding: 7px;
+    margin: 0;
+}
+.micello_map .infoTitle {
+    font-size: 120%;
+    margin: 10px;
+    color: #999;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #999;
+    width: 90%;
+}
+.micello_map .infoItemNm{
+    color:#999; 
+    vertical-align:top;
+    font-weight: bold;
+}
+.micello_map .infoItemVal{
+    vertical-align:top;
+    color:#999;
+}
+
+/* UI Elements */
+.micello_map .ui_all {
+   position: absolute;
+   background: transparent;
+}
+.micello_map .ui_element {
+    position: absolute;
+}
+
+/* Community Name */
+.micello_map .ui_name {
+    font-weight: bold;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+-ms-user-select: none;
+  color: #666;
+}
+.micello_map .ui_name_text {
+    width: 100%;
+}
+/* Drawings Selector */
+#ui-drawings-icon {
+    cursor: pointer;
+ 
+}
+.micello_map .ui_drawing {
+    background-color: #fff;
+    cursor: pointer;
+    position: absolute;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.micello_map .ui_drawing_name {
+   position: absolute; 
+   line-height: 13px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.micello_map .ui_drawings_list {
+    position: absolute;
+}
+
+.micello_map .ui_drawings {
+    background: transparent;
+    
+    
+}
+.micello_map .ui_drawings_container {
+    background-color: #fff;
+    border: 1px solid #999;
+    overflow: hidden;
+    color: #666666;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+}
+
+.micello_map #ui-drawings-arrow-up, .micello_map #ui-drawings-arrow-down, .micello_map #ui-levels-arrow-down, .micello_map #ui-levels-arrow-up {
+    position: absolute;
+    cursor: pointer;
+    opacity: .6;
+    filter: alpha(opacity=60);
+    user-select: none;
+}
+
+
+/* Zoom Element */
+.micello_map .ui_zoom {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+  overflow:hidden;
+}
+
+.micello_map .ui_zoom_in {
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+
+.micello_map .ui_zoom_out {
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    overflow: hidden;   
+}
+.micello_map #ui-entity-enhancement {
+    font-size: 85%;
+    color: #999;
+}
+
+/* Levels Selector */
+.micello_map .ui_levels {
+    position: absolute;
+    background: transparent;
+    
+
+
+}
+
+.micello_map .ui_levels_floor {
+    background-color: #fff;
+    position: absolute;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.micello_map .ui_levels_floors {
+
+    cursor: pointer;
+    position: absolute;
+    background-color: #fff;
+    
+}
+
+.micello_map .ui_levels_floors_wrapper {
+    background-color: #fff;
+    position: absolute;
+    overflow: hidden;
+}
+
+.micello_map .ui_levels_floors_container {
+    background-color: #fff;
+    position: absolute;
+    overflow: hidden;
+    
+
+}
+.micello_map .ui_levels_floor_name {
+    position: absolute;
+}
+
+/* UI Error */
+.micello_map #ui-error {
+    padding: 7px;
+    position: absolute;
+    top: 10px;
+    left:10px;
+    width: 300px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #333;
+    z-index: 999999;
+}
+
+.micello_map #ui-error-close {
+    border: 1px solid #333;
+    top: 5px;
+    left: 285px;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+    font-size: 80%;
+}
+
+.micello-rounded {
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+.ui-shadow {
+    -moz-box-shadow: 2px 2px 7px #666;
+    -webkit-box-shadow: 2px 2px 7px #666;
+    box-shadow: 2px 2px 7px #666;
+}
+
+.micello-pop-shadow {
+    -moz-box-shadow: 0px 0px 12px #666;
+    -webkit-box-shadow: 0px 0px 12px #666;
+    box-shadow: 0px 0px 12px #666;
+}
+
+#mapproblem {
+    padding: 7px;
+}
+#mapproblem-title {
+    font-size: 120%;
+    font-weight: bold;
+    color: #666;
+}
+#mapproblem-subtitle {
+    color: #999;
+    font-size: 110%;
+    font-weight: bold;
+    margin: 7px 0 0 0;
+}
+#mapproblem-desc {
+    color: #999;
+    margin: 7px 0 0 0;
+}
+#mapproblem-textarea textarea {
+    width: 95%;
+    height: 50px;
+    margin: 7px 0 0 0;
+}
+#mapproblem-button, #mapproblem-button-complete {
+    width: 105px;
+    cursor: pointer;
+    background-color: #f5f4f4;
+    border: 1px solid #999;
+    color: #999;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    margin: 7px 0 0 0;
+}
+.mapproblem-error {
+    font-weight: bold;
+    color: #ff0000;
+}

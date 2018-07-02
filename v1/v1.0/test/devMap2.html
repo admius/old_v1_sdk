@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../micello_nondyn.js"></script>
+		<script type="text/javascript" src="../micello.js"></script>
+		<script type="text/javascript" src="../mapstructconstants.js"></script>
+		<script type="text/javascript" src="../zList.js"></script>
+		<script type="text/javascript" src="../mapcontrol.js"></script>
+		<script type="text/javascript" src="../mapgui.js"></script>
+		<script type="text/javascript" src="../mapdata.js"></script>
+		<script type="text/javascript" src="../mapcanvas.js"></script>
+		<script type="text/javascript" src="../mapview.js"></script>
+		<script type="text/javascript" src="../mappopup.js"></script>
+		<script type="text/javascript" src="../mathutil.js"></script>
+		<script type="text/javascript" src="../maprequest.js"></script>
+		<link rel="stylesheet" type="text/css" href="../micellomap.css">
+		<script type="text/javascript">
+
+			var mapControl;
+			var mapData;
+
+			var customTheme = {
+				"s": {
+					"Unit": {
+						"m": "#ffcc99",
+						"o": "#999999",
+						"t": "#999999",
+						"w": 3,
+						"label": true
+					}
+				},
+				"ic": {
+					"Bathroom":{"w":100,"g":[{"os":{"m":"#ffff00"},"shp":[[0,0.000,-0.103],[1,0.000,100.755],[1,100.859,100.755],[1,100.859,-0.103],[4]]},{"os":{"m":"#238e00"},"shp":[[0,0.000,-0.103],[1,0.000,100.755],[1,100.859,100.755],[1,100.859,-0.103],[4]],"gw":1.500,"gt":3},{"os":{"m":"#b60000"},"shp":[[0,36.264,17.273],[1,74.416,19.918],[1,75.172,47.493],[1,61.951,60.714],[1,32.109,56.937],[1,21.154,44.471],[4]]},{"os":{"m":"#000000"},"shp":[[0,36.264,17.273],[1,74.416,19.918],[1,75.172,47.493],[1,61.951,60.714],[1,32.109,56.937],[1,21.154,44.471],[4]],"gw":5.000,"gt":3},{"os":{"m":"#0000a6"},"shp":[[0,6.044,53.537],[1,31.731,90.179],[1,71.016,89.423],[1,83.860,77.713],[1,88.771,60.337],[1,91.037,23.695]],"gw":8.000,"gt":3},{"os":{"m":"#b600d0"},"shp":[[0,6.799,8.963],[3,13.190,3.062,25.998,4.272,28.709,9.341],[3,31.419,14.409,24.859,16.456,21.909,19.918],[3,18.960,23.379,12.306,25.925,10.955,29.739],[3,9.603,33.553,14.317,37.012,12.466,39.183],[3,10.614,41.354,9.228,43.778,4.911,39.183],[3,0.593,34.587,0.409,14.864,6.799,8.963],[4]]}],"h":100}
+				}
+			}
+
+			function initialize() {
+				micello.maps.key = "14e29464fe55199ad829";
+				mapControl = new micello.maps.MapControl('mapElement');
+				mapControl.popupFlags = micello.maps.MapControl.SHOW_INSIDE | micello.maps.MapControl.SHOW_NAV;
+
+				mapData = mapControl.getMapData();
+				
+				mapCanvas = mapControl.getMapCanvas();
+				if (window.customTheme) {mapCanvas.setOverrideTheme (window.customTheme);} 
+
+				mapData.mapChanged = onMapChanged;
+				mapData.loadCommunity(78);
+			}
+
+			function onMapChanged(e) {
+				if(e.comLoad) {
+					var lid = 232;
+					
+					var geom1 = {
+						"lid":lid,
+						"t":"Object",
+						"os":{"m":"#ff0000"},
+						"zi":2,
+						"shp":[[0,100,100],[1,150,100],[1,100,150],[4]]
+					};
+					mapData.addGeometryOverlay(geom1);
+
+					var geom2 = {
+						"lid":lid,
+						"t":"Object",
+						"os":{"m":"#00ff00"},
+						"zi":1,
+						"shp":[[0,90,90],[1,110,90],[1,110,110],[1,90,110],[4]]
+					};
+					mapData.addGeometryOverlay(geom2);
+
+					var geom3 = {
+						"lid":lid,
+						"t":"Object",
+						"os":{"m":"#0000ff"},
+						"zi":3,
+						"shp":[[0,200,200],[1,105,100],[1,100,105],[4]]
+					};
+					mapData.addGeometryOverlay(geom3);
+				}
+			}
+			
+		</script>  
+		<style type="text/css">
+			html, body { height: 100%; width: 100%; margin: 0; overflow:hidden;}
+			#mapElement {border-style:solid; border-width:1; border-color:black; position:relative; top:60px; left:40px; width:75%; height:75%;}
+		</style>
+	</head>
+	<body onload="initialize()">
+		<div id="mapElement"></div>
+	</body>
+</html>

@@ -1,0 +1,2853 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - micello.maps.MapCanvas</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+	<img src="http://maps.micello.com/webmap/resources/header_logo.jpg"/>
+	<hr>
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/micello.html">micello</a></li>
+	
+	<li><a href="../symbols/micello.geom.html">micello.geom</a></li>
+	
+	<li><a href="../symbols/micello.maps.html">micello.maps</a></li>
+	
+	<li><a href="../symbols/micello.maps.geomtype.html">micello.maps.geomtype</a></li>
+	
+	<li><a href="../symbols/micello.maps.infoentrytype.html">micello.maps.infoentrytype</a></li>
+	
+	<li><a href="../symbols/micello.maps.labeltype.html">micello.maps.labeltype</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapCanvas.html">micello.maps.MapCanvas</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapControl.html">micello.maps.MapControl</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapData.html">micello.maps.MapData</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapGUI.html">micello.maps.MapGUI</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapPopup.html">micello.maps.MapPopup</a></li>
+	
+	<li><a href="../symbols/micello.maps.mapproblem.html">micello.maps.mapproblem</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapTile.html">micello.maps.MapTile</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapView.html">micello.maps.MapView</a></li>
+	
+	<li><a href="../symbols/micello.maps.markertype.html">micello.maps.markertype</a></li>
+	
+	<li><a href="../symbols/micello.maps.path.html">micello.maps.path</a></li>
+	
+	<li><a href="../symbols/micello.maps.popuptype.html">micello.maps.popuptype</a></li>
+	
+	<li><a href="../symbols/micello.maps.request.html">micello.maps.request</a></li>
+	
+	<li><a href="../symbols/micello.maps.shapetype.html">micello.maps.shapetype</a></li>
+	
+	<li><a href="../symbols/micello.maps.ZList.html">micello.maps.ZList</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<div id="title">
+	<h1>Javascript Class Reference</h1>
+</div>
+			<h2 class="classTitle">
+				
+				Class micello.maps.MapCanvas
+			</h2>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				This class manages rendering the map. It takes source map data from the MapData object, 
+including any annotations (overlays and inlays), and it presents a view of the map as defined from
+the MapView object. The MapTheme is controlled from the MapCanvas Object.
+NOTE: Severa constants defined in the constandts
+file are hardcoded here for performance reasons, rather than using the value assigned to the
+constant.
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class micello.maps.MapCanvas.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#constructor">micello.maps.MapCanvas</a></b>(mapControl, mapElement)
+							</div>
+							<div class="description">This constructor takes the map control, canvas element and view for the
+map.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class micello.maps.MapCanvas.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#baseAngleRad">baseAngleRad</a></b>
+								</div>
+								<div class="description">This is a base orientation angle used for settnig label orientation</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#data">data</a></b>
+								</div>
+								<div class="description">This is the map data.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								micello.maps.MapCanvas.<b><a href="../symbols/micello.maps.MapCanvas.html#.DEFAULT_MARKER_ZI">DEFAULT_MARKER_ZI</a></b>
+								</div>
+								<div class="description">This is the default zindex for a marker.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#DRAW_WAIT">DRAW_WAIT</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#getTheme">getTheme</a></b>
+								</div>
+								<div class="description">This is a function to lookup a theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#IMAGE_DRAW_WAIT">IMAGE_DRAW_WAIT</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#mapControl">mapControl</a></b>
+								</div>
+								<div class="description">This is the map control</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#mapElement">mapElement</a></b>
+								</div>
+								<div class="description">This is the element which holds the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#mapTheme">mapTheme</a></b>
+								</div>
+								<div class="description">This is the theme to use for rendering the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#MAX_TEXT_SCALE">MAX_TEXT_SCALE</a></b>
+								</div>
+								<div class="description">This is the maximum scale for the text label</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#maxMapX">maxMapX</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#maxMapY">maxMapY</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#MIN_TEXT_SCALE">MIN_TEXT_SCALE</a></b>
+								</div>
+								<div class="description">This is the minimum scale for the text label</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#minMapX">minMapX</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#minMapY">minMapY</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#overrideTheme">overrideTheme</a></b>
+								</div>
+								<div class="description">This is an override theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#popups">popups</a></b>
+								</div>
+								<div class="description">These are the popups that are on the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#themeDrawing">themeDrawing</a></b>
+								</div>
+								<div class="description">This is the drawing for the current theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#themeFamily">themeFamily</a></b>
+								</div>
+								<div class="description">This is the theme family</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#themeList">themeList</a></b>
+								</div>
+								<div class="description">This is the list of active themes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#TILE_FACTOR">TILE_FACTOR</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#TILE_SIZE">TILE_SIZE</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#tileMap">tileMap</a></b>
+								</div>
+								<div class="description">This is the list of tiles</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapCanvas.html#view">view</a></b>
+								</div>
+								<div class="description">This is the map view.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class micello.maps.MapCanvas.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#addMarker">addMarker</a></b>(marker)
+								</div>
+								<div class="description">This method adds a marker to the map display, creating an HTML element for it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#addTheme">addTheme</a></b>(theme)
+								</div>
+								<div class="description">This method adds a theme to the list of active themes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#arrayContains">arrayContains</a></b>(a, e)
+								</div>
+								<div class="description">This is a utility to see if an element is in an array.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#check">check</a></b>(nameList, name)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#clearCanvas">clearCanvas</a></b>()
+								</div>
+								<div class="description">This method clears all tiles from the screen.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#clearThemes">clearThemes</a></b>()
+								</div>
+								<div class="description">This method clears the list of active themes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#clearZoomCache">clearZoomCache</a></b>()
+								</div>
+								<div class="description">Clears the intermediate state from a zoom transition.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#clickMouse">clickMouse</a></b>(mapScreenX, mapScreenY, mapObject)
+								</div>
+								<div class="description">This function takes a mouse click in view box coordinates from the UI and processes it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#createPopup">createPopup</a></b>()
+								</div>
+								<div class="description">This method creates a popup which is tied to the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#drawMap">drawMap</a></b>()
+								</div>
+								<div class="description">This method triggers a redraw of the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#drawMapExe">drawMapExe</a></b>()
+								</div>
+								<div class="description">This method is called asynchronously to do the draw.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#drawTile">drawTile</a></b>(tile)
+								</div>
+								<div class="description">This method draws an individual tile .</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#getMarkerCenterX">getMarkerCenterX</a></b>(marker)
+								</div>
+								<div class="description">This method returns the center X Map coordinate for a marker.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#getMarkerCenterY">getMarkerCenterY</a></b>(marker)
+								</div>
+								<div class="description">This method returns the center Y Map coordinate for a marker.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#getThemeFamily">getThemeFamily</a></b>()
+								</div>
+								<div class="description">This method sets an overide theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#getThemes">getThemes</a></b>()
+								</div>
+								<div class="description">This method returns the list of active themes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#hitCheck">hitCheck</a></b>(geomArray, mapX, mapY)
+								</div>
+								<div class="description">This method checks if the canvas coordinates intersect an geometry in the lists passed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#invalidateGeom">invalidateGeom</a></b>(geom, lid, z)
+								</div>
+								<div class="description">This method invalidates the map for the given geometry object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#loadGeomMinMax">loadGeomMinMax</a></b>(geom)
+								</div>
+								<div class="description">This method loads the minmax bounding box for a geometry.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#loadTheme">loadTheme</a></b>(drawing)
+								</div>
+								<div class="description">Gets the named icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#mapThemeLoaded">mapThemeLoaded</a></b>()
+								</div>
+								<div class="description">This method should be called then the map theme for the current drawing is completely loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#onPan">onPan</a></b>(minPixX, minPixY, maxPixX, maxPixY)
+								</div>
+								<div class="description">This map should be called when the map is panned with the new coordinates of the view window
+in map div element coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#onThemeLoaded">onThemeLoaded</a></b>(theme)
+								</div>
+								<div class="description">This method handles doewnloaded themes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#onZoom">onZoom</a></b>()
+								</div>
+								<div class="description">This map should be called when the zoom changes, so the screen can be redrawn and popups recalculated.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#prepareZoomCache">prepareZoomCache</a></b>()
+								</div>
+								<div class="description">Sets the intermediate state for a zoom transition.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#removeMarker">removeMarker</a></b>(marker)
+								</div>
+								<div class="description">This method removes a marker from the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#removePopup">removePopup</a></b>(popup)
+								</div>
+								<div class="description">This method removes a popup from the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#render">render</a></b>(ctx, geomArray, tile)
+								</div>
+								<div class="description">This method renders a geometry array on a canvas context.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#renderPath">renderPath</a></b>(ctx, geom, style, scale)
+								</div>
+								<div class="description">This method draws an individual path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#setOverrideTheme">setOverrideTheme</a></b>(overrideTheme)
+								</div>
+								<div class="description">This method sets an overide theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#setThemeFamily">setThemeFamily</a></b>(themeFamily)
+								</div>
+								<div class="description">This method sets an overide theme.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#updateDomOverlays">updateDomOverlays</a></b>(currentLevel, oldLevel)
+								</div>
+								<div class="description">This method updates the location and visible status of the popups.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#updateImages">updateImages</a></b>(imgInfo)
+								</div>
+								<div class="description">This is a function that triggers a redraw when a label image loads.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#updatelevel">updatelevel</a></b>(currentLevel, oldLevel)
+								</div>
+								<div class="description">This method should be called if the level is updated.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#updateMarker">updateMarker</a></b>(marker, level)
+								</div>
+								<div class="description">This method updates a marker for a change in level or zoom.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the events documented in the class micello.maps.MapCanvas.">
+					<caption>Event Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Event Attributes</th>
+							<th scope="col">Event Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapCanvas.html#event:onMapClick">onMapClick</a></b>(mapX, mapY, This)
+								</div>
+								<div class="description">This method is a callback for when the user clicks on the map.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>micello.maps.MapCanvas</b>(mapControl, mapElement)
+				</div>
+				
+				<div class="description">
+					This constructor takes the map control, canvas element and view for the
+map. It should not be called explicitly. It should be called by the map control.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								 <b>mapControl</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>mapElement</b>
+								
+							</dt>
+								<dd></dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="baseAngleRad"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>baseAngleRad</b>
+					
+					</div>
+					<div class="description">
+						This is a base orientation angle used for settnig label orientation
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="data"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>data</b>
+					
+					</div>
+					<div class="description">
+						This is the map data.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DEFAULT_MARKER_ZI"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapCanvas.</span><b>DEFAULT_MARKER_ZI</b>
+					
+					</div>
+					<div class="description">
+						This is the default zindex for a marker.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DRAW_WAIT"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>DRAW_WAIT</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTheme"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getTheme</b>
+					
+					</div>
+					<div class="description">
+						This is a function to lookup a theme. This is populated by default to look up the
+default theme. Setting a custom theme can be done by overriding this function or
+by manually settng the needed themes using the "addTheme" function.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="IMAGE_DRAW_WAIT"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>IMAGE_DRAW_WAIT</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapControl"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapControl</b>
+					
+					</div>
+					<div class="description">
+						This is the map control
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapElement"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>mapElement</b>
+					
+					</div>
+					<div class="description">
+						This is the element which holds the map.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapTheme"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapTheme</b>
+					
+					</div>
+					<div class="description">
+						This is the theme to use for rendering the map.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="MAX_TEXT_SCALE"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>MAX_TEXT_SCALE</b>
+					
+					</div>
+					<div class="description">
+						This is the maximum scale for the text label
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="maxMapX"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>maxMapX</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="maxMapY"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>maxMapY</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="MIN_TEXT_SCALE"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>MIN_TEXT_SCALE</b>
+					
+					</div>
+					<div class="description">
+						This is the minimum scale for the text label
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="minMapX"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>minMapX</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="minMapY"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>minMapY</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="overrideTheme"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>overrideTheme</b>
+					
+					</div>
+					<div class="description">
+						This is an override theme.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="popups"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>popups</b>
+					
+					</div>
+					<div class="description">
+						These are the popups that are on the map.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="themeDrawing"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>themeDrawing</b>
+					
+					</div>
+					<div class="description">
+						This is the drawing for the current theme.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="themeFamily"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>themeFamily</b>
+					
+					</div>
+					<div class="description">
+						This is the theme family
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="themeList"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>themeList</b>
+					
+					</div>
+					<div class="description">
+						This is the list of active themes.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="TILE_FACTOR"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>TILE_FACTOR</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="TILE_SIZE"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>TILE_SIZE</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="tileMap"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>tileMap</b>
+					
+					</div>
+					<div class="description">
+						This is the list of tiles
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="view"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>view</b>
+					
+					</div>
+					<div class="description">
+						This is the map view.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addMarker"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>addMarker</b>(marker)
+					
+					</div>
+					<div class="description">
+						This method adds a marker to the map display, creating an HTML element for it.
+Visibility of the marker is managed by the map canvas according to the active level.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{MarkerOverlay}</span> <b>marker</b>
+									
+								</dt>
+								<dd>The marker to add</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addTheme"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addTheme</b>(theme)
+					
+					</div>
+					<div class="description">
+						This method adds a theme to the list of active themes. This method allows the user
+to set a collection of themes that will be used for rendering the maps.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>theme</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="arrayContains"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>arrayContains</b>(a, e)
+					
+					</div>
+					<div class="description">
+						This is a utility to see if an element is in an array.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>a</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>e</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="check"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>check</b>(nameList, name)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>nameList</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>name</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearCanvas"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>clearCanvas</b>()
+					
+					</div>
+					<div class="description">
+						This method clears all tiles from the screen.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearThemes"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearThemes</b>()
+					
+					</div>
+					<div class="description">
+						This method clears the list of active themes.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearZoomCache"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearZoomCache</b>()
+					
+					</div>
+					<div class="description">
+						Clears the intermediate state from a zoom transition.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clickMouse"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>clickMouse</b>(mapScreenX, mapScreenY, mapObject)
+					
+					</div>
+					<div class="description">
+						This function takes a mouse click in view box coordinates from the UI and processes it. If an element
+was clicked that is defined from map object, then the map object is passed in the argument.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mapScreenX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapScreenY</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapObject</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="createPopup"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{MapPopup}</span>
+					<b>createPopup</b>()
+					
+					</div>
+					<div class="description">
+						This method creates a popup which is tied to the map. This method should be used
+rather than the constructor for the popup in order to instatiate a popup.
+This does not make the popup visible. Control of the popup is done through the popup methods.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{MapPopup}</span> A new map popup object</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="drawMap"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>drawMap</b>()
+					
+					</div>
+					<div class="description">
+						This method triggers a redraw of the map. It will only redraw
+tiles in the screen view that are either missing or invalidated.
+The draw is done asynchronously. The theme must be set before the
+draw will occur.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="drawMapExe"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>drawMapExe</b>()
+					
+					</div>
+					<div class="description">
+						This method is called asynchronously to do the draw.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="drawTile"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>drawTile</b>(tile)
+					
+					</div>
+					<div class="description">
+						This method draws an individual tile .
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>tile</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMarkerCenterX"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getMarkerCenterX</b>(marker)
+					
+					</div>
+					<div class="description">
+						This method returns the center X Map coordinate for a marker. It returns Number.NaN if
+the value could not be calculated.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>marker</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMarkerCenterY"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getMarkerCenterY</b>(marker)
+					
+					</div>
+					<div class="description">
+						This method returns the center Y Map coordinate for a marker. It returns Number.NaN if
+the value could not be calculated.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>marker</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getThemeFamily"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getThemeFamily</b>()
+					
+					</div>
+					<div class="description">
+						This method sets an overide theme.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getThemes"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getThemes</b>()
+					
+					</div>
+					<div class="description">
+						This method returns the list of active themes.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hitCheck"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>hitCheck</b>(geomArray, mapX, mapY)
+					
+					</div>
+					<div class="description">
+						This method checks if the canvas coordinates intersect an geometry in the lists passed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>geomArray</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="invalidateGeom"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>invalidateGeom</b>(geom, lid, z)
+					
+					</div>
+					<div class="description">
+						This method invalidates the map for the given geometry object. This will force a redraw of a tile.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>geom</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>lid</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>z</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="loadGeomMinMax"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>loadGeomMinMax</b>(geom)
+					
+					</div>
+					<div class="description">
+						This method loads the minmax bounding box for a geometry.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>geom</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="loadTheme"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>loadTheme</b>(drawing)
+					
+					</div>
+					<div class="description">
+						Gets the named icon.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>drawing</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapThemeLoaded"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapThemeLoaded</b>()
+					
+					</div>
+					<div class="description">
+						This method should be called then the map theme for the current drawing is completely loaded.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onPan"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>onPan</b>(minPixX, minPixY, maxPixX, maxPixY)
+					
+					</div>
+					<div class="description">
+						This map should be called when the map is panned with the new coordinates of the view window
+in map div element coordinates. This will check if any redraw needs to be done.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>minPixX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>minPixY</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>maxPixX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>maxPixY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onThemeLoaded"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>onThemeLoaded</b>(theme)
+					
+					</div>
+					<div class="description">
+						This method handles doewnloaded themes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>theme</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onZoom"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>onZoom</b>()
+					
+					</div>
+					<div class="description">
+						This map should be called when the zoom changes, so the screen can be redrawn and popups recalculated.
+If the view is panned and zoomed, only this function needs to be called instead of calling it and on pan.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="prepareZoomCache"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>prepareZoomCache</b>()
+					
+					</div>
+					<div class="description">
+						Sets the intermediate state for a zoom transition.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeMarker"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>removeMarker</b>(marker)
+					
+					</div>
+					<div class="description">
+						This method removes a marker from the map.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{MarkerOverlay}</span> <b>marker</b>
+									
+								</dt>
+								<dd>The marker to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removePopup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removePopup</b>(popup)
+					
+					</div>
+					<div class="description">
+						This method removes a popup from the map. This method is not intended to hide
+a popup. For control of the popup itself see the popup interface. Once a popup is
+removed from the map it can not be added again.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{MapPopup}</span> <b>popup</b>
+									
+								</dt>
+								<dd>The popup to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="render"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>render</b>(ctx, geomArray, tile)
+					
+					</div>
+					<div class="description">
+						This method renders a geometry array on a canvas context.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ctx</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>geomArray</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>tile</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="renderPath"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>renderPath</b>(ctx, geom, style, scale)
+					
+					</div>
+					<div class="description">
+						This method draws an individual path.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ctx</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>geom</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>style</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>scale</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setOverrideTheme"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setOverrideTheme</b>(overrideTheme)
+					
+					</div>
+					<div class="description">
+						This method sets an overide theme.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>overrideTheme</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setThemeFamily"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setThemeFamily</b>(themeFamily)
+					
+					</div>
+					<div class="description">
+						This method sets an overide theme.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>themeFamily</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateDomOverlays"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>updateDomOverlays</b>(currentLevel, oldLevel)
+					
+					</div>
+					<div class="description">
+						This method updates the location and visible status of the popups. It should
+be called when the level changes or the zoom changes. The currentLevel should be the active
+level. The oldLevel should be the previous level if the level changed, otherwise it should be null.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>currentLevel</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>oldLevel</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateImages"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>updateImages</b>(imgInfo)
+					
+					</div>
+					<div class="description">
+						This is a function that triggers a redraw when a label image loads.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>imgInfo</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updatelevel"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>updatelevel</b>(currentLevel, oldLevel)
+					
+					</div>
+					<div class="description">
+						This method should be called if the level is updated.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>currentLevel</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>oldLevel</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateMarker"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>updateMarker</b>(marker, level)
+					
+					</div>
+					<div class="description">
+						This method updates a marker for a change in level or zoom.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>marker</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>level</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+				<div class="sectionTitle">
+					Event Detail
+				</div>
+				
+					<a name="event:onMapClick"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onMapClick</b>(mapX, mapY, This)
+					
+					</div>
+					<div class="description">
+						This method is a callback for when the user clicks on the map. It is called after the low level
+mouse click obejct is processed to see which map object is clicked.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>mapX</b>
+									
+								</dt>
+								<dd>The X coordinate clicked in map space.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>mapY</b>
+									
+								</dt>
+								<dd>The X coordinate clicked in map space.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>This</b>
+									
+								</dt>
+								<dd>is a map object that was clicked by the mouse. It will be either
+a geometry or a marker.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Tue Sep 04 2012 14:59:41 GMT-0700 (PDT)
+		</div>
+	</body>
+</html>

@@ -1,0 +1,2195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - micello.maps.MapView</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+	<img src="http://maps.micello.com/webmap/resources/header_logo.jpg"/>
+	<hr>
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/micello.html">micello</a></li>
+	
+	<li><a href="../symbols/micello.geom.html">micello.geom</a></li>
+	
+	<li><a href="../symbols/micello.maps.html">micello.maps</a></li>
+	
+	<li><a href="../symbols/micello.maps.geomtype.html">micello.maps.geomtype</a></li>
+	
+	<li><a href="../symbols/micello.maps.infoentrytype.html">micello.maps.infoentrytype</a></li>
+	
+	<li><a href="../symbols/micello.maps.labeltype.html">micello.maps.labeltype</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapCanvas.html">micello.maps.MapCanvas</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapControl.html">micello.maps.MapControl</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapData.html">micello.maps.MapData</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapGUI.html">micello.maps.MapGUI</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapPopup.html">micello.maps.MapPopup</a></li>
+	
+	<li><a href="../symbols/micello.maps.mapproblem.html">micello.maps.mapproblem</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapTile.html">micello.maps.MapTile</a></li>
+	
+	<li><a href="../symbols/micello.maps.MapView.html">micello.maps.MapView</a></li>
+	
+	<li><a href="../symbols/micello.maps.markertype.html">micello.maps.markertype</a></li>
+	
+	<li><a href="../symbols/micello.maps.path.html">micello.maps.path</a></li>
+	
+	<li><a href="../symbols/micello.maps.popuptype.html">micello.maps.popuptype</a></li>
+	
+	<li><a href="../symbols/micello.maps.request.html">micello.maps.request</a></li>
+	
+	<li><a href="../symbols/micello.maps.shapetype.html">micello.maps.shapetype</a></li>
+	
+	<li><a href="../symbols/micello.maps.ZList.html">micello.maps.ZList</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<div id="title">
+	<h1>Javascript Class Reference</h1>
+</div>
+			<h2 class="classTitle">
+				
+				Class micello.maps.MapView
+			</h2>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				This class manages the view of the map. It contains functions to set the
+view as well as to read it.
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class micello.maps.MapView.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#constructor">micello.maps.MapView</a></b>(mapControl, viewportElement, mapElement, mapCanvas)
+							</div>
+							<div class="description">This constructor takes the map control and the map canvas.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class micello.maps.MapView.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#baseC2M">baseC2M</a></b>
+								</div>
+								<div class="description">base transform for canvas to map</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#baseM2C">baseM2C</a></b>
+								</div>
+								<div class="description">base transform for map to canvas</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#baseOffC">baseOffC</a></b>
+								</div>
+								<div class="description">drawing base offset</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#baseOffM">baseOffM</a></b>
+								</div>
+								<div class="description">drawing base offset</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#c2m">c2m</a></b>
+								</div>
+								<div class="description">canvas coordinates to map coordiantes</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#customView">customView</a></b>
+								</div>
+								<div class="description">This flag indicates a custom base transform is being used.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#event">event</a></b>
+								</div>
+								<div class="description">This is the object (re)used in calling onViewChanged events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#m2c">m2c</a></b>
+								</div>
+								<div class="description">map coordinates to canvas coordinate</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#mapCanvas">mapCanvas</a></b>
+								</div>
+								<div class="description">The map control</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#mapControl">mapControl</a></b>
+								</div>
+								<div class="description">The map control</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#mapElement">mapElement</a></b>
+								</div>
+								<div class="description">The containing div for the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#mapXInViewport">mapXInViewport</a></b>
+								</div>
+								<div class="description">The x coordinate of the map element in the viewport coordinates</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#mapYInViewport">mapYInViewport</a></b>
+								</div>
+								<div class="description">The y coordinate of the map element in the viewport coordinates</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#northAtTop">northAtTop</a></b>
+								</div>
+								<div class="description">If this flag is set, the control automatically puts N at the top of the page.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#scale">scale</a></b>
+								</div>
+								<div class="description">This is the zoom scale - it should be set internally using setQuantizedScale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								micello.maps.MapView.<b><a href="../symbols/micello.maps.MapView.html#.SCALE_QUANT">SCALE_QUANT</a></b>
+								</div>
+								<div class="description">This is a factor to quantize the scale</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#viewport">viewport</a></b>
+								</div>
+								<div class="description">The containing div for the map.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/micello.maps.MapView.html#zoomInt">zoomInt</a></b>
+								</div>
+								<div class="description">This is an integer that represents the zoom level</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class micello.maps.MapView.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#canvasToMapX">canvasToMapX</a></b>(mapCanvasX, mapCanvasY)
+								</div>
+								<div class="description">This converts from map screen pixels to map coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#canvasToMapY">canvasToMapY</a></b>(mapCanvasX, mapCanvasY)
+								</div>
+								<div class="description">This converts from map screen pixels to map coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getC2M">getC2M</a></b>()
+								</div>
+								<div class="description">This returns the transform from canvas to map coordinates</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getM2C">getM2C</a></b>()
+								</div>
+								<div class="description">This returns the transform from map to canvas coordinates</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getViewportHeight">getViewportHeight</a></b>()
+								</div>
+								<div class="description">Gets the internal height of the viewport.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getViewportWidth">getViewportWidth</a></b>()
+								</div>
+								<div class="description">Gets the internal width of the viewport.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getViewportX">getViewportX</a></b>()
+								</div>
+								<div class="description">This method returns the viewport X coordinate in the map element space.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getViewportY">getViewportY</a></b>()
+								</div>
+								<div class="description">This method returns the viewport Y coordinate in the map element space.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getZoom">getZoom</a></b>()
+								</div>
+								<div class="description">This methods returns the current zoom scale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#getZoomInt">getZoomInt</a></b>()
+								</div>
+								<div class="description">This methods returns the an integer zoom level associated with the zoom scale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#home">home</a></b>()
+								</div>
+								<div class="description">This method returns the map to the default view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#mapToCanvasX">mapToCanvasX</a></b>(mapX, mapY)
+								</div>
+								<div class="description">This converts from map coordinates map screen pixels.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#mapToCanvasY">mapToCanvasY</a></b>(mapX, mapY)
+								</div>
+								<div class="description">This converts from map coordinates map screen pixels.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#resetView">resetView</a></b>()
+								</div>
+								<div class="description">This method resets the view to a zoom scale to the default and the center of the map
+being the center of the drawing.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setBaseAngRad">setBaseAngRad</a></b>(aRad)
+								</div>
+								<div class="description">This method sets the transforms for the given scale value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setBaseTransform">setBaseTransform</a></b>(baseTrans, aRad)
+								</div>
+								<div class="description">This method sets the the default perspective.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setQuantizedScale">setQuantizedScale</a></b>(scale)
+								</div>
+								<div class="description">This quantizes the scale factor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setTopNorth">setTopNorth</a></b>(northAtTop)
+								</div>
+								<div class="description">This method sets the transforms for the given scale value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setTransformScale">setTransformScale</a></b>()
+								</div>
+								<div class="description">This method sets the transforms for the given scale value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#setZoom">setZoom</a></b>(scale, fixedPointX, fixedPointY)
+								</div>
+								<div class="description">This method set the zoom scale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#translate">translate</a></b>(dx, dy)
+								</div>
+								<div class="description">This method translates the map view by the amount dx, dy in screen coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;private&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#updateDrawing">updateDrawing</a></b>(drawing)
+								</div>
+								<div class="description">This method should be called when a drawing changes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#viewportToMapX">viewportToMapX</a></b>(viewportX, viewportY)
+								</div>
+								<div class="description">This converts from map screen pixels to map coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#viewportToMapY">viewportToMapY</a></b>(viewportX, viewportY)
+								</div>
+								<div class="description">This converts from map screen pixels to map coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#zoomIn">zoomIn</a></b>(fixedPointX, fixedPointY)
+								</div>
+								<div class="description">This method increases the zoom scale.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#zoomOut">zoomOut</a></b>(fixedPointX, fixedPointY)
+								</div>
+								<div class="description">This method decreases the zoom scale.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the events documented in the class micello.maps.MapView.">
+					<caption>Event Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Event Attributes</th>
+							<th scope="col">Event Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/micello.maps.MapView.html#event:onViewChange">onViewChange</a></b>(event)
+								</div>
+								<div class="description">This method is a callback for when the zoom or center of the map changes.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>micello.maps.MapView</b>(mapControl, viewportElement, mapElement, mapCanvas)
+				</div>
+				
+				<div class="description">
+					This constructor takes the map control and the map canvas. It should not be
+called explicitly. It should be called by the map control.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								 <b>mapControl</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>viewportElement</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>mapElement</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>mapCanvas</b>
+								
+							</dt>
+								<dd></dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="baseC2M"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>baseC2M</b>
+					
+					</div>
+					<div class="description">
+						base transform for canvas to map
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="baseM2C"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>baseM2C</b>
+					
+					</div>
+					<div class="description">
+						base transform for map to canvas
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="baseOffC"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>baseOffC</b>
+					
+					</div>
+					<div class="description">
+						drawing base offset
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="baseOffM"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>baseOffM</b>
+					
+					</div>
+					<div class="description">
+						drawing base offset
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="c2m"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>c2m</b>
+					
+					</div>
+					<div class="description">
+						canvas coordinates to map coordiantes
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="customView"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>customView</b>
+					
+					</div>
+					<div class="description">
+						This flag indicates a custom base transform is being used.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="event"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>event</b>
+					
+					</div>
+					<div class="description">
+						This is the object (re)used in calling onViewChanged events.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="m2c"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>m2c</b>
+					
+					</div>
+					<div class="description">
+						map coordinates to canvas coordinate
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapCanvas"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapCanvas</b>
+					
+					</div>
+					<div class="description">
+						The map control
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapControl"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapControl</b>
+					
+					</div>
+					<div class="description">
+						The map control
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapElement"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapElement</b>
+					
+					</div>
+					<div class="description">
+						The containing div for the map.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapXInViewport"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapXInViewport</b>
+					
+					</div>
+					<div class="description">
+						The x coordinate of the map element in the viewport coordinates
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapYInViewport"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>mapYInViewport</b>
+					
+					</div>
+					<div class="description">
+						The y coordinate of the map element in the viewport coordinates
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="northAtTop"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>northAtTop</b>
+					
+					</div>
+					<div class="description">
+						If this flag is set, the control automatically puts N at the top of the page.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="scale"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>scale</b>
+					
+					</div>
+					<div class="description">
+						This is the zoom scale - it should be set internally using setQuantizedScale.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SCALE_QUANT"> </a>
+					<div class="fixedFont">&lt;private&gt; &lt;static&gt; 
+					
+					
+					<span class="light">micello.maps.MapView.</span><b>SCALE_QUANT</b>
+					
+					</div>
+					<div class="description">
+						This is a factor to quantize the scale
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="viewport"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>viewport</b>
+					
+					</div>
+					<div class="description">
+						The containing div for the map.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="zoomInt"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>zoomInt</b>
+					
+					</div>
+					<div class="description">
+						This is an integer that represents the zoom level
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="canvasToMapX"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>canvasToMapX</b>(mapCanvasX, mapCanvasY)
+					
+					</div>
+					<div class="description">
+						This converts from map screen pixels to map coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mapCanvasX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapCanvasY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="canvasToMapY"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>canvasToMapY</b>(mapCanvasX, mapCanvasY)
+					
+					</div>
+					<div class="description">
+						This converts from map screen pixels to map coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mapCanvasX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapCanvasY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getC2M"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getC2M</b>()
+					
+					</div>
+					<div class="description">
+						This returns the transform from canvas to map coordinates
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getM2C"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getM2C</b>()
+					
+					</div>
+					<div class="description">
+						This returns the transform from map to canvas coordinates
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getViewportHeight"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getViewportHeight</b>()
+					
+					</div>
+					<div class="description">
+						Gets the internal height of the viewport.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getViewportWidth"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getViewportWidth</b>()
+					
+					</div>
+					<div class="description">
+						Gets the internal width of the viewport.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getViewportX"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getViewportX</b>()
+					
+					</div>
+					<div class="description">
+						This method returns the viewport X coordinate in the map element space.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getViewportY"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>getViewportY</b>()
+					
+					</div>
+					<div class="description">
+						This method returns the viewport Y coordinate in the map element space.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getZoom"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getZoom</b>()
+					
+					</div>
+					<div class="description">
+						This methods returns the current zoom scale.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getZoomInt"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getZoomInt</b>()
+					
+					</div>
+					<div class="description">
+						This methods returns the an integer zoom level associated with the zoom scale.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="home"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>home</b>()
+					
+					</div>
+					<div class="description">
+						This method returns the map to the default view.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapToCanvasX"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>mapToCanvasX</b>(mapX, mapY)
+					
+					</div>
+					<div class="description">
+						This converts from map coordinates map screen pixels.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mapX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mapToCanvasY"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>mapToCanvasY</b>(mapX, mapY)
+					
+					</div>
+					<div class="description">
+						This converts from map coordinates map screen pixels.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mapX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>mapY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetView"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>resetView</b>()
+					
+					</div>
+					<div class="description">
+						This method resets the view to a zoom scale to the default and the center of the map
+being the center of the drawing. If ther is no drawing, the center is set to 0,0.
+The default default scael is picked so the drawing is visible in the viewport.
+There is no redraw and no view change events are called.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setBaseAngRad"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>setBaseAngRad</b>(aRad)
+					
+					</div>
+					<div class="description">
+						This method sets the transforms for the given scale value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>aRad</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setBaseTransform"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>setBaseTransform</b>(baseTrans, aRad)
+					
+					</div>
+					<div class="description">
+						This method sets the the default perspective. The argument baseTrans should be a 2x2 matrix giving the
+transformation of the view. The argument aRad shoudl be set to give the update to the label rotation.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>baseTrans</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>aRad</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setQuantizedScale"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>setQuantizedScale</b>(scale)
+					
+					</div>
+					<div class="description">
+						This quantizes the scale factor.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>scale</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTopNorth"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTopNorth</b>(northAtTop)
+					
+					</div>
+					<div class="description">
+						This method sets the transforms for the given scale value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>northAtTop</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTransformScale"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>setTransformScale</b>()
+					
+					</div>
+					<div class="description">
+						This method sets the transforms for the given scale value.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setZoom"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setZoom</b>(scale, fixedPointX, fixedPointY)
+					
+					</div>
+					<div class="description">
+						This method set the zoom scale. From within the application, the zoom scale
+takes on discrete values given by the initial scale of one and the discrete zoom
+in/out jumps. This function allows arbitrary setting of the zoom scale.
+This method will not allow a zoom out if the current map
+size is smaller than the viewport.
+The fixedPointX and Y are optional arguments. Typically the should
+be left undefined. If they are set, then that point on the map canavs will remain fix as the zoom occurs.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>scale</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>fixedPointX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>fixedPointY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="translate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>translate</b>(dx, dy)
+					
+					</div>
+					<div class="description">
+						This method translates the map view by the amount dx, dy in screen coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>dx</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>dy</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateDrawing"> </a>
+					<div class="fixedFont">&lt;private&gt; 
+					
+					
+					<b>updateDrawing</b>(drawing)
+					
+					</div>
+					<div class="description">
+						This method should be called when a drawing changes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>drawing</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="viewportToMapX"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>viewportToMapX</b>(viewportX, viewportY)
+					
+					</div>
+					<div class="description">
+						This converts from map screen pixels to map coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>viewportX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>viewportY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="viewportToMapY"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>viewportToMapY</b>(viewportX, viewportY)
+					
+					</div>
+					<div class="description">
+						This converts from map screen pixels to map coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>viewportX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>viewportY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="zoomIn"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>zoomIn</b>(fixedPointX, fixedPointY)
+					
+					</div>
+					<div class="description">
+						This method increases the zoom scale.  The fixedPointX and Y are optional arguments. Typically the should
+be left undefined. If they are set, then that point on the map canavs will remain fix as the zoom in occurs.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>fixedPointX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>fixedPointY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="zoomOut"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>zoomOut</b>(fixedPointX, fixedPointY)
+					
+					</div>
+					<div class="description">
+						This method decreases the zoom scale. This method will not allow a zoom out if the current map
+size is smaller than the viewport. The fixedPointX and Y are optional arguments. Typically the should
+be left undefined. If they are set, then that point on the map canavs will remain fix as the zoom out occurs.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>fixedPointX</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>fixedPointY</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+				<div class="sectionTitle">
+					Event Detail
+				</div>
+				
+					<a name="event:onViewChange"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onViewChange</b>(event)
+					
+					</div>
+					<div class="description">
+						This method is a callback for when the zoom or center of the map changes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>event</b>
+									
+								</dt>
+								<dd>This object holds information on the view change.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Tue Sep 04 2012 14:59:42 GMT-0700 (PDT)
+		</div>
+	</body>
+</html>
