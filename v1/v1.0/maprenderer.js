@@ -38,47 +38,24 @@ micello.maps.MapRenderer.prototype.setThemeMap = function(themeMap) {
 
 /** This method draws an individual tile .
  * @private */
-micello.maps.MapRenderer.prototype.drawTile = function(currentLevel,tile,mapToCanvasTransform) {
-
-	//render
-	var ctx = tile.canvas.getContext('2d');
-
-	if(ctx){
-		ctx.clearRect(0,0,tile.canvas.width,tile.canvas.height);
-
-        // assign font for whole context
-		ctx.lineJoin = 'round';
-		ctx.lineCap = 'round';
-
-		ctx.save();
-
-		//transform from data coordinates to tile coordinates
-		ctx.translate(-tile.elementX,-tile.elementY);
-		ctx.transform(mapToCanvasTransform[0],mapToCanvasTransform[1],mapToCanvasTransform[2],mapToCanvasTransform[3],mapToCanvasTransform[4],mapToCanvasTransform[5]);
-
-		//render main geom
-		var geomArray;
-		var gList = currentLevel.gList;
-		for(gList.start(); ((geomArray = gList.currentList()) != null); gList.next()) {
-			this.render(ctx,geomArray,tile);
-		}
-
-		ctx.restore();
-	}
-
-	//flag tile as valid
-	tile.invalid = false;
+micello.maps.MapRenderer.prototype.renderLevel = function(scene,currentLevel) {
+    //render main geom
+    var geomArray;
+    var gList = currentLevel.gList;
+    for(gList.start(); ((geomArray = gList.currentList()) != null); gList.next()) {
+        this.renderGeomList(scene,geomArray);
+    }
 }
 
 /** This method renders a geometry array on a canvas context.
  * @private */
-micello.maps.MapRenderer.prototype.render = function(ctx,geomArray,tile) {
+micello.maps.MapRenderer.prototype.renderGeomList = function(scene,geomArray) {
 
 	if((!this.themeMap)||(!this.themeMap.isLoaded())) return;
 
 	var count = geomArray.length;
-	var zoomScale = tile.scale;
-	var i;
+    var zoomScale = 1; //THIS IS NOT RIGHT!
+	var i,j;
 	var geom;
 	var renderCache;
 	var style;
@@ -89,58 +66,59 @@ micello.maps.MapRenderer.prototype.render = function(ctx,geomArray,tile) {
 	for(i = 0; i < count; i++) {
 		geom = geomArray[i];
 
-		//check for tile intersection
-		if(!geom.mm) this.loadGeomMinMax(geom);
-		if((geom.mm)&&(!tile.mapIntersects(geom.mm))) continue;
-
 		//load the render cache if needed
 		if(!geom.renderCache) {
+var ctx = null;
 			geom.renderCache = this.getRenderCache(ctx, geom);
 		}
 		renderCache = geom.renderCache;
 
 		//geometry, path
 		if((renderCache)&&(renderCache.style)) {
-			style = renderCache.style;
-			if((style.zmin)&&(style.zmin > zoomScale)) continue;
 
 			//check if style is pending loaded resources
-			if((style.pending & micello.maps.MapRenderer.TEXTURE)&&(style.textureInfo)) {
-				this.updateCacheObjects(style.textureInfo,tile,style);
-			}
+            //ADD THIS BACK IN WHEN READY
+//			if((style.pending & micello.maps.MapRenderer.TEXTURE)&&(style.textureInfo)) {
+//				this.updateCacheObjects(style.textureInfo,tile,style);
+//			}
 
-			this.renderPath(ctx,geom,style,zoomScale,tile);
+			var geomObjects = this.createPathObjects(geom,renderCache.style,zoomScale);
+            if(geomObjects) {
+                for(var j = 0; j < geomObjects.length; j++) {
+                    scene.add(geomObjects[j]);
+                }
+            }
 		}
 	}
 
 	//---------------
-	//render label
+	//render label - NOT FOR NOW IN THREE JS
 	//---------------
-	for(i = 0; i < count; i++) {
-		geom = geomArray[i];
-
-		//check for tile intersection
-		if((geom.mm)&&(!tile.mapIntersects(geom.mm))) continue;
-
-		//load the render cache, if needed (it should already be done)
-		if(!geom.renderCache) {
-			geom.renderCache = this.getRenderCache(ctx, geom);
-		}
-		renderCache = geom.renderCache;
-
-		//check if there are pending resources
-		if(renderCache.pending) {
-			if((renderCache.pending & micello.maps.MapRenderer.IMAGE)&&(renderCache.imgInfo)) {
-				this.updateCacheObjects(renderCache.imgInfo,tile,renderCache);
-			}
-			if((renderCache.pending & micello.maps.MapRenderer.ICON)&&(renderCache.iconInfo)) {
-				this.updateCacheObjects(renderCache.iconInfo,tile,renderCache);
-			}
-		}
-
-		//render the label
-		this.renderLabel(ctx,geom,zoomScale)
-	}
+//	for(i = 0; i < count; i++) {
+//		geom = geomArray[i];
+//
+//		//check for tile intersection
+//		if((geom.mm)&&(!tile.mapIntersects(geom.mm))) continue;
+//
+//		//load the render cache, if needed (it should already be done)
+//		if(!geom.renderCache) {
+//			geom.renderCache = this.getRenderCache(ctx, geom);
+//		}
+//		renderCache = geom.renderCache;
+//
+//		//check if there are pending resources
+//		if(renderCache.pending) {
+//			if((renderCache.pending & micello.maps.MapRenderer.IMAGE)&&(renderCache.imgInfo)) {
+//				this.updateCacheObjects(renderCache.imgInfo,tile,renderCache);
+//			}
+//			if((renderCache.pending & micello.maps.MapRenderer.ICON)&&(renderCache.iconInfo)) {
+//				this.updateCacheObjects(renderCache.iconInfo,tile,renderCache);
+//			}
+//		}
+//
+//		//render the label
+//		this.renderLabel(ctx,geom,zoomScale)
+//	}
 }
 
 
@@ -161,477 +139,500 @@ micello.maps.MapRenderer.prototype.getRenderCache = function (ctx, geom) {
 		//check for visibility
 		renderCache.geomVisible = ((renderCache.style.m)||((renderCache.o)&&(renderCache.style.w)));
 
-		//check for loading a texxture for this style
-		if(style.img) {
-
-			//for style, it might pass here multiple times
-			if(!style.textureInfo) {
-
-				//I define these two functions inline because I needed access to the contecxt (ctx) object
-				//I keep them as member objects so I don't have to redefine the functions every time
-				if(!this.applyImagePattern) {
-					this.applyImagePattern = function(style,textureInfo) {
-						var pattern
-						try { // this makes Firefox happy
-							pattern = ctx.createPattern(textureInfo.img, 'repeat');
-						}
-						catch (ex) {}
-						style.pattern = pattern;
-					}
-				}
-				if(!this.onTextureLoad) {
-					this.onTextureLoad = function(resInfo) {
-						micello.maps.MapRenderer.updateResourceObject(resInfo, instance.applyImagePattern, micello.maps.MapRenderer.TEXTURE);
-					}
-				}
-				//create the on texture error callback just once
-				if(!this.onTextureError) {
-					this.onTextureError = function(resInfo) {
-						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.TEXTURE, instance.mapEvent);
-					}
-				}
-
-				//load the texture image, passing the handler
-				var textureInfo = this.themeMap.getImage(style.img,this.onTextureLoad,this.onTextureError);
-				if(textureInfo.pending) {
-					if(renderCache.pending === undefined) renderCache.pending = 0;
-					style.pending |= micello.maps.MapRenderer.TEXTURE;
-					style.textureInfo = textureInfo;
-					style.cacheId = this.getUniqueString();
-				}
-				else {
-					this.applyImagePattern(style,textureInfo);
-				}
-			}
-		}
+//NO TEXTURE FOR NOW
+//		//check for loading a texxture for this style
+//		if(style.img) {
+//
+//			//for style, it might pass here multiple times
+//			if(!style.textureInfo) {
+//
+//				//I define these two functions inline because I needed access to the contecxt (ctx) object
+//				//I keep them as member objects so I don't have to redefine the functions every time
+//				if(!this.applyImagePattern) {
+//					this.applyImagePattern = function(style,textureInfo) {
+//						var pattern
+//						try { // this makes Firefox happy
+//							pattern = ctx.createPattern(textureInfo.img, 'repeat');
+//						}
+//						catch (ex) {}
+//						style.pattern = pattern;
+//					}
+//				}
+//				if(!this.onTextureLoad) {
+//					this.onTextureLoad = function(resInfo) {
+//						micello.maps.MapRenderer.updateResourceObject(resInfo, instance.applyImagePattern, micello.maps.MapRenderer.TEXTURE);
+//					}
+//				}
+//				//create the on texture error callback just once
+//				if(!this.onTextureError) {
+//					this.onTextureError = function(resInfo) {
+//						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.TEXTURE, instance.mapEvent);
+//					}
+//				}
+//
+//				//load the texture image, passing the handler
+//				var textureInfo = this.themeMap.getImage(style.img,this.onTextureLoad,this.onTextureError);
+//				if(textureInfo.pending) {
+//					if(renderCache.pending === undefined) renderCache.pending = 0;
+//					style.pending |= micello.maps.MapRenderer.TEXTURE;
+//					style.textureInfo = textureInfo;
+//					style.cacheId = this.getUniqueString();
+//				}
+//				else {
+//					this.applyImagePattern(style,textureInfo);
+//				}
+//			}
+//		}
 	}
 
-	//label
-	if(geom.l) {
-		var labelStyle;
-		if((renderCache.style)&&(renderCache.style.l)) {
-			labelStyle = this.themeMap.getLabelStyle(renderCache.style.l);
-		}
-		if(!labelStyle) labelStyle = this.themeMap.defaultLabelStyle;
-		if(!labelStyle) labelStyle = this.defaultLabelStyle;
-		renderCache.labelStyle = labelStyle;
-
-		var labInf = geom.l;
-		var spaceWidth = labInf[2];
-		var spaceHeight = labInf[3];
-		if(spaceWidth <= 0) spaceWidth = 1;
-		if(spaceHeight <= 0) spaceHeight = 1;
-
-		var labelInfo = this.themeMap.getLabel(geom);
-		if(labelInfo) {
-			renderCache.labInfo = labelInfo;
-
-			if(labelInfo.lt == 1) {
-				//text label
-				if((labelStyle)&&((labelStyle.fill)||((labelStyle.outline)&&(labelStyle.outlineWidth)))) {
-					var text;
-					if(labelInfo.r) {
-						text = labelInfo.r;
-					}
-					else if(labelInfo.ar) {
-						text = this.themeMap.translate(labelInfo.ar,labelInfo.ar);
-					}
-					else {
-						text = null;
-					}
-
-					if(text == null) {
-						renderCache.labelVisible = false;
-						renderCache.w = 0;
-						renderCache.h = 0;
-					}
-					else {
-						renderCache.labelVisible = true;
-
-						if(labelStyle.caps) {
-							text = text.toUpperCase();
-						}
-
-						// text cache -----------------------------------------
-						var font = labelStyle.font ? labelStyle.font : this.defaultLabelStyle.font;
-						ctx.font = this.RENDER_FONT_SIZE + "px " + font;
-
-						//single line text info
-						var metrics = ctx.measureText(text);
-						var w1 = metrics.width;
-						var h1 = this.RENDER_FONT_SIZE;
-						var padding = labelStyle.padding ? labelStyle.padding : 0;
-						w1 += 2 * padding;
-						h1 += 2 * padding;
-
-						var textInfo = {
-							"lr":text,
-							"w1":w1,
-							"h1":h1
-						};
-
-						//two line text info
-						var midPoint = text.length/2;
-						var pos = -1;
-						var off;
-						var bestPos = null;
-						var bestOff;
-						var c;
-						while((c = text.indexOf(" ",pos+1)) >= 0) {
-							pos = c;
-							off = Math.abs(c - midPoint);
-							if(bestPos) {
-								if(off < bestOff) {
-									bestPos = pos;
-									bestOff = off;
-								}
-							}
-							else {
-								bestPos = pos;
-								bestOff = off;
-							}
-						}
-
-						//check if we have a break candidate
-						if(bestPos) {
-							var stra = text.substr(0,bestPos);
-							var strb = text.substr(bestPos+1,text.length);
-							var w2a = ctx.measureText(stra).width;
-							var w2b = ctx.measureText(strb).width;
-							var w2 = w2a > w2b ? w2a : w2b;
-							var h2 =  2 * this.RENDER_FONT_SIZE;
-
-							w2 += 2 * padding;
-							h2 += 2 * padding;
-
-							var sf1 = this.getScaleFactor(spaceWidth,spaceHeight,w1,h1);
-							var sf2 = this.getScaleFactor(spaceWidth,spaceHeight,w2,h2);
-
-							var twoLines;
-							if(sf2 > sf1) {
-								//use the two line info
-								textInfo.sc = 1 / sf1;
-								textInfo.lr1 = stra;
-								textInfo.lr2 = strb;
-								textInfo.w2 = w2;
-								textInfo.h2 = h2;
-								twoLines = true;
-							}
-							else {
-								twoLines = false;
-							}
-
-						}
-
-						if(twoLines) {
-							renderCache.w = textInfo.w2;
-							renderCache.h = textInfo.h2;
-						}
-						else {
-							renderCache.w = textInfo.w1;
-							renderCache.h = textInfo.h1;
-						}
-
-						renderCache.textInfo = textInfo;
-					}
-
-					//for text, use text centering
-					renderCache.nax = 0;
-					renderCache.nay = 0;
-				}
-
-			}
-			else if(labelInfo.lt == 2) {
-				//icon label
-
-				//load the icon
-				//create the on icon error callback just once
-				if(!this.onIconError) {
-					this.onIconError = function(resInfo) {
-						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.ICON, instance.mapEvent);
-					}
-				}
-				var iconInfo = this.themeMap.getIcon(labelInfo.url,micello.maps.MapRenderer.onIconLoad,this.onIconError);
-				if(iconInfo.pending) {
-					if(renderCache.pending === undefined) renderCache.pending = 0;
-					renderCache.pending |= micello.maps.MapRenderer.ICON;
-					renderCache.iconInfo = iconInfo;
-
-					//needed to identify object
-					if(!renderCache.cacheId) {
-						renderCache.cacheId = this.getUniqueString();
-					}
-
-				}
-				else {
-					micello.maps.MapRenderer.iconApplyResource(renderCache,iconInfo);
-				}
-
-			}
-			else if(labelInfo.lt == 3) {
-				//image
-
-				//create the on image error callback just once
-				if(!this.onImageError) {
-					this.onImageError = function(resInfo) {
-						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.IMAGE, instance.mapEvent);
-					}
-				}
-				var imgInfo = this.themeMap.getImage(labelInfo.url,micello.maps.MapRenderer.onImageLoad,this.onImageError);
-				if(imgInfo.pending) {
-					if(renderCache.pending === undefined) renderCache.pending = 0;
-					renderCache.pending |= micello.maps.MapRenderer.IMAGE;
-					renderCache.imgInfo = imgInfo;
-
-					//needed to identify object
-					if(!renderCache.cacheId) {
-						renderCache.cacheId = this.getUniqueString();
-					}
-				}
-				else {
-					micello.maps.MapRenderer.imageApplyResource(renderCache,imgInfo);
-				}
-			}
-		}
-	}
+// NO LABEL FOR NOW
+//	//label
+//	if(geom.l) {
+//		var labelStyle;
+//		if((renderCache.style)&&(renderCache.style.l)) {
+//			labelStyle = this.themeMap.getLabelStyle(renderCache.style.l);
+//		}
+//		if(!labelStyle) labelStyle = this.themeMap.defaultLabelStyle;
+//		if(!labelStyle) labelStyle = this.defaultLabelStyle;
+//		renderCache.labelStyle = labelStyle;
+//
+//		var labInf = geom.l;
+//		var spaceWidth = labInf[2];
+//		var spaceHeight = labInf[3];
+//		if(spaceWidth <= 0) spaceWidth = 1;
+//		if(spaceHeight <= 0) spaceHeight = 1;
+//
+//		var labelInfo = this.themeMap.getLabel(geom);
+//		if(labelInfo) {
+//			renderCache.labInfo = labelInfo;
+//
+//			if(labelInfo.lt == 1) {
+//				//text label
+//				if((labelStyle)&&((labelStyle.fill)||((labelStyle.outline)&&(labelStyle.outlineWidth)))) {
+//					var text;
+//					if(labelInfo.r) {
+//						text = labelInfo.r;
+//					}
+//					else if(labelInfo.ar) {
+//						text = this.themeMap.translate(labelInfo.ar,labelInfo.ar);
+//					}
+//					else {
+//						text = null;
+//					}
+//
+//					if(text == null) {
+//						renderCache.labelVisible = false;
+//						renderCache.w = 0;
+//						renderCache.h = 0;
+//					}
+//					else {
+//						renderCache.labelVisible = true;
+//
+//						if(labelStyle.caps) {
+//							text = text.toUpperCase();
+//						}
+//
+//						// text cache -----------------------------------------
+//						var font = labelStyle.font ? labelStyle.font : this.defaultLabelStyle.font;
+//						ctx.font = this.RENDER_FONT_SIZE + "px " + font;
+//
+//						//single line text info
+//						var metrics = ctx.measureText(text);
+//						var w1 = metrics.width;
+//						var h1 = this.RENDER_FONT_SIZE;
+//						var padding = labelStyle.padding ? labelStyle.padding : 0;
+//						w1 += 2 * padding;
+//						h1 += 2 * padding;
+//
+//						var textInfo = {
+//							"lr":text,
+//							"w1":w1,
+//							"h1":h1
+//						};
+//
+//						//two line text info
+//						var midPoint = text.length/2;
+//						var pos = -1;
+//						var off;
+//						var bestPos = null;
+//						var bestOff;
+//						var c;
+//						while((c = text.indexOf(" ",pos+1)) >= 0) {
+//							pos = c;
+//							off = Math.abs(c - midPoint);
+//							if(bestPos) {
+//								if(off < bestOff) {
+//									bestPos = pos;
+//									bestOff = off;
+//								}
+//							}
+//							else {
+//								bestPos = pos;
+//								bestOff = off;
+//							}
+//						}
+//
+//						//check if we have a break candidate
+//						if(bestPos) {
+//							var stra = text.substr(0,bestPos);
+//							var strb = text.substr(bestPos+1,text.length);
+//							var w2a = ctx.measureText(stra).width;
+//							var w2b = ctx.measureText(strb).width;
+//							var w2 = w2a > w2b ? w2a : w2b;
+//							var h2 =  2 * this.RENDER_FONT_SIZE;
+//
+//							w2 += 2 * padding;
+//							h2 += 2 * padding;
+//
+//							var sf1 = this.getScaleFactor(spaceWidth,spaceHeight,w1,h1);
+//							var sf2 = this.getScaleFactor(spaceWidth,spaceHeight,w2,h2);
+//
+//							var twoLines;
+//							if(sf2 > sf1) {
+//								//use the two line info
+//								textInfo.sc = 1 / sf1;
+//								textInfo.lr1 = stra;
+//								textInfo.lr2 = strb;
+//								textInfo.w2 = w2;
+//								textInfo.h2 = h2;
+//								twoLines = true;
+//							}
+//							else {
+//								twoLines = false;
+//							}
+//
+//						}
+//
+//						if(twoLines) {
+//							renderCache.w = textInfo.w2;
+//							renderCache.h = textInfo.h2;
+//						}
+//						else {
+//							renderCache.w = textInfo.w1;
+//							renderCache.h = textInfo.h1;
+//						}
+//
+//						renderCache.textInfo = textInfo;
+//					}
+//
+//					//for text, use text centering
+//					renderCache.nax = 0;
+//					renderCache.nay = 0;
+//				}
+//
+//			}
+//			else if(labelInfo.lt == 2) {
+//				//icon label
+//
+//				//load the icon
+//				//create the on icon error callback just once
+//				if(!this.onIconError) {
+//					this.onIconError = function(resInfo) {
+//						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.ICON, instance.mapEvent);
+//					}
+//				}
+//				var iconInfo = this.themeMap.getIcon(labelInfo.url,micello.maps.MapRenderer.onIconLoad,this.onIconError);
+//				if(iconInfo.pending) {
+//					if(renderCache.pending === undefined) renderCache.pending = 0;
+//					renderCache.pending |= micello.maps.MapRenderer.ICON;
+//					renderCache.iconInfo = iconInfo;
+//
+//					//needed to identify object
+//					if(!renderCache.cacheId) {
+//						renderCache.cacheId = this.getUniqueString();
+//					}
+//
+//				}
+//				else {
+//					micello.maps.MapRenderer.iconApplyResource(renderCache,iconInfo);
+//				}
+//
+//			}
+//			else if(labelInfo.lt == 3) {
+//				//image
+//
+//				//create the on image error callback just once
+//				if(!this.onImageError) {
+//					this.onImageError = function(resInfo) {
+//						micello.maps.MapRenderer.updateResourceObject(resInfo, micello.maps.MapRenderer.IMAGE, instance.mapEvent);
+//					}
+//				}
+//				var imgInfo = this.themeMap.getImage(labelInfo.url,micello.maps.MapRenderer.onImageLoad,this.onImageError);
+//				if(imgInfo.pending) {
+//					if(renderCache.pending === undefined) renderCache.pending = 0;
+//					renderCache.pending |= micello.maps.MapRenderer.IMAGE;
+//					renderCache.imgInfo = imgInfo;
+//
+//					//needed to identify object
+//					if(!renderCache.cacheId) {
+//						renderCache.cacheId = this.getUniqueString();
+//					}
+//				}
+//				else {
+//					micello.maps.MapRenderer.imageApplyResource(renderCache,imgInfo);
+//				}
+//			}
+//		}
+//	}
 
 	return renderCache;
 }
 
 /** This method draws an individual path.
  * @private */
-micello.maps.MapRenderer.prototype.renderPath = function(ctx,geom,style,scale,tile) {
+micello.maps.MapRenderer.prototype.createPathObjects = function(geom,style,scale) {
 
 	var geomType = geom.gt;
 	if(geomType == undefined) geomType = 2; // area
 	var gw = geom.gw;
 	var path = geom.shp;
 	if(!path) return;
-
+    
+    var shape = new THREE.Shape();
 	var instr;
+    var segmentStart = null;
+    var segmentLatest = null;
 
-	ctx.beginPath();
 	var l = path.length;
 	for(var ip = 0; ip < l; ip++) {
 		instr = path[ip];
 		switch(instr[0]) {
 			case 0:  //move to
-				ctx.moveTo(instr[1],instr[2]);
+				shape.moveTo(instr[1],instr[2]);
+                segmentStart = instr;
 				break;
 
 			case 1: //line to
-				ctx.lineTo(instr[1],instr[2]);
+				shape.lineTo(instr[1],instr[2]);
 				break;
 
 			case 2: //quad to
-				ctx.quadraticCurveTo(instr[1],instr[2],instr[3],instr[4]);
+				shape.quadraticCurveTo(instr[1],instr[2],instr[3],instr[4]);
 				break;
 
 			case 3: //cubic to
-				ctx.bezierCurveTo(instr[1],instr[2],instr[3],instr[4],instr[5],instr[6]);
+				shape.bezierCurveTo(instr[1],instr[2],instr[3],instr[4],instr[5],instr[6]);
 				break;
 
 			case 4: //close path
-				ctx.closePath();
+				//close if the object is not already closed
+                if((segmentStart)&&(segmentLatest)) {
+                    if((segmentStart[0] != segmentLatest[0])&&(segmentStart[1] != segmentLatest[1])) {
+                        shape.lineTo(segmentStart[1],segmentStart[2]);
+                    }
+                }
+                segmentStart = null;
 				break;
 		}
+        
+        segmentLatest = instr;
 	}
 
+    var fillMaterial = null;
+    var strokeMaterial = null;
+    
 	if(geomType == 2) {
 		//area
-
-		//apply shadow
-		if (style.s) {
-			var s = style.s;
-			ctx.shadowColor = s[0];
-			ctx.shadowBlur = s[1]*(scale*2);
-			ctx.shadowOffsetX = s[2]*(scale+1);
-			ctx.shadowOffsetY = s[3]*(scale+1);
-		}
-		else {
-			ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow
-		}
-
+        
 		//fill area
 		if(style.m) {
-			ctx.fillStyle = style.m;
-			ctx.fill();
-		}
-
-		//apply texture
-		if (style.pattern) { // the pattern exists
-			ctx.fillStyle = style.pattern;
-			ctx.fill();
+			var options = {};
+            options.color = style.m;
+            fillMaterial = new THREE.MeshBasicMaterial(options);
 		}
 
 		//apply outline
 		if((style.o)&&(style.w)) {
-			ctx.strokeStyle = style.o;
-			ctx.lineWidth = style.w / scale;
-			ctx.stroke();
+            var options = {};
+            options.color = style.o;
+            //this will not work right - width should depend on zoom; bug in windows web gl makes all lines 1 I think
+            options.linewidth = style.w; 
+            strokeMaterial = new THREE.LineBasicMaterial(options);
 		}
 	}
 	else if(geomType == 3) {
-		if(style.m != undefined) {
-			//linear area
-			ctx.strokeStyle = style.m;
-			ctx.lineWidth = gw;
-			ctx.stroke();
+		if((style.m)&&(gw)) {
+            var options = {};
+            options.color = style.m;
+            options.linewidth = gw; 
+            strokeMaterial = new THREE.LineBasicMaterial(options);
 		}
 	}
 	else if(geomType == 1) {
-		if((style.m != undefined)&&(style.w)) {
-			//line
-			ctx.strokeStyle = style.m;
-			ctx.lineWidth = style.w / scale;
-			ctx.stroke();
+		if((style.m)&&(style.w)) {
+            var options = {};
+            options.color = style.m;
+            //this will not work right - width should depend on zoom; bug in windows web gl makes all lines 1 I think
+            options.linewidth = style.w; 
+            strokeMaterial = new THREE.LineBasicMaterial(options);
 		}
 	}
 	else {
 		micello.maps.onError(this.mapEvent,"other geom type: " + geomType,"micello.maps.MapRenderer.renderPath");
 	}
+    
+    
+    
+    //make the objects
+    var renderObjects = [];
+    if(fillMaterial) {
+        var fillGeometry = new THREE.ShapeBufferGeometry(shape);
+        var fillObject = new THREE.Mesh( fillGeometry, fillMaterial);
+        renderObjects.push(fillObject);
+    }
+    if(strokeMaterial) {
+        var strokeGeometry = new THREE.BufferGeometry().setFromPoints(shape.getPoints());
+        var strokeObject = new THREE.Line( strokeGeometry, strokeMaterial);
+        renderObjects.push(strokeObject);
+    }
+    return renderObjects;
 }
 
 
 
 micello.maps.MapRenderer.prototype.renderLabel = function(ctx,geom,zoomScale) {
+    
+    //----------------------------
+    //no label for now in three.js version
+    return;
+    //----------------------------
 
-		//exit if there is no label or if it has a 0 size
-		var renderCache = geom.renderCache;
-		if((!renderCache)||(!renderCache.w)||(!renderCache.h)) return;
-
-		var labelInfo = renderCache.labInfo;
-		var labelStyle = renderCache.labelStyle;
-		var renderStyle;
-
-		if((labelInfo.zmin)&&(labelInfo.zmin > zoomScale)) return;
-
-		var labArea = geom.l;
-		var spaceWidth = labArea[2];
-		var spaceHeight = labArea[3];
-		var labRot = labArea[4];
-		if(spaceWidth <= 0) spaceWidth = 1;
-		if(spaceHeight <= 0) spaceHeight = 1;
-
-		var scaleFactor = this.getScaleFactor(spaceWidth,spaceHeight,renderCache.w,renderCache.h);
-
-		var squareCase = ((Math.abs(renderCache.h/renderCache.w - 1) < this.SQAURE_TOL)||(Math.abs(spaceHeight/spaceWidth - 1) < this.SQUARE_TOL));
-
-		var noRot = false;
-
-		//additional text processing - check for style and zmin, and correct for text size limits for current zoom scale
-		if(labelInfo.lt == 1) {
-			//get style and check style zmin
-			renderStyle = renderCache.style;
-			if(!renderStyle) return;
-			if((renderStyle.zmin)&&(renderStyle.zmin > zoomScale)) return;
-
-			var font = labelStyle.font ? labelStyle.font : this.defaultLabelStyle.font;
-			ctx.font = this.RENDER_FONT_SIZE + "px " + font;
-
-			var maxFont = labelStyle.maxFont ? labelStyle.maxFont : this.BIG_FONT_SIZE;
-			var minFont = labelStyle.minFont ? labelStyle.minFont : 0;
-
-			//handle render scale
-			var totalScale = scaleFactor * zoomScale;
-			if (totalScale * maxFont < minFont) {
-				return;
-			}
-			var maxScale = maxFont / this.RENDER_FONT_SIZE;
-			if (totalScale > maxScale) {
-				scaleFactor = maxScale / zoomScale;
-				noRot = (renderCache.w * scaleFactor < spaceHeight);//don't rotate if it fits the small direction
-			}
-		}
-
-		//label rotation logic --------------
-
-		if(noRot) {
-			labRot = this.baseAngleRad;
-		}
-		else {
-			//update label rotation if needed
-			var effRot = labRot - this.baseAngleRad;
-
-			if(squareCase) { // icons can rotate 90
-				while(effRot > this.MAX_SQAURE) {
-					effRot -= this.DELTA_SQAURE;
-					labRot -= this.DELTA_SQAURE;
-				}
-				while(effRot < this.MIN_SQAURE) {
-					effRot += this.DELTA_SQAURE;
-					labRot += this.DELTA_SQAURE;
-				}
-			} else {
-				while(effRot > this.MAX_RECT) {
-					effRot -= this.DELTA_RECT;
-					labRot -= this.DELTA_RECT;
-				}
-				while(effRot < this.MIN_RECT) {
-					effRot += this.DELTA_RECT;
-					labRot += this.DELTA_RECT;
-				}
-			}
-		}
-
-		//render
-		ctx.save()
-		ctx.translate(labArea[0],labArea[1]);
-		ctx.rotate(labRot);
-		ctx.scale(scaleFactor,scaleFactor);
-		ctx.translate(renderCache.nax,renderCache.nay);
-
-		if((labelStyle.bgFill)||((labelStyle.bgOutline)&&(labelStyle.bgOutlineWidth))) {
-			this.drawLabelBackground(ctx,renderCache.w,renderCache.h,labelStyle);
-		}
-
-		if(renderCache.textInfo) {
-			var textInfo = renderCache.textInfo;
-
-			ctx.fillStyle = labelStyle.fill;
-			ctx.strokeStyle = labelStyle.outline;
-			ctx.lineWidth = labelStyle.outlineWidth;
-			ctx.textAlign = "center";
-			ctx.textBaseline = "middle";
-
-			if(textInfo.lr2) {
-
-				if((labelStyle.outline)&&(labelStyle.outlineWidth)) {
-					ctx.strokeText(textInfo.lr1,0,-this.RENDER_FONT_SIZE/2);
-					ctx.strokeText(textInfo.lr2,0,this.RENDER_FONT_SIZE/2);
-				}
-
-				if(labelStyle.fill) {
-					ctx.fillText(textInfo.lr1,0,-this.RENDER_FONT_SIZE/2);
-					ctx.fillText(textInfo.lr2,0,this.RENDER_FONT_SIZE/2);
-				}
-
-			}
-			else {
-				if(labelStyle.fill) {
-					ctx.fillText(textInfo.lr,0,0);
-				}
-
-				if((labelStyle.outline)&&(labelStyle.outlineWidth)) {
-					ctx.strokeText(textInfo.lr,0,0);
-				}
-			}
-		}
-		else if(renderCache.icon) {
-			var ip;
-			var cntp = renderCache.icon.g.length;
-			for(ip=0;ip<cntp;ip++) {
-				var igeom = renderCache.icon.g[ip];
-				renderStyle = igeom.os;
-				if(!renderStyle) continue;
-				this.renderPath(ctx,igeom,renderStyle,zoomScale);
-			}
-		}
-		else if(renderCache.img) {
-			ctx.drawImage(renderCache.img,0,0);
-		}
-
-		ctx.restore();
+//		//exit if there is no label or if it has a 0 size
+//		var renderCache = geom.renderCache;
+//		if((!renderCache)||(!renderCache.w)||(!renderCache.h)) return;
+//
+//		var labelInfo = renderCache.labInfo;
+//		var labelStyle = renderCache.labelStyle;
+//		var renderStyle;
+//
+//		if((labelInfo.zmin)&&(labelInfo.zmin > zoomScale)) return;
+//
+//		var labArea = geom.l;
+//		var spaceWidth = labArea[2];
+//		var spaceHeight = labArea[3];
+//		var labRot = labArea[4];
+//		if(spaceWidth <= 0) spaceWidth = 1;
+//		if(spaceHeight <= 0) spaceHeight = 1;
+//
+//		var scaleFactor = this.getScaleFactor(spaceWidth,spaceHeight,renderCache.w,renderCache.h);
+//
+//		var squareCase = ((Math.abs(renderCache.h/renderCache.w - 1) < this.SQAURE_TOL)||(Math.abs(spaceHeight/spaceWidth - 1) < this.SQUARE_TOL));
+//
+//		var noRot = false;
+//
+//		//additional text processing - check for style and zmin, and correct for text size limits for current zoom scale
+//		if(labelInfo.lt == 1) {
+//			//get style and check style zmin
+//			renderStyle = renderCache.style;
+//			if(!renderStyle) return;
+//			if((renderStyle.zmin)&&(renderStyle.zmin > zoomScale)) return;
+//
+//			var font = labelStyle.font ? labelStyle.font : this.defaultLabelStyle.font;
+//			ctx.font = this.RENDER_FONT_SIZE + "px " + font;
+//
+//			var maxFont = labelStyle.maxFont ? labelStyle.maxFont : this.BIG_FONT_SIZE;
+//			var minFont = labelStyle.minFont ? labelStyle.minFont : 0;
+//
+//			//handle render scale
+//			var totalScale = scaleFactor * zoomScale;
+//			if (totalScale * maxFont < minFont) {
+//				return;
+//			}
+//			var maxScale = maxFont / this.RENDER_FONT_SIZE;
+//			if (totalScale > maxScale) {
+//				scaleFactor = maxScale / zoomScale;
+//				noRot = (renderCache.w * scaleFactor < spaceHeight);//don't rotate if it fits the small direction
+//			}
+//		}
+//
+//		//label rotation logic --------------
+//
+//		if(noRot) {
+//			labRot = this.baseAngleRad;
+//		}
+//		else {
+//			//update label rotation if needed
+//			var effRot = labRot - this.baseAngleRad;
+//
+//			if(squareCase) { // icons can rotate 90
+//				while(effRot > this.MAX_SQAURE) {
+//					effRot -= this.DELTA_SQAURE;
+//					labRot -= this.DELTA_SQAURE;
+//				}
+//				while(effRot < this.MIN_SQAURE) {
+//					effRot += this.DELTA_SQAURE;
+//					labRot += this.DELTA_SQAURE;
+//				}
+//			} else {
+//				while(effRot > this.MAX_RECT) {
+//					effRot -= this.DELTA_RECT;
+//					labRot -= this.DELTA_RECT;
+//				}
+//				while(effRot < this.MIN_RECT) {
+//					effRot += this.DELTA_RECT;
+//					labRot += this.DELTA_RECT;
+//				}
+//			}
+//		}
+//
+//		//render
+//		ctx.save()
+//		ctx.translate(labArea[0],labArea[1]);
+//		ctx.rotate(labRot);
+//		ctx.scale(scaleFactor,scaleFactor);
+//		ctx.translate(renderCache.nax,renderCache.nay);
+//
+//		if((labelStyle.bgFill)||((labelStyle.bgOutline)&&(labelStyle.bgOutlineWidth))) {
+//			this.drawLabelBackground(ctx,renderCache.w,renderCache.h,labelStyle);
+//		}
+//
+//		if(renderCache.textInfo) {
+//			var textInfo = renderCache.textInfo;
+//
+//			ctx.fillStyle = labelStyle.fill;
+//			ctx.strokeStyle = labelStyle.outline;
+//			ctx.lineWidth = labelStyle.outlineWidth;
+//			ctx.textAlign = "center";
+//			ctx.textBaseline = "middle";
+//
+//			if(textInfo.lr2) {
+//
+//				if((labelStyle.outline)&&(labelStyle.outlineWidth)) {
+//					ctx.strokeText(textInfo.lr1,0,-this.RENDER_FONT_SIZE/2);
+//					ctx.strokeText(textInfo.lr2,0,this.RENDER_FONT_SIZE/2);
+//				}
+//
+//				if(labelStyle.fill) {
+//					ctx.fillText(textInfo.lr1,0,-this.RENDER_FONT_SIZE/2);
+//					ctx.fillText(textInfo.lr2,0,this.RENDER_FONT_SIZE/2);
+//				}
+//
+//			}
+//			else {
+//				if(labelStyle.fill) {
+//					ctx.fillText(textInfo.lr,0,0);
+//				}
+//
+//				if((labelStyle.outline)&&(labelStyle.outlineWidth)) {
+//					ctx.strokeText(textInfo.lr,0,0);
+//				}
+//			}
+//		}
+//		else if(renderCache.icon) {
+//			var ip;
+//			var cntp = renderCache.icon.g.length;
+//			for(ip=0;ip<cntp;ip++) {
+//				var igeom = renderCache.icon.g[ip];
+//				renderStyle = igeom.os;
+//				if(!renderStyle) continue;
+//				this.renderPath(ctx,igeom,renderStyle,zoomScale);
+//			}
+//		}
+//		else if(renderCache.img) {
+//			ctx.drawImage(renderCache.img,0,0);
+//		}
+//
+//		ctx.restore();
 }
 
 /*
@@ -640,61 +641,61 @@ micello.maps.MapRenderer.prototype.renderLabel = function(ctx,geom,zoomScale) {
  */
 micello.maps.MapRenderer.prototype.drawLabelBackground = function (ctx,w,h,labelStyle) {
 
-	var bgPad = labelStyle.bgPadding ? labelStyle.bgPadding : 0;
-	var labPad = labelStyle.padding ? labelStyle.padding : 0;
-
-	var r = labelStyle.bgR ? bgR : 0 ;
-
-	w = w-2*(labPad - bgPad); // adjust width
-	h = h-2*(labPad - bgPad);
-
-	var x = -w/2;
-	var y = -h/2;
-
-	if(r) {
-		ctx.beginPath();
-		ctx.moveTo(x+r, y);
-		ctx.lineTo(x+w-r, y);
-		ctx.quadraticCurveTo(x+w, y, x+w, y+r);
-		ctx.lineTo(x+w, y+h-r);
-		ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
-		ctx.lineTo(x+r, y+h);
-		ctx.quadraticCurveTo(x, y+h, x, y+h-r);
-		ctx.lineTo(x, y+r);
-		ctx.quadraticCurveTo(x, y, x+r, y);
-		ctx.closePath();
-	}
-	else {
-		ctx.beginPath();
-		ctx.moveTo(x, y);
-		ctx.lineTo(x+w, y);
-		ctx.lineTo(x+w, y+h);
-		ctx.lineTo(x, y+h);
-		ctx.lineTo(x, y);
-		ctx.closePath();
-	}
-
-	if (labelStyle.shadow) {
-		ctx.shadowColor = labelStyle.shadow[0];
-		ctx.shadowBlur = labelStyle.shadow[1];
-		ctx.shadowOffsetX = labelStyle.shadow[2];
-		ctx.shadowOffsetY = labelStyle.shadow[3];
-	}
-	else {
-		ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow
-	}
-
-	if(labelStyle.bgFill) {
-		ctx.fillStyle = labelStyle.bgFill;
-		ctx.fill();
-	}
-	ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow
-
-	if((labelStyle.bgOutline)&&(labelStyle.bgOutlineWidth)) {
-		ctx.strokeStyle = labelStyle.bgOutline;
-		ctx.lineWidth = labelStyle.bgOutlineWidth;
-		ctx.stroke();
-	}
+//	var bgPad = labelStyle.bgPadding ? labelStyle.bgPadding : 0;
+//	var labPad = labelStyle.padding ? labelStyle.padding : 0;
+//
+//	var r = labelStyle.bgR ? bgR : 0 ;
+//
+//	w = w-2*(labPad - bgPad); // adjust width
+//	h = h-2*(labPad - bgPad);
+//
+//	var x = -w/2;
+//	var y = -h/2;
+//
+//	if(r) {
+//		ctx.beginPath();
+//		ctx.moveTo(x+r, y);
+//		ctx.lineTo(x+w-r, y);
+//		ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+//		ctx.lineTo(x+w, y+h-r);
+//		ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+//		ctx.lineTo(x+r, y+h);
+//		ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+//		ctx.lineTo(x, y+r);
+//		ctx.quadraticCurveTo(x, y, x+r, y);
+//		ctx.closePath();
+//	}
+//	else {
+//		ctx.beginPath();
+//		ctx.moveTo(x, y);
+//		ctx.lineTo(x+w, y);
+//		ctx.lineTo(x+w, y+h);
+//		ctx.lineTo(x, y+h);
+//		ctx.lineTo(x, y);
+//		ctx.closePath();
+//	}
+//
+//	if (labelStyle.shadow) {
+//		ctx.shadowColor = labelStyle.shadow[0];
+//		ctx.shadowBlur = labelStyle.shadow[1];
+//		ctx.shadowOffsetX = labelStyle.shadow[2];
+//		ctx.shadowOffsetY = labelStyle.shadow[3];
+//	}
+//	else {
+//		ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow
+//	}
+//
+//	if(labelStyle.bgFill) {
+//		ctx.fillStyle = labelStyle.bgFill;
+//		ctx.fill();
+//	}
+//	ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow
+//
+//	if((labelStyle.bgOutline)&&(labelStyle.bgOutlineWidth)) {
+//		ctx.strokeStyle = labelStyle.bgOutline;
+//		ctx.lineWidth = labelStyle.bgOutlineWidth;
+//		ctx.stroke();
+//	}
 }
 
 /** This method checks if the canvas coordinates intersect an geometry in the lists passed.

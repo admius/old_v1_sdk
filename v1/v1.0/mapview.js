@@ -6,6 +6,15 @@
  * view as well as to read it.
  */
 micello.maps.MapView = function(mapControl,viewportElement,mapElement,mapCanvas, mapGUI,mapEvent) {
+    
+    this.camera = new THREE.PerspectiveCamera( 45, DISPLAY_WIDTH/DISPLAY_HEIGHT, 1, 4000 );
+    
+    //this.cameraLocation = new THREE.Vector3( 0, 0, 500 );
+    this.cameraTarget = new THREE.Vector3( 0, 0, 0 );
+    
+    this.camera.lookAt(this.cameraTarget);
+    this.camera.position.set( 200, 300, 1000 );
+    
 	/** The map control
 	 * @private */
 	this.mapControl = mapControl;
@@ -16,11 +25,11 @@ micello.maps.MapView = function(mapControl,viewportElement,mapElement,mapCanvas,
         
 	/** The map event
 	 * @private */
-        this.mapEvent = mapEvent;
+    this.mapEvent = mapEvent;
         
 	/** The GUI for the map.
 	 * @private */
-        this.mapGUI = mapGUI;
+    this.mapGUI = mapGUI;
 
 	/** The containing div for the map.
 	 * @private */
@@ -135,14 +144,7 @@ micello.maps.MapView.prototype.translate = function(dx,dy) {
 	this.mapCanvas.onPan(-this.mapXInViewport,-this.mapYInViewport,
 		-this.mapXInViewport + this.viewport.offsetWidth,
 		-this.mapYInViewport + this.viewport.offsetHeight);
-
-        /* Deprecated Event */
-	if(this.onViewChange) {
-		this.event.pan = 1;
-		this.event.zoom = 0;
-		this.onViewChange(this.event);
-	}
-        
+      
 
 	var e = {};
 	e.minPixX = -this.mapXInViewport;
